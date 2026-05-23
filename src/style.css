@@ -17,7 +17,6 @@ body{
 
 .app{
   position:relative;
-  min-height:100vh;
   background:black;
 }
 
@@ -26,9 +25,9 @@ body{
 .background-image{
   position:fixed;
   inset:0;
-  background:url("/hero2.jpg") center center/cover no-repeat;
-  filter:brightness(0.25);
-  transform:scale(1.08);
+  background:url("/hero3.jpg") center center/cover no-repeat;
+  filter:brightness(0.22);
+  transform:scale(1.05);
   animation:slowZoom 20s ease-in-out infinite alternate;
   z-index:1;
 }
@@ -36,7 +35,7 @@ body{
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.65);
+  background:rgba(0,0,0,0.72);
   z-index:2;
 }
 
@@ -45,8 +44,8 @@ body{
   inset:0;
   background:
     radial-gradient(circle at center,
-    rgba(120,0,0,0.35),
-    transparent 60%);
+    rgba(120,0,0,0.32),
+    transparent 65%);
   z-index:3;
 }
 
@@ -55,7 +54,7 @@ body{
   inset:0;
   background:
     radial-gradient(circle at top left,
-    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.05),
     transparent 30%);
   animation:smokeMove 18s linear infinite;
   z-index:4;
@@ -68,17 +67,17 @@ body{
   top:0;
   left:0;
   width:100%;
-  padding:25px 60px;
+  padding:28px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:20;
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(10px);
 }
 
 .logo{
   font-size:14px;
-  letter-spacing:4px;
+  letter-spacing:5px;
   font-weight:700;
 }
 
@@ -113,27 +112,29 @@ body{
 }
 
 .hero-content{
-  animation:fadeUp 1.5s ease;
+  animation:fadeUp 1.4s ease;
 }
 
 .artist{
-  letter-spacing:7px;
+  letter-spacing:8px;
   font-size:14px;
   margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:170px;
+  font-size:180px;
   font-weight:900;
   letter-spacing:4px;
   line-height:0.9;
+
   text-shadow:
-    0 0 10px rgba(255,255,255,0.9),
-    0 0 40px rgba(255,255,255,0.5);
+    0 0 10px rgba(255,255,255,0.95),
+    0 0 40px rgba(255,255,255,0.55),
+    0 0 70px rgba(255,255,255,0.2);
 }
 
 .release{
-  margin-top:25px;
+  margin-top:30px;
   letter-spacing:4px;
   font-size:18px;
 }
@@ -141,8 +142,8 @@ body{
 .buttons{
   margin-top:45px;
   display:flex;
-  gap:20px;
   justify-content:center;
+  gap:20px;
 }
 
 .btn{
@@ -157,6 +158,7 @@ body{
 
 .btn:hover{
   transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(255,255,255,0.2);
 }
 
 .btn-outline{
@@ -188,13 +190,13 @@ body{
 .player-box{
   max-width:700px;
   margin:auto;
-  border:1px solid rgba(255,255,255,0.15);
-  padding:30px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  padding:35px;
   display:flex;
   align-items:center;
   gap:30px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(10px);
 }
 
 .play-btn{
@@ -222,11 +224,11 @@ body{
 .tracklist h2{
   font-size:100px;
   margin-bottom:60px;
-  opacity:0.9;
+  opacity:0.95;
 }
 
 .tracks{
-  max-width:800px;
+  max-width:850px;
   margin:auto;
 }
 
@@ -240,34 +242,58 @@ body{
 
 .tracks p:hover{
   background:rgba(255,255,255,0.05);
-  transform:translateX(8px);
+  transform:translateX(10px);
+}
+
+/* FOOTER */
+
+.footer{
+  position:relative;
+  z-index:10;
+  padding:120px 20px;
+  text-align:center;
+}
+
+.footer h3{
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.footer p{
+  letter-spacing:4px;
+  opacity:0.6;
 }
 
 /* ANIMATIONS */
 
 @keyframes fadeUp{
+
   from{
     opacity:0;
-    transform:translateY(40px);
+    transform:translateY(50px);
   }
 
   to{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 @keyframes slowZoom{
+
   from{
-    transform:scale(1.08);
+    transform:scale(1.05);
   }
 
   to{
-    transform:scale(1.15);
+    transform:scale(1.12);
   }
+
 }
 
 @keyframes smokeMove{
+
   from{
     transform:translateX(0);
   }
@@ -275,6 +301,7 @@ body{
   to{
     transform:translateX(80px);
   }
+
 }
 
 /* MOBILE */
@@ -294,7 +321,7 @@ body{
   }
 
   .tracklist h2{
-    font-size:60px;
+    font-size:55px;
   }
 
   .tracks p{
@@ -313,6 +340,10 @@ body{
   .buttons{
     flex-direction:column;
     align-items:center;
+  }
+
+  .footer h3{
+    font-size:34px;
   }
 
 }
