@@ -4,54 +4,50 @@ export default function App() {
   return (
     <div className="app">
       <nav className="nav">
-  <span>GUELLY B</span>
+        <span>GUELLY B</span>
+        <div>
+          <a href="#music">Music</a>
+          <a href="#tracklist">Tracklist</a>
+          <a href="#vault">Vault</a>
+        </div>
+      </nav>
 
-  <div>
-    <a href="#music">Music</a>
-    <a href="#tracklist">Tracklist</a>
-    <a href="#vault">Vault</a>
-  </div>
-</nav>
-      <div className="app">
-<div className="loader">
-  <h2>BIG GEE</h2>
-</div>
+      <div className="loader">
+        <h2>BIG GEE</h2>
+      </div>
+
       <div className="overlay"></div>
       <div className="particles"></div>
 
       <section className="hero">
         <img src="/IMG_6750.png" alt="BIG GEE" className="hero-image" />
 
-
         <div className="hero-content">
           <p className="artist">GUELLY B PRESENTS</p>
-
           <h1>BIG GEE</h1>
-
-          <p className="release">
-            OFFICIAL MIXTAPE • JUNE 5TH 2026
-          </p>
+          <p className="release">OFFICIAL MIXTAPE • JUNE 5TH 2026</p>
 
           <div className="buttons">
-            <a href="#" className="btn">LISTEN SOON</a>
-            <a href="#" className="btn btn-outline">FAN VAULT</a>
+            <a href="#music" className="btn">LISTEN SOON</a>
+            <a href="#vault" className="btn btn-outline">FAN VAULT</a>
           </div>
         </div>
-     <section className="player" id="music">
-  <p>NOW PREVIEWING</p>
-  <h2>BIG GEE ERA</h2>
-  <div className="player-box">
-    <span>▶</span>
-    <div>
-      <h3>Ballin Like VJ</h3>
-      <p>Official Visual Out Now</p>
-    </div>
-  </div>
-</section>
+      </section>
 
-      <section className="tracklist">
+      <section className="player" id="music">
+        <p>NOW PREVIEWING</p>
+        <h2>BIG GEE ERA</h2>
+        <div className="player-box">
+          <span>▶</span>
+          <div>
+            <h3>Ballin Like VJ</h3>
+            <p>Official Visual Out Now</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="tracklist" id="tracklist">
         <h2>TRACKLIST</h2>
-
         <div className="tracks">
           <p>01 • Motion Only</p>
           <p>02 • Spike Lee</p>
@@ -64,8 +60,13 @@ export default function App() {
         </div>
       </section>
 
+      <section className="tracklist" id="vault">
+        <h2>FAN VAULT</h2>
+        <div className="tracks">
+          <p>Exclusive drops coming soon.</p>
+          <p>Early music, merch, videos, and private updates.</p>
+        </div>
+      </section>
     </div>
-            );
-}
   );
 }
