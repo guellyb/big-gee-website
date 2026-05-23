@@ -12,6 +12,7 @@ export default function App() {
     <a href="#vault">Vault</a>
   </div>
 </nav>
+      <div className="app">
 <div className="loader">
   <h2>BIG GEE</h2>
 </div>
@@ -64,5 +65,7 @@ export default function App() {
       </section>
 
     </div>
+            );
+}
   );
 }
