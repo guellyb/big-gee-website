@@ -9,6 +9,7 @@ export default function App() {
       <section className="hero">
         <img src="/src/IMG_6750.png" alt="BIG GEE" className="hero-image" />
 
+
         <div className="hero-content">
           <p className="artist">GUELLY B PRESENTS</p>
 
