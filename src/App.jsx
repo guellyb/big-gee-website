@@ -27,7 +27,17 @@ export default function App() {
             <a href="#" className="btn btn-outline">FAN VAULT</a>
           </div>
         </div>
-      </section>
+      </section><section className="player">
+  <p>NOW PREVIEWING</p>
+  <h2>BIG GEE ERA</h2>
+  <div className="player-box">
+    <span>▶</span>
+    <div>
+      <h3>Ballin Like VJ</h3>
+      <p>Official Visual Out Now</p>
+    </div>
+  </div>
+</section>
 
       <section className="tracklist">
         <h2>TRACKLIST</h2>
