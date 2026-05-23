@@ -131,5 +131,41 @@ h1 {
 @media(max-width:768px) {
   h1 {
     font-size: 70px;
+    .hero-content {
+  animation: fadeUp 1.4s ease forwards;
+}
+
+h1 {
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+.btn {
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 20px rgba(255,255,255,0.6);
+  }
+  to {
+    text-shadow: 0 0 45px rgba(255,255,255,1);
+  }
+}
   }
 }
