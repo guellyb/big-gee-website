@@ -432,3 +432,42 @@ h1 {
     transform: translateY(0);
   }
 }
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav span {
+  color: white;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 18px;
+}
+
+.nav div {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.nav a:hover {
+  color: white;
+  text-shadow: 0 0 12px white;
+}
