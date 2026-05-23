@@ -393,3 +393,11 @@ h1 {
   letter-spacing: 1px;
   font-size: 14px;
 }
+.player,
+.player * {
+  color: white;
+}
+
+.player-box {
+  justify-content: center;
+}
