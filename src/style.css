@@ -25,7 +25,7 @@ body {
   overflow: hidden;
 }
 
-.hero-image {
+.hero-image {animation: slowZoom 18s ease-in-out infinite alternate;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -186,6 +186,13 @@ h1 {
   }
   to {
     background-position: 200px 400px, -300px 250px;
+  }
+}@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
   }
 }
   }
