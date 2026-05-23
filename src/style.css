@@ -167,5 +167,26 @@ h1 {
     text-shadow: 0 0 45px rgba(255,255,255,1);
   }
 }
+    .particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+  background-size: 90px 90px, 140px 140px;
+  animation: particlesMove 18s linear infinite;
+  opacity: 0.25;
+}
+
+@keyframes particlesMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 200px 400px, -300px 250px;
+  }
+}
   }
 }
