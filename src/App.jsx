@@ -3,6 +3,15 @@ import "./style.css";
 export default function App() {
   return (
     <div className="app">
+      <nav className="nav">
+  <span>GUELLY B</span>
+
+  <div>
+    <a href="#music">Music</a>
+    <a href="#tracklist">Tracklist</a>
+    <a href="#vault">Vault</a>
+  </div>
+</nav>
 <div className="loader">
   <h2>BIG GEE</h2>
 </div>
@@ -27,7 +36,7 @@ export default function App() {
             <a href="#" className="btn btn-outline">FAN VAULT</a>
           </div>
         </div>
-      </section><section className="player">
+     <section className="player" id="music">
   <p>NOW PREVIEWING</p>
   <h2>BIG GEE ERA</h2>
   <div className="player-box">
