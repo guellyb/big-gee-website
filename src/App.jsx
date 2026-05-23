@@ -4,21 +4,28 @@ export default function App() {
   return (
     <div className="app">
 
+      {/* BACKGROUND */}
       <div className="background-image"></div>
       <div className="overlay"></div>
       <div className="red-glow"></div>
       <div className="smoke"></div>
 
+      {/* NAVBAR */}
       <nav className="nav">
-        <span className="logo">GUELLY B</span>
+
+        <span className="logo">
+          GUELLY B
+        </span>
 
         <div className="nav-links">
           <a href="#music">Music</a>
           <a href="#tracklist">Tracklist</a>
           <a href="#vault">Vault</a>
         </div>
+
       </nav>
 
+      {/* HERO */}
       <section className="hero">
 
         <div className="hero-content">
@@ -34,6 +41,7 @@ export default function App() {
           </p>
 
           <div className="buttons">
+
             <a href="#" className="btn">
               LISTEN SOON
             </a>
@@ -41,12 +49,14 @@ export default function App() {
             <a href="#" className="btn btn-outline">
               FAN VAULT
             </a>
+
           </div>
 
         </div>
 
       </section>
 
+      {/* PLAYER */}
       <section className="player" id="music">
 
         <p>NOW PREVIEWING</p>
@@ -68,6 +78,7 @@ export default function App() {
 
       </section>
 
+      {/* TRACKLIST */}
       <section className="tracklist" id="tracklist">
 
         <h2>TRACKLIST</h2>
@@ -86,6 +97,17 @@ export default function App() {
         </div>
 
       </section>
+
+      {/* FOOTER */}
+      <footer className="footer" id="vault">
+
+        <h3>BIG GEE WORLD</h3>
+
+        <p>
+          GUELLY B OFFICIAL CINEMATIC EXPERIENCE
+        </p>
+
+      </footer>
 
     </div>
   );
