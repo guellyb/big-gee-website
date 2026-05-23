@@ -37,17 +37,19 @@ export default function App() {
       <section className="player" id="music">
         <p>NOW PREVIEWING</p>
         <h2>BIG GEE ERA</h2>
-        <div className="player-box">
+
+        <a className="player-box" href="https://youtu.be/brsxymjwT_0" target="_blank">
           <span>▶</span>
           <div>
             <h3>Ballin Like VJ</h3>
             <p>Official Visual Out Now</p>
           </div>
-        </div>
+        </a>
       </section>
 
       <section className="tracklist" id="tracklist">
         <h2>TRACKLIST</h2>
+
         <div className="tracks">
           <p>01 • Motion Only</p>
           <p>02 • Spike Lee</p>
@@ -60,11 +62,12 @@ export default function App() {
         </div>
       </section>
 
-      <section className="tracklist" id="vault">
+      <section className="vault" id="vault">
         <h2>FAN VAULT</h2>
-        <div className="tracks">
-          <p>Exclusive drops coming soon.</p>
-          <p>Early music, merch, videos, and private updates.</p>
+        <p>Exclusive drops, unreleased clips, merch alerts, and BIG GEE updates coming soon.</p>
+        <div className="vault-box">
+          <input placeholder="Enter your email" />
+          <button>JOIN VAULT</button>
         </div>
       </section>
     </div>
