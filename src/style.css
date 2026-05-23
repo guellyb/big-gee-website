@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: #000;
+  background: black;
   color: white;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
@@ -42,14 +42,15 @@ body {
 
 .nav div {
   display: flex;
-  gap: 30px;
+  gap: 25px;
 }
 
 .nav a {
   color: rgba(255,255,255,0.75);
   text-decoration: none;
   letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 13px;
+  transition: 0.3s;
 }
 
 .nav a:hover {
@@ -80,6 +81,7 @@ body {
     opacity: 1;
     visibility: visible;
   }
+
   100% {
     opacity: 0;
     visibility: hidden;
@@ -91,6 +93,7 @@ body {
     transform: scale(1);
     opacity: 0.7;
   }
+
   to {
     transform: scale(1.08);
     opacity: 1;
@@ -100,7 +103,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.85) 75%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.88) 75%);
   z-index: 1;
   pointer-events: none;
 }
@@ -111,8 +114,8 @@ body {
   pointer-events: none;
   z-index: 2;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.28) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,0,0,0.18) 1px, transparent 1px);
+    radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,0,0,0.15) 1px, transparent 1px);
   background-size: 90px 90px, 140px 140px;
   animation: particlesMove 18s linear infinite;
   opacity: 0.22;
@@ -122,6 +125,7 @@ body {
   from {
     background-position: 0 0, 0 0;
   }
+
   to {
     background-position: 200px 400px, -300px 250px;
   }
@@ -143,7 +147,6 @@ body {
   height: 100%;
   object-fit: cover;
   filter: brightness(32%);
-  z-index: 0;
   animation: slowZoom 18s ease-in-out infinite alternate;
 }
 
@@ -151,6 +154,7 @@ body {
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.08);
   }
@@ -163,7 +167,6 @@ body {
   height: 520px;
   background: radial-gradient(circle, rgba(180,0,0,0.35), transparent 70%);
   filter: blur(45px);
-  z-index: 1;
   animation: redGlowMove 9s ease-in-out infinite alternate;
 }
 
@@ -172,6 +175,7 @@ body {
     transform: translate(-120px, -60px) scale(1);
     opacity: 0.45;
   }
+
   to {
     transform: translate(120px, 60px) scale(1.25);
     opacity: 0.8;
@@ -182,7 +186,6 @@ body {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 20px;
   animation: fadeUp 1.5s ease;
 }
 
@@ -194,7 +197,6 @@ body {
 
 h1 {
   font-size: 120px;
-  line-height: 1;
   letter-spacing: 5px;
   text-shadow: 0 0 35px white;
   animation: glowPulse 3s ease-in-out infinite alternate;
@@ -204,6 +206,7 @@ h1 {
   from {
     text-shadow: 0 0 20px rgba(255,255,255,0.6);
   }
+
   to {
     text-shadow: 0 0 50px rgba(255,255,255,1);
   }
@@ -229,13 +232,13 @@ h1 {
   text-decoration: none;
   font-weight: 800;
   transition: 0.35s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .btn:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255,255,255,0.45), 0 0 45px rgba(180,0,0,0.55);
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.45),
+    0 0 45px rgba(180,0,0,0.55);
 }
 
 .btn-outline {
@@ -251,6 +254,7 @@ h1 {
 
 .player,
 .tracklist,
+.socials,
 .vault {
   position: relative;
   z-index: 3;
@@ -268,6 +272,7 @@ h1 {
 
 .player h2,
 .tracklist h2,
+.socials h2,
 .vault h2 {
   font-size: 58px;
   margin-bottom: 40px;
@@ -325,6 +330,28 @@ h1 {
   color: #ff2a2a;
 }
 
+.socials div {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 28px;
+  transition: 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.socials a:hover {
+  background: white;
+  color: black;
+  box-shadow: 0 0 25px rgba(180,0,0,0.5);
+}
+
 .vault-box {
   max-width: 600px;
   margin: 35px auto 0;
@@ -353,6 +380,7 @@ h1 {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -360,24 +388,26 @@ h1 {
 }
 
 @media(max-width:768px) {
+
   .nav {
     padding: 18px 20px;
   }
 
   .nav div {
-    gap: 14px;
+    gap: 12px;
   }
 
   .nav a {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   h1 {
-    font-size: 64px;
+    font-size: 65px;
   }
 
   .player h2,
   .tracklist h2,
+  .socials h2,
   .vault h2 {
     font-size: 38px;
   }
