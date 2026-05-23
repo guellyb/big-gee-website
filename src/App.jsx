@@ -3,7 +3,9 @@ import "./style.css";
 export default function App() {
   return (
     <div className="app">
-
+<div className="loader">
+  <h2>BIG GEE</h2>
+</div>
       <div className="overlay"></div>
       <div className="particles"></div>
 
