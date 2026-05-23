@@ -19,7 +19,7 @@ export default function App() {
       <div className="particles"></div>
 
       <section className="hero">
-        <img src="/src/IMG_6750.png" alt="BIG GEE" className="hero-image" />
+        <img src="/IMG_6750.png" alt="BIG GEE" className="hero-image" />
 
 
         <div className="hero-content">
