@@ -5,6 +5,7 @@ export default function App() {
     <div className="app">
 
       <div className="overlay"></div>
+      <div className="particles"></div>
 
       <section className="hero">
         <img src="/src/IMG_6750.png" alt="BIG GEE" className="hero-image" />
