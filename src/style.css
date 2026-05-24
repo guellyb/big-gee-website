@@ -552,3 +552,27 @@ footer p {
     font-size: 12px;
   }
 }
+.cursor-glow {
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255,0,0,.18), transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowMove 6s ease-in-out infinite alternate;
+  filter: blur(10px);
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(-45%, -50%) scale(1);
+  }
+
+  to {
+    transform: translate(-55%, -52%) scale(1.2);
+  }
+}
