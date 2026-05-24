@@ -18,8 +18,67 @@ body {
   overflow-x: hidden;
 }
 
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: black;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  animation: loaderOut 3s forwards;
+}
+
+.loader h1 {
+  font-size: clamp(55px, 12vw, 150px);
+  color: white;
+  text-shadow: 0 0 35px red;
+}
+
+.loader p {
+  letter-spacing: 6px;
+  color: #ff1f1f;
+  font-weight: bold;
+}
+
+@keyframes loaderOut {
+  0%, 70% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.announcement {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #b30000;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 0 25px rgba(255,0,0,.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: .75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .hero {
   min-height: 100vh;
+  padding-top: 55px;
   background:
     linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.92)),
     url("/cover.jpg");
@@ -135,6 +194,7 @@ h1 {
   text-decoration: none;
   font-weight: bold;
   transition: .3s;
+  display: inline-block;
 }
 
 .primary {
@@ -156,7 +216,10 @@ h1 {
 
 .visual-section,
 .listen-section,
-.tracklist {
+.spotify-section,
+.tracklist,
+.merch-section,
+.fan-section {
   padding: 90px 7%;
   text-align: center;
   background: #080808;
@@ -164,7 +227,10 @@ h1 {
 
 .visual-section h2,
 .listen-section h2,
-.tracklist h2 {
+.spotify-section h2,
+.tracklist h2,
+.merch-section h2,
+.fan-section h2 {
   font-size: clamp(38px, 7vw, 85px);
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -195,7 +261,9 @@ h1 {
   border: none;
 }
 
-.listen-section {
+.listen-section,
+.spotify-section,
+.fan-section {
   background:
     linear-gradient(rgba(0,0,0,.92), rgba(0,0,0,.96)),
     radial-gradient(circle, rgba(255,0,0,.28), transparent 60%);
@@ -223,6 +291,15 @@ h1 {
 .stream-card:hover {
   border-color: #ff1f1f;
   box-shadow: 0 0 30px rgba(255,0,0,.25);
+}
+
+.spotify-player {
+  width: 100%;
+  max-width: 850px;
+  height: 352px;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 0 45px rgba(255,0,0,.25);
 }
 
 .tracklist {
@@ -254,6 +331,62 @@ h1 {
   border-color: #ff1f1f;
   transform: translateX(8px);
   box-shadow: 0 0 25px rgba(255,0,0,.25);
+}
+
+.merch-section {
+  background:
+    linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.95)),
+    url("/cover.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.fan-form {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+}
+
+.fan-form input {
+  flex: 1;
+  padding: 17px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  color: white;
+  outline: none;
+  font-size: 16px;
+}
+
+.fan-form input::placeholder {
+  color: #aaa;
+}
+
+.fan-form button {
+  padding: 17px 25px;
+  border: none;
+  border-radius: 999px;
+  background: #d60000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255,0,0,.4);
+}
+
+.reveal {
+  animation: riseIn .9s ease both;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 footer {
@@ -290,12 +423,25 @@ footer p {
 }
 
 @media (max-width: 750px) {
+  .announcement {
+    font-size: 12px;
+    padding: 10px;
+  }
+
   .nav {
     padding: 22px 6%;
+    align-items: flex-start;
+    gap: 20px;
   }
 
   .nav div {
-    gap: 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    font-size: 12px;
   }
 
   h1 {
@@ -308,43 +454,22 @@ footer p {
 
   .visual-section,
   .listen-section,
-  .tracklist {
+  .spotify-section,
+  .tracklist,
+  .merch-section,
+  .fan-section {
     padding: 70px 6%;
   }
 
   .tracklist li {
     font-size: 19px;
   }
-}
-.announcement {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background: #b30000;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  box-shadow: 0 0 25px rgba(255,0,0,.5);
-  animation: pulse 2s infinite;
-}
 
-@keyframes pulse {
-  0% {
-    opacity: .7;
+  .fan-form {
+    flex-direction: column;
   }
 
-  50% {
-    opacity: 1;
+  .fan-form button {
+    width: 100%;
   }
-
-  100% {
-    opacity: .7;
-  }
-}
-
-.hero {
-  padding-top: 55px;
 }
