@@ -1,15 +1,27 @@
-
 import "./style.css";
 
 export default function App() {
+  const links = {
+    spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
+    apple: "https://music.apple.com/us/artist/guelly-b",
+    instagram: "https://instagram.com/therealguellyb",
+    tiktok: "https://www.tiktok.com/@guellyb",
+    youtube: "https://www.youtube.com/@guellyb",
+    audiomack: "https://audiomack.com/guellyb-69de7ebc63e6a",
+  };
+
   return (
     <main className="site">
       <section className="hero">
+        <div className="smoke"></div>
         <div className="overlay"></div>
 
         <nav className="nav">
           <h3>GUELLY B</h3>
-          <a href="#visual">WATCH</a>
+          <div>
+            <a href="#visual">WATCH</a>
+            <a href="#listen">LISTEN</a>
+          </div>
         </nav>
 
         <div className="hero-content">
@@ -39,6 +51,19 @@ export default function App() {
         </div>
       </section>
 
+      <section id="listen" className="listen-section">
+        <p className="tag red">STREAM GUELLY B</p>
+        <h2>Listen Now</h2>
+        <p className="section-text">Tap in before BIG GEE drops.</p>
+
+        <div className="stream-grid">
+          <a href={links.spotify} target="_blank" className="stream-card">Spotify</a>
+          <a href={links.apple} target="_blank" className="stream-card">Apple Music</a>
+          <a href={links.audiomack} target="_blank" className="stream-card">Audiomack</a>
+          <a href={links.youtube} target="_blank" className="stream-card">YouTube</a>
+        </div>
+      </section>
+
       <section id="tracks" className="tracklist">
         <p className="tag red">TRACKLIST</p>
         <h2>BIG GEE</h2>
@@ -58,6 +83,12 @@ export default function App() {
       <footer>
         <h3>GUELLY B</h3>
         <p>BIG GEE — OUT JUNE 5TH</p>
+
+        <div className="socials">
+          <a href={links.instagram} target="_blank">Instagram</a>
+          <a href={links.tiktok} target="_blank">TikTok</a>
+          <a href={links.youtube} target="_blank">YouTube</a>
+        </div>
       </footer>
     </main>
   );
