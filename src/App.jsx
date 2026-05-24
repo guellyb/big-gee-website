@@ -1,273 +1,114 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+
+const links = {
+  spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
+  apple: "https://music.apple.com/artist/guelly-b",
+  youtube: "https://www.youtube.com/@guellyb",
+  audiomack: "https://audiomack.com/guellyb-69de7ebc",
+  instagram: "https://www.instagram.com/therealguellyb",
+  tiktok: "https://www.tiktok.com/@guellyb",
+};
+
+const tracks = [
+  "Motion Only",
+  "Spike Lee",
+  "Start Over",
+  "Ballin Like VJ",
+  "Loose Screws",
+  "Cheese Talk",
+  "Bad B*tches",
+  "Therapy Notes",
+];
 
 export default function App() {
-  const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
-
-  const [timeLeft, setTimeLeft] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  const links = {
-    spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
-    apple: "https://music.apple.com/us/artist/guelly-b",
-    instagram: "https://instagram.com/therealguellyb",
-    tiktok: "https://www.tiktok.com/@guellyb",
-    youtube: "https://www.youtube.com/@guellyb",
-    audiomack: "https://audiomack.com/guellyb-69de7ebc63e6a",
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = releaseDate - now;
-
-      setTimeLeft({
-        days: Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24))),
-        hours: Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))),
-        mins: Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))),
-        secs: Math.max(0, Math.floor((distance % (1000 * 60)) / 1000)),
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [releaseDate]);
-
-  useEffect(() => {
-    const loaderTimer = setTimeout(() => setLoading(false), 2200);
-    return () => clearTimeout(loaderTimer);
-  }, []);
-
-  useEffect(() => {
-    const glow = document.querySelector(".cursor-glow");
-
-    const moveGlow = (e) => {
-      if (!glow) return;
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    };
-
-    window.addEventListener("mousemove", moveGlow);
-    return () => window.removeEventListener("mousemove", moveGlow);
-  }, []);
-
-  useEffect(() => {
-    const reveals = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("active");
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    reveals.forEach((el) => observer.observe(el));
-
-    return () => {
-      reveals.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   return (
     <main className="site">
-      {loading && (
-        <div className="loader">
-          <h1>BIG GEE</h1>
-          <p>GUELLY B</p>
+      <div className="noise" />
+      <div className="smoke smoke1" />
+      <div className="smoke smoke2" />
+      <div className="smoke smoke3" />
+
+      <div className="top-banner">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
+
+      <nav className="nav">
+        <div className="logo">GUELLY B</div>
+        <div className="nav-links">
+          <a href="#watch">WATCH</a>
+          <a href="#listen">LISTEN</a>
+          <a href="#tracklist">TRACKLIST</a>
         </div>
-      )}
-
-      <div className="cursor-glow"></div>
-
-      <div className="cinematic-smoke">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <div className="announcement">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
-
-      <div className="floating-socials">
-        <a href={links.instagram} target="_blank" rel="noreferrer">IG</a>
-        <a href={links.tiktok} target="_blank" rel="noreferrer">TT</a>
-        <a href={links.youtube} target="_blank" rel="noreferrer">YT</a>
-      </div>
+      </nav>
 
       <section className="hero">
-        <div className="smoke"></div>
-        <div className="overlay"></div>
+        <div className="hero-text">
+          <p className="eyebrow">OFFICIAL MIXTAPE</p>
+          <h1>BIG<br />GEE</h1>
+          <p className="tagline">Super Fly. Real Motion. June 5th.</p>
 
-        <div className="particles">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <nav className="nav">
-          <h3>GUELLY B</h3>
-
-          <div>
-            <a href="#visual">WATCH</a>
-            <a href="#listen">LISTEN</a>
-            <a href="#tracks">TRACKLIST</a>
+          <div className="hero-buttons">
+            <a href="#watch" className="btn primary">Watch Preview</a>
+            <a href={links.spotify} target="_blank" className="btn secondary">
+              Stream Guelly B
+            </a>
           </div>
-        </nav>
 
-        <div className="hero-content">
-          <p className="tag">OFFICIAL MIXTAPE</p>
-
-          <h1>BIG GEE</h1>
-
-          <p className="subtitle">Super Fly, Real Motion. June 5th.</p>
-
-          <div className="buttons">
-            <a href="#visual" className="btn primary">Watch Preview</a>
-            <a href="#listen" className="btn secondary">Stream Guelly B</a>
+          <div className="countdown">
+            <div><strong>12</strong><span>DAYS</span></div>
+            <div><strong>00</strong><span>HRS</span></div>
+            <div><strong>00</strong><span>MIN</span></div>
           </div>
         </div>
 
-        <div className="trailer-visual">
-          <div className="trailer-light"></div>
-
-          <div className="trailer-title">
-            <span>BIG</span>
-            <span>GEE</span>
+        <div className="cover-card">
+          <div className="cover-glow" />
+          <div className="cover-art">
+            <p>BIG</p>
+            <p>GEE</p>
           </div>
         </div>
       </section>
 
-      <section id="visual" className="visual-section reveal">
-        <p className="tag red">FEATURED VISUAL</p>
-
-        <h2>Ballin Like VJ</h2>
-
-        <p className="section-text">Official BIG GEE visual experience.</p>
-
-        <div className="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0"
-            title="Ballin Like VJ"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+      <section id="watch" className="section trailer-section">
+        <p className="eyebrow">WATCH THE PREVIEW</p>
+        <h2>Enter The World Of Big Gee</h2>
+        <div className="trailer-box">
+          <div className="play-btn">▶</div>
+          <p>DROP TRAILER / MUSIC VIDEO HERE</p>
         </div>
       </section>
 
-      <section id="listen" className="listen-section reveal">
-        <p className="tag red">STREAM NOW</p>
-
-        <h2>Platforms</h2>
-
-        <div className="stream-grid">
-          <a href={links.spotify} target="_blank" rel="noreferrer" className="stream-card">Spotify</a>
-          <a href={links.apple} target="_blank" rel="noreferrer" className="stream-card">Apple Music</a>
-          <a href={links.audiomack} target="_blank" rel="noreferrer" className="stream-card">Audiomack</a>
-          <a href={links.youtube} target="_blank" rel="noreferrer" className="stream-card">YouTube</a>
+      <section id="listen" className="section listen-section">
+        <p className="eyebrow">STREAM GUELLY B</p>
+        <h2>Listen Everywhere</h2>
+        <div className="platforms">
+          <a href={links.spotify} target="_blank">Spotify</a>
+          <a href={links.apple} target="_blank">Apple Music</a>
+          <a href={links.youtube} target="_blank">YouTube</a>
+          <a href={links.audiomack} target="_blank">Audiomack</a>
         </div>
       </section>
 
-      <section className="spotify-section reveal">
-        <p className="tag red">OFFICIAL ARTIST PAGE</p>
-
-        <h2>Tap In</h2>
-
-        <iframe
-          className="spotify-player"
-          src="https://open.spotify.com/embed/artist/0WdypKNxCbHK0vLNgujumS"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </section>
-
-      <section id="tracks" className="tracklist reveal">
-        <p className="tag red">TRACKLIST</p>
-
+      <section id="tracklist" className="section tracklist-section">
+        <p className="eyebrow">TRACKLIST</p>
         <h2>BIG GEE</h2>
-
-        <ol>
-          <li>Motion Only</li>
-          <li>Spike Lee</li>
-          <li>Start Over</li>
-          <li>Ballin Like VJ</li>
-          <li>Loose Screws</li>
-          <li>Cheese Talk</li>
-          <li>Bad B*tches</li>
-          <li>Therapy Notes</li>
-        </ol>
-      </section>
-
-      <section className="merch-section reveal">
-        <p className="tag red">COMING SOON</p>
-
-        <h2>BIG GEE Merch</h2>
-
-        <p className="section-text">
-          Limited drops, exclusive pieces, and official rollout merch.
-        </p>
-
-        <a href={links.instagram} target="_blank" rel="noreferrer" className="btn primary">
-          Follow For Drops
-        </a>
-      </section>
-
-      <section id="fanclub" className="fan-section reveal">
-        <p className="tag red">STAY LOCKED IN</p>
-
-        <h2>Join The Motion</h2>
-
-        <p className="section-text">
-          Get updates, drops, visuals, and exclusive BIG GEE news.
-        </p>
-
-        <form className="fan-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="button">Notify Me</button>
-        </form>
-      </section>
-
-      <section className="countdown-section reveal">
-        <p className="tag red">COUNTDOWN</p>
-
-        <h2>BIG GEE DROPS IN</h2>
-
-        <div className="countdown-grid">
-          <div className="count-box">
-            <span>{timeLeft.days ?? "00"}</span>
-            <p>DAYS</p>
-          </div>
-
-          <div className="count-box">
-            <span>{timeLeft.hours ?? "00"}</span>
-            <p>HOURS</p>
-          </div>
-
-          <div className="count-box">
-            <span>{timeLeft.mins ?? "00"}</span>
-            <p>MINS</p>
-          </div>
-
-          <div className="count-box">
-            <span>{timeLeft.secs ?? "00"}</span>
-            <p>SECS</p>
-          </div>
+        <div className="tracklist">
+          {tracks.map((track, index) => (
+            <div className="track" key={track}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{track}</p>
+            </div>
+          ))}
         </div>
       </section>
+
+      <div className="socials">
+        <a href={links.instagram} target="_blank">IG</a>
+        <a href={links.tiktok} target="_blank">TT</a>
+        <a href={links.youtube} target="_blank">YT</a>
+      </div>
 
       <footer>
-        <h3>GUELLY B</h3>
-
-        <p>BIG GEE — OUT JUNE 5TH</p>
-
-        <div className="socials">
-          <a href={links.instagram} target="_blank" rel="noreferrer">Instagram</a>
-          <a href={links.tiktok} target="_blank" rel="noreferrer">TikTok</a>
-          <a href={links.youtube} target="_blank" rel="noreferrer">YouTube</a>
-        </div>
+        <p>© GUELLY B — BIG GEE</p>
       </footer>
     </main>
   );
