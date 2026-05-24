@@ -33,7 +33,14 @@ export default function App() {
       </div>
 
       <section className="hero">
-        <div className="smoke"></div>
+        <div className="trailer-visual">
+  <div className="trailer-light"></div>
+  <div className="trailer-smoke"></div>
+  <div className="trailer-title">
+    <span>BIG</span>
+    <span>GEE</span>
+  </div>
+</div>        <div className="smoke"></div>
         <div className="overlay"></div>
 
         <nav className="nav">
