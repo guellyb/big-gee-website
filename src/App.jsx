@@ -17,12 +17,22 @@ export default function App() {
         <p>GUELLY B</p>
       </div>
 
-      <div className="announcement">🚨 BIG GEE DROPS JUNE 5TH 🚨</div>
-<div className="floating-socials">
-  <a href={links.instagram} target="_blank">IG</a>
-  <a href={links.tiktok} target="_blank">TT</a>
-  <a href={links.youtube} target="_blank">YT</a>
-</div>      <section className="hero">
+      <div className="announcement">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
+
+      <div className="floating-socials">
+        <a href={links.instagram} target="_blank">IG</a>
+        <a href={links.tiktok} target="_blank">TT</a>
+        <a href={links.youtube} target="_blank">YT</a>
+      </div>
+
+      <div className="cursor-glow"></div>
+
+      <div className="particles">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <section className="hero">
         <div className="smoke"></div>
         <div className="overlay"></div>
 
@@ -120,32 +130,20 @@ export default function App() {
           <button type="button">Notify Me</button>
         </form>
       </section>
-<section className="countdown-section reveal">
-  <p className="tag red">COUNTDOWN</p>
-  <h2>BIG GEE</h2>
 
-  <div className="countdown-grid">
-    <div className="count-box">
-      <span>06</span>
-      <p>DAYS</p>
-    </div>
+      <section className="countdown-section reveal">
+        <p className="tag red">COUNTDOWN</p>
+        <h2>BIG GEE</h2>
 
-    <div className="count-box">
-      <span>05</span>
-      <p>HOURS</p>
-    </div>
+        <div className="countdown-grid">
+          <div className="count-box"><span>06</span><p>DAYS</p></div>
+          <div className="count-box"><span>05</span><p>HOURS</p></div>
+          <div className="count-box"><span>22</span><p>MINS</p></div>
+          <div className="count-box"><span>11</span><p>SECS</p></div>
+        </div>
+      </section>
 
-    <div className="count-box">
-      <span>22</span>
-      <p>MINS</p>
-    </div>
-
-    <div className="count-box">
-      <span>11</span>
-      <p>SECS</p>
-    </div>
-  </div>
-</section>      <footer>
+      <footer>
         <h3>GUELLY B</h3>
         <p>BIG GEE — OUT JUNE 5TH</p>
 
@@ -154,15 +152,7 @@ export default function App() {
           <a href={links.tiktok} target="_blank">TikTok</a>
           <a href={links.youtube} target="_blank">YouTube</a>
         </div>
-  <div className="cursor-glow"></div>  
-<div className="particles">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div></footer>
+      </footer>
     </main>
   );
 }
