@@ -1,14 +1,5 @@
 import "./style.css";
 
-const links = {
-  spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
-  apple: "https://music.apple.com/artist/guelly-b",
-  youtube: "https://www.youtube.com/@guellyb",
-  audiomack: "https://audiomack.com/guellyb-69de7ebc",
-  instagram: "https://www.instagram.com/therealguellyb",
-  tiktok: "https://www.tiktok.com/@guellyb",
-};
-
 const tracks = [
   "Motion Only",
   "Spike Lee",
@@ -63,7 +54,7 @@ export default function App() {
             </a>
 
             <a
-              href={links.spotify}
+              href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
               target="_blank"
               rel="noreferrer"
               className="btn secondary"
@@ -100,29 +91,28 @@ export default function App() {
         </div>
       </section>
 
-      <section id="watch" className="section trailer-section">
-        <p className="eyebrow">WATCH THE PREVIEW</p>
+      <section id="watch" className="section">
+        <p className="eyebrow">WATCH THE VIDEO</p>
 
-        <h2>Enter The World Of Big Gee</h2>
+        <h2>Ballin Like VJ</h2>
 
         <div className="trailer-box">
           <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0?rel=0"
+            src="https://www.youtube.com/embed/brsxymjwT_0"
             title="Ballin Like VJ"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
       </section>
 
-      <section id="listen" className="section listen-section">
-        <p className="eyebrow">STREAM GUELLY B</p>
+      <section id="listen" className="section">
+        <p className="eyebrow">STREAM NOW</p>
 
         <h2>Listen Everywhere</h2>
 
         <div className="platforms">
           <a
-            href={links.spotify}
+            href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
             target="_blank"
             rel="noreferrer"
           >
@@ -130,7 +120,7 @@ export default function App() {
           </a>
 
           <a
-            href={links.apple}
+            href="https://music.apple.com/artist/guelly-b"
             target="_blank"
             rel="noreferrer"
           >
@@ -138,7 +128,7 @@ export default function App() {
           </a>
 
           <a
-            href={links.youtube}
+            href="https://www.youtube.com/@guellyb"
             target="_blank"
             rel="noreferrer"
           >
@@ -146,7 +136,7 @@ export default function App() {
           </a>
 
           <a
-            href={links.audiomack}
+            href="https://audiomack.com/guellyb-69de7ebc"
             target="_blank"
             rel="noreferrer"
           >
@@ -155,7 +145,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="tracklist" className="section tracklist-section">
+      <section id="tracklist" className="section">
         <p className="eyebrow">TRACKLIST</p>
 
         <h2>BIG GEE</h2>
@@ -175,7 +165,7 @@ export default function App() {
 
       <div className="socials">
         <a
-          href={links.instagram}
+          href="https://instagram.com/therealguellyb"
           target="_blank"
           rel="noreferrer"
         >
@@ -183,7 +173,7 @@ export default function App() {
         </a>
 
         <a
-          href={links.tiktok}
+          href="https://tiktok.com/@guellyb"
           target="_blank"
           rel="noreferrer"
         >
@@ -191,7 +181,7 @@ export default function App() {
         </a>
 
         <a
-          href={links.youtube}
+          href="https://youtube.com/@guellyb"
           target="_blank"
           rel="noreferrer"
         >
@@ -200,7 +190,7 @@ export default function App() {
       </div>
 
       <footer>
-        <p>© GUELLY B — BIG GEE</p>
+        © GUELLY B — BIG GEE
       </footer>
     </main>
   );
