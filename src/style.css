@@ -576,3 +576,73 @@ footer p {
     transform: translate(-55%, -52%) scale(1.2);
   }
 }
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particles span {
+  position: absolute;
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,0,0,.45);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255,0,0,.6);
+  animation: floatParticle linear infinite;
+}
+
+.particles span:nth-child(1) {
+  left: 10%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+  left: 25%;
+  animation-duration: 16s;
+  animation-delay: 2s;
+}
+
+.particles span:nth-child(3) {
+  left: 45%;
+  animation-duration: 14s;
+  animation-delay: 1s;
+}
+
+.particles span:nth-child(4) {
+  left: 65%;
+  animation-duration: 18s;
+  animation-delay: 4s;
+}
+
+.particles span:nth-child(5) {
+  left: 80%;
+  animation-duration: 13s;
+  animation-delay: 3s;
+}
+
+.particles span:nth-child(6) {
+  left: 92%;
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+
+@keyframes floatParticle {
+  from {
+    transform: translateY(100vh) scale(0.7);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-10vh) scale(1.4);
+    opacity: 0;
+  }
+}
