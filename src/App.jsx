@@ -86,8 +86,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="listen" className="section listen-section">
-        <p className="eyebrow">STREAM GUELLY B</p>
+      <section id="listen" className="section listen-section">        <p className="eyebrow">STREAM GUELLY B</p>
         <h2>Listen Everywhere</h2>
         <div className="platforms">
           <a href={links.spotify} target="_blank">Spotify</a>
