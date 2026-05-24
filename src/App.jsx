@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style.css";
 const links = [
   { name: "YouTube", url: "https://www.youtube.com/@guellyb" },
   { name: "Spotify", url: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" },
