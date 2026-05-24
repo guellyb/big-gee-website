@@ -154,7 +154,7 @@ export default function App() {
           <a href={links.tiktok} target="_blank">TikTok</a>
           <a href={links.youtube} target="_blank">YouTube</a>
         </div>
-      </footer>
+  <div className="cursor-glow"></div>      </footer>
     </main>
   );
 }
