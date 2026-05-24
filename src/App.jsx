@@ -1,114 +1,64 @@
+
 import "./style.css";
 
 export default function App() {
   return (
-    <div className="app">
-
-      {/* BACKGROUND */}
-      <div className="background-image"></div>
-      <div className="overlay"></div>
-      <div className="red-glow"></div>
-      <div className="smoke"></div>
-
-      {/* NAVBAR */}
-      <nav className="nav">
-
-        <span className="logo">
-          GUELLY B
-        </span>
-
-        <div className="nav-links">
-          <a href="#music">Music</a>
-          <a href="#tracklist">Tracklist</a>
-          <a href="#vault">Vault</a>
-        </div>
-
-      </nav>
-
-      {/* HERO */}
+    <main className="site">
       <section className="hero">
+        <div className="overlay"></div>
+
+        <nav className="nav">
+          <h3>GUELLY B</h3>
+          <a href="#visual">WATCH</a>
+        </nav>
 
         <div className="hero-content">
-
-          <p className="artist">
-            GUELLY B PRESENTS
-          </p>
-
+          <p className="tag">OFFICIAL MIXTAPE</p>
           <h1>BIG GEE</h1>
-
-          <p className="release">
-            OFFICIAL MIXTAPE • JUNE 5TH 2026
-          </p>
+          <p className="subtitle">New music. Real motion. June 5th.</p>
 
           <div className="buttons">
-
-            <a href="#" className="btn">
-              LISTEN SOON
-            </a>
-
-            <a href="#" className="btn btn-outline">
-              FAN VAULT
-            </a>
-
+            <a href="#visual" className="btn primary">Watch Preview</a>
+            <a href="#tracks" className="btn secondary">Tracklist</a>
           </div>
-
         </div>
-
       </section>
 
-      {/* PLAYER */}
-      <section className="player" id="music">
+      <section id="visual" className="visual-section">
+        <p className="tag red">FEATURED VISUAL</p>
+        <h2>Ballin Like VJ</h2>
+        <p className="section-text">Official BIG GEE preview by Guelly B.</p>
 
-        <p>NOW PREVIEWING</p>
-
-        <h2>BIG GEE ERA</h2>
-
-        <div className="player-box">
-
-          <div className="play-btn">
-            ▶
-          </div>
-
-          <div>
-            <h3>Ballin Like VJ</h3>
-            <p>Official Visual Out Now</p>
-          </div>
-
+        <div className="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Ballin Like VJ - BIG GEE Preview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
-
       </section>
 
-      {/* TRACKLIST */}
-      <section className="tracklist" id="tracklist">
+      <section id="tracks" className="tracklist">
+        <p className="tag red">TRACKLIST</p>
+        <h2>BIG GEE</h2>
 
-        <h2>TRACKLIST</h2>
-
-        <div className="tracks">
-
-          <p>01 • Motion Only</p>
-          <p>02 • Spike Lee</p>
-          <p>03 • Start Over</p>
-          <p>04 • Ballin Like VJ</p>
-          <p>05 • Loose Screws</p>
-          <p>06 • Cheese Talk</p>
-          <p>07 • Bad B*tches</p>
-          <p>08 • Therapy Notes</p>
-
-        </div>
-
+        <ol>
+          <li>Motion Only</li>
+          <li>Spike Lee</li>
+          <li>Start Over</li>
+          <li>Ballin Like VJ</li>
+          <li>Loose Screws</li>
+          <li>Cheese Talk</li>
+          <li>Bad B*tches</li>
+          <li>Therapy Notes</li>
+        </ol>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer" id="vault">
-
-        <h3>BIG GEE WORLD</h3>
-
-        <p>
-          GUELLY B OFFICIAL CINEMATIC EXPERIENCE
-        </p>
-
+      <footer>
+        <h3>GUELLY B</h3>
+        <p>BIG GEE — OUT JUNE 5TH</p>
       </footer>
-
-    </div>
+    </main>
   );
 }
