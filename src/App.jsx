@@ -1,5 +1,4 @@
 import "./App.css";
-
 const links = [
   { name: "YouTube", url: "https://www.youtube.com/@guellyb" },
   { name: "Spotify", url: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" },
@@ -8,7 +7,6 @@ const links = [
   { name: "TikTok", url: "https://www.tiktok.com/@guellyb" },
   { name: "Audiomack", url: "https://audiomack.com/guellyb-69de7ebc" },
 ];
-
 const tracks = [
   "Motion Only",
   "Spike Lee",
@@ -19,7 +17,6 @@ const tracks = [
   "Bad B*tches",
   "Therapy Notes",
 ];
-
 function App() {
   return (
     <main className="site">
@@ -53,8 +50,7 @@ function App() {
           ></iframe>
         </div>
       </section>
-
-      <section className="tracklist">
+     <section className="tracklist">
         <h2>Tracklist</h2>
         <div className="tracks">
           {tracks.map((track, index) => (
@@ -65,9 +61,8 @@ function App() {
           ))}
         </div>
       </section>
-
-      <section className="links">
-        <h2>Follow Guelly B</h2>
+  <section className="links">
+       <h2>Follow Guelly B</h2>
         <div className="link-grid">
           {links.map((link) => (
             <a key={link.name} href={link.url} target="_blank" rel="noreferrer">
@@ -79,5 +74,4 @@ function App() {
     </main>
   );
 }
-
 export default App;
