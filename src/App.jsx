@@ -117,8 +117,32 @@ export default function App() {
           <button type="button">Notify Me</button>
         </form>
       </section>
+<section className="countdown-section reveal">
+  <p className="tag red">COUNTDOWN</p>
+  <h2>BIG GEE</h2>
 
-      <footer>
+  <div className="countdown-grid">
+    <div className="count-box">
+      <span>06</span>
+      <p>DAYS</p>
+    </div>
+
+    <div className="count-box">
+      <span>05</span>
+      <p>HOURS</p>
+    </div>
+
+    <div className="count-box">
+      <span>22</span>
+      <p>MINS</p>
+    </div>
+
+    <div className="count-box">
+      <span>11</span>
+      <p>SECS</p>
+    </div>
+  </div>
+</section>      <footer>
         <h3>GUELLY B</h3>
         <p>BIG GEE — OUT JUNE 5TH</p>
 
