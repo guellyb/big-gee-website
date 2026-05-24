@@ -12,9 +12,14 @@ export default function App() {
 
   return (
     <main className="site">
-      <div className="announcement">
-  🚨 BIG GEE DROPS JUNE 5TH 🚨
-</div>      <section className="hero">
+      <div className="loader">
+        <h1>BIG GEE</h1>
+        <p>GUELLY B</p>
+      </div>
+
+      <div className="announcement">🚨 BIG GEE DROPS JUNE 5TH 🚨</div>
+
+      <section className="hero">
         <div className="smoke"></div>
         <div className="overlay"></div>
 
@@ -23,6 +28,7 @@ export default function App() {
           <div>
             <a href="#visual">WATCH</a>
             <a href="#listen">LISTEN</a>
+            <a href="#fanclub">FAN CLUB</a>
           </div>
         </nav>
 
@@ -33,12 +39,12 @@ export default function App() {
 
           <div className="buttons">
             <a href="#visual" className="btn primary">Watch Preview</a>
-            <a href="#tracks" className="btn secondary">Tracklist</a>
+            <a href="#listen" className="btn secondary">Listen Now</a>
           </div>
         </div>
       </section>
 
-      <section id="visual" className="visual-section">
+      <section id="visual" className="visual-section reveal">
         <p className="tag red">FEATURED VISUAL</p>
         <h2>Ballin Like VJ</h2>
         <p className="section-text">Official BIG GEE preview by Guelly B.</p>
@@ -53,7 +59,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="listen" className="listen-section">
+      <section id="listen" className="listen-section reveal">
         <p className="tag red">STREAM GUELLY B</p>
         <h2>Listen Now</h2>
         <p className="section-text">Tap in before BIG GEE drops.</p>
@@ -66,7 +72,19 @@ export default function App() {
         </div>
       </section>
 
-      <section id="tracks" className="tracklist">
+      <section className="spotify-section reveal">
+        <p className="tag red">OFFICIAL ARTIST PAGE</p>
+        <h2>Tap In</h2>
+
+        <iframe
+          className="spotify-player"
+          src="https://open.spotify.com/embed/artist/0WdypKNxCbHK0vLNgujumS"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <section id="tracks" className="tracklist reveal">
         <p className="tag red">TRACKLIST</p>
         <h2>BIG GEE</h2>
 
@@ -80,6 +98,24 @@ export default function App() {
           <li>Bad B*tches</li>
           <li>Therapy Notes</li>
         </ol>
+      </section>
+
+      <section className="merch-section reveal">
+        <p className="tag red">COMING SOON</p>
+        <h2>BIG GEE Merch</h2>
+        <p className="section-text">Limited drops, exclusive pieces, and official rollout merch.</p>
+        <a href={links.instagram} target="_blank" className="btn primary">Follow For Drops</a>
+      </section>
+
+      <section id="fanclub" className="fan-section reveal">
+        <p className="tag red">STAY LOCKED IN</p>
+        <h2>Join The Motion</h2>
+        <p className="section-text">Get updates, drops, visuals, and exclusive BIG GEE news.</p>
+
+        <form className="fan-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="button">Notify Me</button>
+        </form>
       </section>
 
       <footer>
