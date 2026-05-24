@@ -93,13 +93,13 @@ export default function App() {
         <a href={links.youtube} target="_blank" rel="noreferrer">YT</a>
       </div>
 
-      <div className="eagles">
-        <span>🦅</span>
-        <span>🦅</span>
-        <span>🦅</span>
-        <span>🦅</span>
-        <span>🦅</span>
-      </div>
+     <div className="cinematic-smoke">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>      </div>
 
       <section className="hero">
         <div className="smoke"></div>
