@@ -12,39 +12,65 @@ export default function App() {
 
   return (
     <main className="site">
+      {/* LOADER */}
       <div className="loader">
         <h1>BIG GEE</h1>
         <p>GUELLY B</p>
       </div>
 
-      <div className="announcement">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
-
-      <div className="floating-socials">
-        <a href={links.instagram} target="_blank">IG</a>
-        <a href={links.tiktok} target="_blank">TT</a>
-        <a href={links.youtube} target="_blank">YT</a>
+      {/* TOP BANNER */}
+      <div className="announcement">
+        🚨 BIG GEE OUT JUNE 5TH 🚨
       </div>
 
+      {/* FLOATING SOCIALS */}
+      <div className="floating-socials">
+        <a href={links.instagram} target="_blank" rel="noreferrer">
+          IG
+        </a>
+
+        <a href={links.tiktok} target="_blank" rel="noreferrer">
+          TT
+        </a>
+
+        <a href={links.youtube} target="_blank" rel="noreferrer">
+          YT
+        </a>
+      </div>
+
+      {/* CURSOR GLOW */}
       <div className="cursor-glow"></div>
 
+      {/* PARTICLES */}
       <div className="particles">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
+      {/* HERO */}
       <section className="hero">
+        {/* BIG GEE TRAILER VISUAL */}
         <div className="trailer-visual">
-  <div className="trailer-light"></div>
-  <div className="trailer-smoke"></div>
-  <div className="trailer-title">
-    <span>BIG</span>
-    <span>GEE</span>
-  </div>
-</div>        <div className="smoke"></div>
+          <div className="trailer-light"></div>
+
+          <div className="trailer-smoke"></div>
+
+          <div className="trailer-title">
+            <span>BIG</span>
+            <span>GEE</span>
+          </div>
+        </div>
+
+        <div className="smoke"></div>
         <div className="overlay"></div>
 
         <nav className="nav">
           <h3>GUELLY B</h3>
+
           <div>
             <a href="#visual">WATCH</a>
             <a href="#listen">LISTEN</a>
@@ -54,46 +80,98 @@ export default function App() {
 
         <div className="hero-content">
           <p className="tag">OFFICIAL MIXTAPE</p>
+
           <h1>BIG GEE</h1>
-          <p className="subtitle">New music. Real motion. June 5th.</p>
+
+          <p className="subtitle">
+            New music. Real motion. June 5th.
+          </p>
 
           <div className="buttons">
-            <a href="#visual" className="btn primary">Watch Preview</a>
-            <a href="#listen" className="btn secondary">Listen Now</a>
+            <a href="#visual" className="btn primary">
+              Watch Preview
+            </a>
+
+            <a href="#listen" className="btn secondary">
+              Listen Now
+            </a>
           </div>
         </div>
       </section>
 
+      {/* FEATURED VISUAL */}
       <section id="visual" className="visual-section reveal">
         <p className="tag red">FEATURED VISUAL</p>
+
         <h2>Ballin Like VJ</h2>
-        <p className="section-text">Official BIG GEE preview by Guelly B.</p>
+
+        <p className="section-text">
+          Official BIG GEE preview by Guelly B.
+        </p>
 
         <div className="video-frame">
           <iframe
             src="https://www.youtube.com/embed/brsxymjwT_0"
-            title="Ballin Like VJ - BIG GEE Preview"
+            title="Ballin Like VJ"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
       </section>
 
+      {/* STREAMING */}
       <section id="listen" className="listen-section reveal">
         <p className="tag red">STREAM GUELLY B</p>
+
         <h2>Listen Now</h2>
-        <p className="section-text">Tap in before BIG GEE drops.</p>
+
+        <p className="section-text">
+          Tap in before BIG GEE drops.
+        </p>
 
         <div className="stream-grid">
-          <a href={links.spotify} target="_blank" className="stream-card">Spotify</a>
-          <a href={links.apple} target="_blank" className="stream-card">Apple Music</a>
-          <a href={links.audiomack} target="_blank" className="stream-card">Audiomack</a>
-          <a href={links.youtube} target="_blank" className="stream-card">YouTube</a>
+          <a
+            href={links.spotify}
+            target="_blank"
+            rel="noreferrer"
+            className="stream-card"
+          >
+            Spotify
+          </a>
+
+          <a
+            href={links.apple}
+            target="_blank"
+            rel="noreferrer"
+            className="stream-card"
+          >
+            Apple Music
+          </a>
+
+          <a
+            href={links.audiomack}
+            target="_blank"
+            rel="noreferrer"
+            className="stream-card"
+          >
+            Audiomack
+          </a>
+
+          <a
+            href={links.youtube}
+            target="_blank"
+            rel="noreferrer"
+            className="stream-card"
+          >
+            YouTube
+          </a>
         </div>
       </section>
 
+      {/* SPOTIFY */}
       <section className="spotify-section reveal">
         <p className="tag red">OFFICIAL ARTIST PAGE</p>
+
         <h2>Tap In</h2>
 
         <iframe
@@ -104,8 +182,10 @@ export default function App() {
         ></iframe>
       </section>
 
+      {/* TRACKLIST */}
       <section id="tracks" className="tracklist reveal">
         <p className="tag red">TRACKLIST</p>
+
         <h2>BIG GEE</h2>
 
         <ol>
@@ -120,44 +200,104 @@ export default function App() {
         </ol>
       </section>
 
+      {/* MERCH */}
       <section className="merch-section reveal">
         <p className="tag red">COMING SOON</p>
+
         <h2>BIG GEE Merch</h2>
-        <p className="section-text">Limited drops, exclusive pieces, and official rollout merch.</p>
-        <a href={links.instagram} target="_blank" className="btn primary">Follow For Drops</a>
+
+        <p className="section-text">
+          Limited drops, exclusive pieces, and official rollout merch.
+        </p>
+
+        <a
+          href={links.instagram}
+          target="_blank"
+          rel="noreferrer"
+          className="btn primary"
+        >
+          Follow For Drops
+        </a>
       </section>
 
+      {/* FAN CLUB */}
       <section id="fanclub" className="fan-section reveal">
         <p className="tag red">STAY LOCKED IN</p>
+
         <h2>Join The Motion</h2>
-        <p className="section-text">Get updates, drops, visuals, and exclusive BIG GEE news.</p>
+
+        <p className="section-text">
+          Get updates, drops, visuals, and exclusive BIG GEE news.
+        </p>
 
         <form className="fan-form">
           <input type="email" placeholder="Enter your email" />
-          <button type="button">Notify Me</button>
+
+          <button type="button">
+            Notify Me
+          </button>
         </form>
       </section>
 
+      {/* COUNTDOWN */}
       <section className="countdown-section reveal">
         <p className="tag red">COUNTDOWN</p>
+
         <h2>BIG GEE</h2>
 
         <div className="countdown-grid">
-          <div className="count-box"><span>06</span><p>DAYS</p></div>
-          <div className="count-box"><span>05</span><p>HOURS</p></div>
-          <div className="count-box"><span>22</span><p>MINS</p></div>
-          <div className="count-box"><span>11</span><p>SECS</p></div>
+          <div className="count-box">
+            <span>12</span>
+            <p>DAYS</p>
+          </div>
+
+          <div className="count-box">
+            <span>12</span>
+            <p>HOURS</p>
+          </div>
+
+          <div className="count-box">
+            <span>00</span>
+            <p>MINS</p>
+          </div>
+
+          <div className="count-box">
+            <span>11</span>
+            <p>SECS</p>
+          </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer>
         <h3>GUELLY B</h3>
+
         <p>BIG GEE — OUT JUNE 5TH</p>
 
         <div className="socials">
-          <a href={links.instagram} target="_blank">Instagram</a>
-          <a href={links.tiktok} target="_blank">TikTok</a>
-          <a href={links.youtube} target="_blank">YouTube</a>
+          <a
+            href={links.instagram}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram
+          </a>
+
+          <a
+            href={links.tiktok}
+            target="_blank"
+            rel="noreferrer"
+          >
+            TikTok
+          </a>
+
+          <a
+            href={links.youtube}
+            target="_blank"
+            rel="noreferrer"
+          >
+            YouTube
+          </a>
         </div>
       </footer>
     </main>
