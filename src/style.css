@@ -1,349 +1,205 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+body {
+  background: #050505;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-  background:black;
-  color:white;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow-x:hidden;
+.site {
+  overflow-x: hidden;
 }
 
-.app{
-  position:relative;
-  background:black;
-}
-
-/* BACKGROUND */
-
-.background-image{
-  position:fixed;
-  inset:0;
-  background:url("/hero3.jpg") center center/cover no-repeat;
-  filter:brightness(0.22);
-  transform:scale(1.05);
-  animation:slowZoom 20s ease-in-out infinite alternate;
-  z-index:1;
-}
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.72);
-  z-index:2;
-}
-
-.red-glow{
-  position:fixed;
-  inset:0;
+.hero {
+  min-height: 100vh;
   background:
-    radial-gradient(circle at center,
-    rgba(120,0,0,0.32),
-    transparent 65%);
-  z-index:3;
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.9)),
+    url("/cover.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.smoke{
-  position:fixed;
-  inset:0;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(170,0,0,.25), transparent 55%);
+  pointer-events: none;
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+  padding: 28px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav h3 {
+  letter-spacing: 3px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 7%;
+  max-width: 850px;
+}
+
+.tag {
+  color: #ddd;
+  letter-spacing: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.tag.red {
+  color: #ff1f1f;
+}
+
+h1 {
+  font-size: clamp(70px, 16vw, 190px);
+  line-height: .85;
+  letter-spacing: -6px;
+  text-shadow: 0 0 35px rgba(255,0,0,.55);
+}
+
+.subtitle {
+  margin-top: 25px;
+  font-size: clamp(18px, 3vw, 28px);
+  color: #ddd;
+}
+
+.buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.primary {
+  background: #d60000;
+  color: white;
+  box-shadow: 0 0 25px rgba(255,0,0,.55);
+}
+
+.secondary {
+  border: 1px solid white;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.visual-section,
+.tracklist {
+  padding: 90px 7%;
+  text-align: center;
+  background: #080808;
+}
+
+.visual-section h2,
+.tracklist h2 {
+  font-size: clamp(38px, 7vw, 85px);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-text {
+  color: #bbb;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+
+.video-frame {
+  max-width: 950px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border: 2px solid rgba(255,0,0,.7);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 0 30px rgba(255,0,0,.35),
+    0 0 90px rgba(255,0,0,.2);
+  background: black;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.tracklist {
   background:
-    radial-gradient(circle at top left,
-    rgba(255,255,255,0.05),
-    transparent 30%);
-  animation:smokeMove 18s linear infinite;
-  z-index:4;
+    linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.95)),
+    radial-gradient(circle, rgba(120,0,0,.35), transparent 60%);
 }
 
-/* NAV */
-
-.nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  padding:28px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:20;
-  backdrop-filter:blur(10px);
+.tracklist ol {
+  list-style: none;
+  max-width: 600px;
+  margin: 35px auto 0;
+  display: grid;
+  gap: 16px;
 }
 
-.logo{
-  font-size:14px;
-  letter-spacing:5px;
-  font-weight:700;
+.tracklist li {
+  padding: 18px 24px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  transition: .3s;
 }
 
-.nav-links{
-  display:flex;
-  gap:40px;
+.tracklist li:hover {
+  border-color: #ff1f1f;
+  transform: translateX(8px);
+  box-shadow: 0 0 25px rgba(255,0,0,.25);
 }
 
-.nav-links a{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-  letter-spacing:2px;
-  transition:0.3s;
+footer {
+  padding: 45px 7%;
+  text-align: center;
+  background: black;
+  border-top: 1px solid rgba(255,255,255,.1);
 }
 
-.nav-links a:hover{
-  opacity:0.6;
+footer h3 {
+  letter-spacing: 4px;
+  margin-bottom: 8px;
 }
 
-/* HERO */
-
-.hero{
-  position:relative;
-  z-index:10;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:120px 20px;
-}
-
-.hero-content{
-  animation:fadeUp 1.4s ease;
-}
-
-.artist{
-  letter-spacing:8px;
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-size:180px;
-  font-weight:900;
-  letter-spacing:4px;
-  line-height:0.9;
-
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.95),
-    0 0 40px rgba(255,255,255,0.55),
-    0 0 70px rgba(255,255,255,0.2);
-}
-
-.release{
-  margin-top:30px;
-  letter-spacing:4px;
-  font-size:18px;
-}
-
-.buttons{
-  margin-top:45px;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-
-.btn{
-  padding:16px 38px;
-  background:white;
-  color:black;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:2px;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(255,255,255,0.2);
-}
-
-.btn-outline{
-  background:transparent;
-  border:1px solid white;
-  color:white;
-}
-
-/* PLAYER */
-
-.player{
-  position:relative;
-  z-index:10;
-  padding:140px 20px;
-  text-align:center;
-}
-
-.player p{
-  letter-spacing:4px;
-  opacity:0.7;
-}
-
-.player h2{
-  font-size:70px;
-  margin-top:15px;
-  margin-bottom:50px;
-}
-
-.player-box{
-  max-width:700px;
-  margin:auto;
-  border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  padding:35px;
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-
-.play-btn{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  background:white;
-  color:black;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:900;
-}
-
-/* TRACKLIST */
-
-.tracklist{
-  position:relative;
-  z-index:10;
-  padding:140px 20px;
-  text-align:center;
-}
-
-.tracklist h2{
-  font-size:100px;
-  margin-bottom:60px;
-  opacity:0.95;
-}
-
-.tracks{
-  max-width:850px;
-  margin:auto;
-}
-
-.tracks p{
-  padding:24px;
-  border-bottom:1px solid rgba(255,255,255,0.12);
-  font-size:24px;
-  letter-spacing:2px;
-  transition:0.3s;
-}
-
-.tracks p:hover{
-  background:rgba(255,255,255,0.05);
-  transform:translateX(10px);
-}
-
-/* FOOTER */
-
-.footer{
-  position:relative;
-  z-index:10;
-  padding:120px 20px;
-  text-align:center;
-}
-
-.footer h3{
-  font-size:50px;
-  margin-bottom:20px;
-}
-
-.footer p{
-  letter-spacing:4px;
-  opacity:0.6;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(50px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}
-
-@keyframes slowZoom{
-
-  from{
-    transform:scale(1.05);
-  }
-
-  to{
-    transform:scale(1.12);
-  }
-
-}
-
-@keyframes smokeMove{
-
-  from{
-    transform:translateX(0);
-  }
-
-  to{
-    transform:translateX(80px);
-  }
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .nav{
-    padding:20px;
-  }
-
-  .nav-links{
-    gap:18px;
-  }
-
-  .hero h1{
-    font-size:90px;
-  }
-
-  .tracklist h2{
-    font-size:55px;
-  }
-
-  .tracks p{
-    font-size:18px;
-  }
-
-  .player h2{
-    font-size:42px;
-  }
-
-  .player-box{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .buttons{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .footer h3{
-    font-size:34px;
-  }
-
+footer p {
+  color: #aaa;
 }
