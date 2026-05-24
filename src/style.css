@@ -1,466 +1,207 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #050000;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.site {
-  min-height: 100vh;
-  position: relative;
-  background:
-    radial-gradient(circle at 75% 25%, rgba(255, 0, 0, 0.25), transparent 35%),
-    radial-gradient(circle at 20% 70%, rgba(255, 0, 0, 0.18), transparent 30%),
-    linear-gradient(120deg, #050000, #120000, #000);
-  overflow: hidden;
-}
-
-.noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  z-index: 1;
-  background-image: repeating-radial-gradient(circle, rgba(255,255,255,0.2) 0 1px, transparent 1px 4px);
-}
-
-.top-banner {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  padding: 13px;
-  background: #c40000;
-  font-weight: 900;
-  letter-spacing: 3px;
-}
-
-.nav {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 42px 8%;
-}
-
-.logo {
-  color: #ff1717;
-  font-weight: 900;
-  letter-spacing: 6px;
-  font-size: 22px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 34px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 3px;
-}
-
-.nav-links a:hover {
-  color: #ff1a1a;
-}
-
-.hero {
-  position: relative;
-  z-index: 4;
-  min-height: 78vh;
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  align-items: center;
-  gap: 60px;
-  padding: 40px 8% 100px;
-}
-
-.eyebrow {
-  color: #ff2020;
-  font-weight: 900;
-  letter-spacing: 7px;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
-
-.hero h1 {
-  font-size: clamp(95px, 15vw, 230px);
-  line-height: 0.78;
-  color: #df0000;
-  text-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 70px rgba(255, 0, 0, 0.5);
-  font-weight: 1000;
-}
-
-.tagline {
-  margin-top: 35px;
-  font-size: 18px;
-  color: #ddd;
-  font-weight: 700;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 18px;
-  margin-top: 35px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 17px 28px;
-  border-radius: 999px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  transition: 0.3s;
-}
-
-.primary {
-  background: #e60000;
-  box-shadow: 0 0 35px rgba(255, 0, 0, 0.55);
-}
-
-.secondary {
-  border: 1px solid #ff1717;
-}
-
-.btn:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 45px rgba(255, 0, 0, 0.8);
-}
-
-.countdown {
-  display: flex;
-  gap: 16px;
-  margin-top: 34px;
-}
-
-.countdown div {
-  min-width: 85px;
-  padding: 15px;
-  border: 1px solid rgba(255, 0, 0, 0.35);
-  border-radius: 16px;
-  background: rgba(255, 0, 0, 0.07);
-  text-align: center;
-}
-
-.countdown strong {
-  display: block;
-  font-size: 28px;
-  color: #ff1a1a;
-}
-
-.countdown span {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #aaa;
-}
-
-.cover-card {
-  height: 460px;
-  border: 1px solid rgba(255, 0, 0, 0.45);
-  border-radius: 32px;
-  position: relative;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.35), transparent 45%),
-    rgba(90, 0, 0, 0.25);
-  box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.18), 0 0 40px rgba(255, 0, 0, 0.25);
-  animation: float 4s ease-in-out infinite;
-  overflow: hidden;
-}
-
-.cover-art {
-  color: #ff1717;
-  font-size: 70px;
-  font-weight: 1000;
-  line-height: 0.9;
-  text-shadow: 0 0 35px red;
-}
-
-.cover-glow {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  background: red;
-  filter: blur(90px);
-  opacity: 0.5;
-  animation: pulse 2.8s infinite alternate;
-}
-
-.section {
-  position: relative;
-  z-index: 4;
-  padding: 90px 8%;
-}
-
-.section h2 {
-  font-size: clamp(42px, 7vw, 100px);
-  color: #e40000;
-  text-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
-  margin-bottom: 30px;
-}
-
-.trailer-box {
-  min-height: 420px;
-  border: 1px solid rgba(255, 0, 0, 0.35);
-  border-radius: 30px;
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
-    radial-gradient(circle at center, rgba(255,0,0,0.35), transparent 45%);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  box-shadow: 0 0 55px rgba(255, 0, 0, 0.2);
-}
-
-.play-btn {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #e60000;
-  font-size: 35px;
-  box-shadow: 0 0 45px red;
-  margin-bottom: 18px;
-}
-
-.trailer-box p {
-  font-weight: 900;
-  letter-spacing: 4px;
-  color: #ddd;
-}
-
-.platforms {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.platforms a {
-  padding: 28px;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 0, 0, 0.4);
-  background: rgba(255, 0, 0, 0.08);
-  font-weight: 900;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.platforms a:hover {
-  background: #d60000;
-  transform: translateY(-5px);
-  box-shadow: 0 0 35px rgba(255, 0, 0, 0.65);
-}
-
-.tracklist {
-  max-width: 850px;
-}
-
-.track {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(255, 0, 0, 0.25);
-  transition: 0.25s;
-}
-
-.track:hover {
-  padding-left: 18px;
-  color: #ff2020;
-  text-shadow: 0 0 15px red;
-}
-
-.track span {
-  color: #ff2020;
-  font-weight: 900;
-  letter-spacing: 3px;
-}
-
-.track p {
-  font-size: 28px;
-  font-weight: 900;
-}
-
-.socials {
-  position: fixed;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.socials a {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 0, 0, 0.7);
-  background: rgba(255, 0, 0, 0.17);
-  font-weight: 900;
-}
-
-.socials a:hover {
-  background: #e60000;
-  box-shadow: 0 0 25px red;
-}
-
-footer {
-  position: relative;
-  z-index: 4;
-  padding: 45px 8%;
-  color: #888;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-.smoke {
-  position: fixed;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 65%);
-  filter: blur(50px);
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 2;
-  animation: smokeMove 12s infinite alternate ease-in-out;
-}
-
-.smoke1 {
-  top: 12%;
-  left: -150px;
-}
-
-.smoke2 {
-  bottom: 5%;
-  right: -120px;
-  animation-delay: 2s;
-}
-
-.smoke3 {
-  top: 45%;
-  left: 45%;
-  animation-delay: 4s;
-}
-
-@keyframes smokeMove {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(80px, -60px) scale(1.3);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-18px);
-  }
-}
-
-@keyframes pulse {
-  from {
-    opacity: 0.25;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 0.65;
-    transform: scale(1.25);
-  }
-}
-
-@media (max-width: 900px) {
-  .nav {
-    padding: 30px 6%;
-  }
-
-  .nav-links {
-    gap: 18px;
-    font-size: 11px;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 40px 6% 80px;
-  }
-
-  .hero-buttons,
-  .countdown {
-    justify-content: center;
-  }
-
-  .cover-card {
-    height: 360px;
-  }
-
-  .platforms {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .socials {
-    position: static;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 35px;
-  }
-}
-
-@media (max-width: 560px) {
-  .top-banner {
-    font-size: 12px;
-    letter-spacing: 2px;
-  }
-
-  .nav {
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .hero h1 {
-    font-size: 96px;
-  }
-
-  .tagline {
-    font-size: 15px;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .platforms {
-    grid-template-columns: 1fr;
-  }
-
-  .track p {
-    font-size: 22px;
-  }
-
-  .countdown div {
-    min-width: 70px;
-  }
+import "./style.css";
+
+const links = {
+  spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
+  apple: "https://music.apple.com/artist/guelly-b",
+  youtube: "https://www.youtube.com/@guellyb",
+  audiomack: "https://audiomack.com/guellyb-69de7ebc",
+  instagram: "https://www.instagram.com/therealguellyb",
+  tiktok: "https://www.tiktok.com/@guellyb",
+};
+
+const tracks = [
+  "Motion Only",
+  "Spike Lee",
+  "Start Over",
+  "Ballin Like VJ",
+  "Loose Screws",
+  "Cheese Talk",
+  "Bad B*tches",
+  "Therapy Notes",
+];
+
+export default function App() {
+  return (
+    <main className="site">
+      <div className="noise"></div>
+
+      <div className="smoke smoke1"></div>
+      <div className="smoke smoke2"></div>
+      <div className="smoke smoke3"></div>
+
+      <div className="top-banner">
+        🚨 BIG GEE OUT JUNE 5TH 🚨
+      </div>
+
+      <nav className="nav">
+        <div className="logo">GUELLY B</div>
+
+        <div className="nav-links">
+          <a href="#watch">WATCH</a>
+          <a href="#listen">LISTEN</a>
+          <a href="#tracklist">TRACKLIST</a>
+        </div>
+      </nav>
+
+      <section className="hero">
+        <div className="hero-text">
+          <p className="eyebrow">OFFICIAL MIXTAPE</p>
+
+          <h1>
+            BIG
+            <br />
+            GEE
+          </h1>
+
+          <p className="tagline">
+            Super Fly. Real Motion. June 5th.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#watch" className="btn primary">
+              Watch Preview
+            </a>
+
+            <a
+              href={links.spotify}
+              target="_blank"
+              rel="noreferrer"
+              className="btn secondary"
+            >
+              Stream Guelly B
+            </a>
+          </div>
+
+          <div className="countdown">
+            <div>
+              <strong>12</strong>
+              <span>DAYS</span>
+            </div>
+
+            <div>
+              <strong>00</strong>
+              <span>HRS</span>
+            </div>
+
+            <div>
+              <strong>00</strong>
+              <span>MIN</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="cover-card">
+          <div className="cover-glow"></div>
+
+          <div className="cover-art">
+            <p>BIG</p>
+            <p>GEE</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="watch" className="section trailer-section">
+        <p className="eyebrow">WATCH THE PREVIEW</p>
+
+        <h2>Enter The World Of Big Gee</h2>
+
+        <div className="trailer-box">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0?rel=0"
+            title="Ballin Like VJ"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="listen" className="section listen-section">
+        <p className="eyebrow">STREAM GUELLY B</p>
+
+        <h2>Listen Everywhere</h2>
+
+        <div className="platforms">
+          <a
+            href={links.spotify}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Spotify
+          </a>
+
+          <a
+            href={links.apple}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Apple Music
+          </a>
+
+          <a
+            href={links.youtube}
+            target="_blank"
+            rel="noreferrer"
+          >
+            YouTube
+          </a>
+
+          <a
+            href={links.audiomack}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Audiomack
+          </a>
+        </div>
+      </section>
+
+      <section id="tracklist" className="section tracklist-section">
+        <p className="eyebrow">TRACKLIST</p>
+
+        <h2>BIG GEE</h2>
+
+        <div className="tracklist">
+          {tracks.map((track, index) => (
+            <div className="track" key={track}>
+              <span>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <p>{track}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="socials">
+        <a
+          href={links.instagram}
+          target="_blank"
+          rel="noreferrer"
+        >
+          IG
+        </a>
+
+        <a
+          href={links.tiktok}
+          target="_blank"
+          rel="noreferrer"
+        >
+          TT
+        </a>
+
+        <a
+          href={links.youtube}
+          target="_blank"
+          rel="noreferrer"
+        >
+          YT
+        </a>
+      </div>
+
+      <footer>
+        <p>© GUELLY B — BIG GEE</p>
+      </footer>
+    </main>
+  );
 }
