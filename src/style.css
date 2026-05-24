@@ -479,3 +479,71 @@ footer h3 {
     display: none;
   }
 }
+.cinematic-smoke {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cinematic-smoke span {
+  position: absolute;
+  bottom: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.18),
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: smokeFloat 18s infinite ease-in-out;
+}
+
+.cinematic-smoke span:nth-child(1) {
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.cinematic-smoke span:nth-child(2) {
+  left: 15%;
+  animation-delay: 4s;
+}
+
+.cinematic-smoke span:nth-child(3) {
+  left: 45%;
+  animation-delay: 8s;
+}
+
+.cinematic-smoke span:nth-child(4) {
+  left: 70%;
+  animation-delay: 12s;
+}
+
+.cinematic-smoke span:nth-child(5) {
+  left: 90%;
+  animation-delay: 16s;
+}
+
+@keyframes smokeFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.22;
+  }
+
+  50% {
+    transform: translateY(-300px) scale(1.4);
+    opacity: 0.18;
+  }
+
+  100% {
+    transform: translateY(-700px) scale(1.8);
+    opacity: 0;
+  }
+}
