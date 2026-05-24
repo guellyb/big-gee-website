@@ -1,206 +1,142 @@
+* {
+  box-sizing: border-box;
+}
 
-const links = {
-  spotify: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
-  apple: "https://music.apple.com/artist/guelly-b",
-  youtube: "https://www.youtube.com/@guellyb",
-  audiomack: "https://audiomack.com/guellyb-69de7ebc",
-  instagram: "https://www.instagram.com/therealguellyb",
-  tiktok: "https://www.tiktok.com/@guellyb",
-};
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: white;
+}
 
-const tracks = [
-  "Motion Only",
-  "Spike Lee",
-  "Start Over",
-  "Ballin Like VJ",
-  "Loose Screws",
-  "Cheese Talk",
-  "Bad B*tches",
-  "Therapy Notes",
-];
+.site {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #090000, #050505);
+}
 
-export default function App() {
-  return (
-    <main className="site">
-      <div className="noise"></div>
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 30px;
+}
 
-      <div className="smoke smoke1"></div>
-      <div className="smoke smoke2"></div>
-      <div className="smoke smoke3"></div>
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255, 0, 0, 0.35), transparent 45%),
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9));
+  z-index: 1;
+}
 
-      <div className="top-banner">
-        🚨 BIG GEE OUT JUNE 5TH 🚨
-      </div>
+.smoke {
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.12), transparent 20%),
+    radial-gradient(circle, rgba(255,0,0,0.15), transparent 25%);
+  animation: smokeMove 12s infinite linear;
+  opacity: 0.35;
+}
 
-      <nav className="nav">
-        <div className="logo">GUELLY B</div>
+@keyframes smokeMove {
+  from {
+    transform: translate(-10%, -10%) rotate(0deg);
+  }
+  to {
+    transform: translate(10%, 10%) rotate(360deg);
+  }
+}
 
-        <div className="nav-links">
-          <a href="#watch">WATCH</a>
-          <a href="#listen">LISTEN</a>
-          <a href="#tracklist">TRACKLIST</a>
-        </div>
-      </nav>
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
 
-      <section className="hero">
-        <div className="hero-text">
-          <p className="eyebrow">OFFICIAL MIXTAPE</p>
+.tag {
+  color: #ff3333;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
 
-          <h1>
-            BIG
-            <br />
-            GEE
-          </h1>
+h1 {
+  font-size: clamp(70px, 15vw, 180px);
+  margin: 10px 0;
+  color: #ff0000;
+  text-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
 
-          <p className="tagline">
-            Super Fly. Real Motion. June 5th.
-          </p>
+h2 {
+  font-size: clamp(28px, 6vw, 60px);
+  margin: 10px 0;
+}
 
-          <div className="hero-buttons">
-            <a href="#watch" className="btn primary">
-              Watch Preview
-            </a>
+.desc {
+  font-size: 20px;
+  color: #ddd;
+  margin: 25px auto;
+  max-width: 600px;
+}
 
-            <a
-              href={links.spotify}
-              target="_blank"
-              rel="noreferrer"
-              className="btn secondary"
-            >
-              Stream Guelly B
-            </a>
-          </div>
+.buttons,
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
 
-          <div className="countdown">
-            <div>
-              <strong>12</strong>
-              <span>DAYS</span>
-            </div>
+a {
+  color: white;
+  text-decoration: none;
+  background: #b30000;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  transition: 0.25s ease;
+}
 
-            <div>
-              <strong>00</strong>
-              <span>HRS</span>
-            </div>
+a:hover {
+  background: #ff0000;
+  transform: scale(1.05);
+}
 
-            <div>
-              <strong>00</strong>
-              <span>MIN</span>
-            </div>
-          </div>
-        </div>
+.section {
+  padding: 70px 25px;
+  text-align: center;
+}
 
-        <div className="cover-card">
-          <div className="cover-glow"></div>
+.video {
+  max-width: 900px;
+  margin: 30px auto;
+  aspect-ratio: 16 / 9;
+  border: 2px solid #ff0000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.35);
+}
 
-          <div className="cover-art">
-            <p>BIG</p>
-            <p>GEE</p>
-          </div>
-        </div>
-      </section>
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
-      <section id="watch" className="section trailer-section">
-        <p className="eyebrow">WATCH THE PREVIEW</p>
+@media (max-width: 600px) {
+  .desc {
+    font-size: 16px;
+  }
 
-        <h2>Enter The World Of Big Gee</h2>
-
-        <div className="trailer-box">
-          <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0?rel=0"
-            title="Ballin Like VJ"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
-
-      <section id="listen" className="section listen-section">
-        <p className="eyebrow">STREAM GUELLY B</p>
-
-        <h2>Listen Everywhere</h2>
-
-        <div className="platforms">
-          <a
-            href={links.spotify}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Spotify
-          </a>
-
-          <a
-            href={links.apple}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Apple Music
-          </a>
-
-          <a
-            href={links.youtube}
-            target="_blank"
-            rel="noreferrer"
-          >
-            YouTube
-          </a>
-
-          <a
-            href={links.audiomack}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Audiomack
-          </a>
-        </div>
-      </section>
-
-      <section id="tracklist" className="section tracklist-section">
-        <p className="eyebrow">TRACKLIST</p>
-
-        <h2>BIG GEE</h2>
-
-        <div className="tracklist">
-          {tracks.map((track, index) => (
-            <div className="track" key={track}>
-              <span>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <p>{track}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div className="socials">
-        <a
-          href={links.instagram}
-          target="_blank"
-          rel="noreferrer"
-        >
-          IG
-        </a>
-
-        <a
-          href={links.tiktok}
-          target="_blank"
-          rel="noreferrer"
-        >
-          TT
-        </a>
-
-        <a
-          href={links.youtube}
-          target="_blank"
-          rel="noreferrer"
-        >
-          YT
-        </a>
-      </div>
-
-      <footer>
-        <p>© GUELLY B — BIG GEE</p>
-      </footer>
-    </main>
-  );
+  a {
+    width: 100%;
+    max-width: 280px;
+  }
 }
