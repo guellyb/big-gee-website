@@ -23,15 +23,19 @@ const tracks = [
 export default function App() {
   return (
     <main className="site">
-      <div className="noise" />
-      <div className="smoke smoke1" />
-      <div className="smoke smoke2" />
-      <div className="smoke smoke3" />
+      <div className="noise"></div>
 
-      <div className="top-banner">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
+      <div className="smoke smoke1"></div>
+      <div className="smoke smoke2"></div>
+      <div className="smoke smoke3"></div>
+
+      <div className="top-banner">
+        🚨 BIG GEE OUT JUNE 5TH 🚨
+      </div>
 
       <nav className="nav">
         <div className="logo">GUELLY B</div>
+
         <div className="nav-links">
           <a href="#watch">WATCH</a>
           <a href="#listen">LISTEN</a>
@@ -42,25 +46,53 @@ export default function App() {
       <section className="hero">
         <div className="hero-text">
           <p className="eyebrow">OFFICIAL MIXTAPE</p>
-          <h1>BIG<br />GEE</h1>
-          <p className="tagline">Super Fly. Real Motion. June 5th.</p>
+
+          <h1>
+            BIG
+            <br />
+            GEE
+          </h1>
+
+          <p className="tagline">
+            Super Fly. Real Motion. June 5th.
+          </p>
 
           <div className="hero-buttons">
-            <a href="#watch" className="btn primary">Watch Preview</a>
-            <a href={links.spotify} target="_blank" className="btn secondary">
+            <a href="#watch" className="btn primary">
+              Watch Preview
+            </a>
+
+            <a
+              href={links.spotify}
+              target="_blank"
+              rel="noreferrer"
+              className="btn secondary"
+            >
               Stream Guelly B
             </a>
           </div>
 
           <div className="countdown">
-            <div><strong>12</strong><span>DAYS</span></div>
-            <div><strong>00</strong><span>HRS</span></div>
-            <div><strong>00</strong><span>MIN</span></div>
+            <div>
+              <strong>12</strong>
+              <span>DAYS</span>
+            </div>
+
+            <div>
+              <strong>00</strong>
+              <span>HRS</span>
+            </div>
+
+            <div>
+              <strong>00</strong>
+              <span>MIN</span>
+            </div>
           </div>
         </div>
 
         <div className="cover-card">
-          <div className="cover-glow" />
+          <div className="cover-glow"></div>
+
           <div className="cover-art">
             <p>BIG</p>
             <p>GEE</p>
@@ -70,39 +102,71 @@ export default function App() {
 
       <section id="watch" className="section trailer-section">
         <p className="eyebrow">WATCH THE PREVIEW</p>
+
         <h2>Enter The World Of Big Gee</h2>
+
         <div className="trailer-box">
-  <iframe
-    width="100%"
-    height="100%"
-    src="https://www.youtube.com/embed/brsxymjwT_0?autoplay=0&rel=0"
-    title="Ballin Like VJ"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>          <div className="play-btn">▶</div>
-          <p>DROP TRAILER / MUSIC VIDEO HERE</p>
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0?rel=0"
+            title="Ballin Like VJ"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </section>
 
-      <section id="listen" className="section listen-section">        <p className="eyebrow">STREAM GUELLY B</p>
+      <section id="listen" className="section listen-section">
+        <p className="eyebrow">STREAM GUELLY B</p>
+
         <h2>Listen Everywhere</h2>
+
         <div className="platforms">
-          <a href={links.spotify} target="_blank">Spotify</a>
-          <a href={links.apple} target="_blank">Apple Music</a>
-          <a href={links.youtube} target="_blank">YouTube</a>
-          <a href={links.audiomack} target="_blank">Audiomack</a>
+          <a
+            href={links.spotify}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Spotify
+          </a>
+
+          <a
+            href={links.apple}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Apple Music
+          </a>
+
+          <a
+            href={links.youtube}
+            target="_blank"
+            rel="noreferrer"
+          >
+            YouTube
+          </a>
+
+          <a
+            href={links.audiomack}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Audiomack
+          </a>
         </div>
       </section>
 
       <section id="tracklist" className="section tracklist-section">
         <p className="eyebrow">TRACKLIST</p>
+
         <h2>BIG GEE</h2>
+
         <div className="tracklist">
           {tracks.map((track, index) => (
             <div className="track" key={track}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
               <p>{track}</p>
             </div>
           ))}
@@ -110,9 +174,29 @@ export default function App() {
       </section>
 
       <div className="socials">
-        <a href={links.instagram} target="_blank">IG</a>
-        <a href={links.tiktok} target="_blank">TT</a>
-        <a href={links.youtube} target="_blank">YT</a>
+        <a
+          href={links.instagram}
+          target="_blank"
+          rel="noreferrer"
+        >
+          IG
+        </a>
+
+        <a
+          href={links.tiktok}
+          target="_blank"
+          rel="noreferrer"
+        >
+          TT
+        </a>
+
+        <a
+          href={links.youtube}
+          target="_blank"
+          rel="noreferrer"
+        >
+          YT
+        </a>
       </div>
 
       <footer>
