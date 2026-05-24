@@ -473,3 +473,40 @@ footer p {
     width: 100%;
   }
 }
+.countdown-section {
+  padding: 90px 7%;
+  text-align: center;
+  background:
+    radial-gradient(circle, rgba(255,0,0,.18), transparent 60%),
+    #050505;
+}
+
+.countdown-grid {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.count-box {
+  min-width: 140px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 0 30px rgba(255,0,0,.12);
+}
+
+.count-box span {
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 20px rgba(255,0,0,.55);
+}
+
+.count-box p {
+  margin-top: 10px;
+  color: #aaa;
+  letter-spacing: 3px;
+}
