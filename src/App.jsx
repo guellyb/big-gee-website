@@ -72,7 +72,16 @@ export default function App() {
         <p className="eyebrow">WATCH THE PREVIEW</p>
         <h2>Enter The World Of Big Gee</h2>
         <div className="trailer-box">
-          <div className="play-btn">▶</div>
+  <iframe
+    width="100%"
+    height="100%"
+    src="https://www.youtube.com/embed/brsxymjwT_0?autoplay=0&rel=0"
+    title="Ballin Like VJ"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>          <div className="play-btn">▶</div>
           <p>DROP TRAILER / MUSIC VIDEO HERE</p>
         </div>
       </section>
