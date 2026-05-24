@@ -22,43 +22,37 @@ export default function App() {
       const distance = releaseDate - now;
 
       setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+        days: Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24))),
+        hours: Math.max(
+          0,
+          Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
         ),
-        mins: Math.floor(
-          (distance % (1000 * 60 * 60)) /
-            (1000 * 60)
+        mins: Math.max(
+          0,
+          Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
         ),
-        secs: Math.floor(
-          (distance % (1000 * 60)) / 1000
-        ),
+        secs: Math.max(0, Math.floor((distance % (1000 * 60)) / 1000)),
       });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [releaseDate]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
+    setTimeout(() => setLoading(false), 2500);
   }, []);
 
   useEffect(() => {
     const glow = document.querySelector(".cursor-glow");
 
     const moveGlow = (e) => {
+      if (!glow) return;
       glow.style.left = `${e.clientX}px`;
       glow.style.top = `${e.clientY}px`;
     };
 
     window.addEventListener("mousemove", moveGlow);
-
-    return () => {
-      window.removeEventListener("mousemove", moveGlow);
-    };
+    return () => window.removeEventListener("mousemove", moveGlow);
   }, []);
 
   useEffect(() => {
@@ -67,15 +61,17 @@ export default function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("active");
         });
       },
       { threshold: 0.2 }
     );
 
     reveals.forEach((el) => observer.observe(el));
+
+    return () => {
+      reveals.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   return (
@@ -89,22 +85,20 @@ export default function App() {
 
       <div className="cursor-glow"></div>
 
-      <div className="announcement">
-        🚨 BIG GEE OUT JUNE 5TH 🚨
-      </div>
+      <div className="announcement">🚨 BIG GEE OUT JUNE 5TH 🚨</div>
 
       <div className="floating-socials">
-        <a href={links.instagram} target="_blank" rel="noreferrer">
-          IG
-        </a>
+        <a href={links.instagram} target="_blank" rel="noreferrer">IG</a>
+        <a href={links.tiktok} target="_blank" rel="noreferrer">TT</a>
+        <a href={links.youtube} target="_blank" rel="noreferrer">YT</a>
+      </div>
 
-        <a href={links.tiktok} target="_blank" rel="noreferrer">
-          TT
-        </a>
-
-        <a href={links.youtube} target="_blank" rel="noreferrer">
-          YT
-        </a>
+      <div className="eagles">
+        <span>🦅</span>
+        <span>🦅</span>
+        <span>🦅</span>
+        <span>🦅</span>
+        <span>🦅</span>
       </div>
 
       <section className="hero">
@@ -134,18 +128,11 @@ export default function App() {
 
           <h1>BIG GEE</h1>
 
-          <p className="subtitle">
-            Dark energy. Real motion. June 5th.
-          </p>
+          <p className="subtitle">Super Fly, Real Motion. June 5th.</p>
 
           <div className="buttons">
-            <a href="#visual" className="btn primary">
-              Watch Preview
-            </a>
-
-            <a href="#listen" className="btn secondary">
-              Stream Guelly B
-            </a>
+            <a href="#visual" className="btn primary">Watch Preview</a>
+            <a href="#listen" className="btn secondary">Stream Guelly B</a>
           </div>
         </div>
 
@@ -164,9 +151,7 @@ export default function App() {
 
         <h2>Ballin Like VJ</h2>
 
-        <p className="section-text">
-          Official BIG GEE visual experience.
-        </p>
+        <p className="section-text">Official BIG GEE visual experience.</p>
 
         <div className="video-frame">
           <iframe
@@ -184,41 +169,10 @@ export default function App() {
         <h2>Platforms</h2>
 
         <div className="stream-grid">
-          <a
-            href={links.spotify}
-            target="_blank"
-            rel="noreferrer"
-            className="stream-card"
-          >
-            Spotify
-          </a>
-
-          <a
-            href={links.apple}
-            target="_blank"
-            rel="noreferrer"
-            className="stream-card"
-          >
-            Apple Music
-          </a>
-
-          <a
-            href={links.audiomack}
-            target="_blank"
-            rel="noreferrer"
-            className="stream-card"
-          >
-            Audiomack
-          </a>
-
-          <a
-            href={links.youtube}
-            target="_blank"
-            rel="noreferrer"
-            className="stream-card"
-          >
-            YouTube
-          </a>
+          <a href={links.spotify} target="_blank" rel="noreferrer" className="stream-card">Spotify</a>
+          <a href={links.apple} target="_blank" rel="noreferrer" className="stream-card">Apple Music</a>
+          <a href={links.audiomack} target="_blank" rel="noreferrer" className="stream-card">Audiomack</a>
+          <a href={links.youtube} target="_blank" rel="noreferrer" className="stream-card">YouTube</a>
         </div>
       </section>
 
@@ -257,22 +211,22 @@ export default function App() {
 
         <div className="countdown-grid">
           <div className="count-box">
-            <span>{timeLeft.days || "00"}</span>
+            <span>{timeLeft.days ?? "00"}</span>
             <p>DAYS</p>
           </div>
 
           <div className="count-box">
-            <span>{timeLeft.hours || "00"}</span>
+            <span>{timeLeft.hours ?? "00"}</span>
             <p>HOURS</p>
           </div>
 
           <div className="count-box">
-            <span>{timeLeft.mins || "00"}</span>
+            <span>{timeLeft.mins ?? "00"}</span>
             <p>MINS</p>
           </div>
 
           <div className="count-box">
-            <span>{timeLeft.secs || "00"}</span>
+            <span>{timeLeft.secs ?? "00"}</span>
             <p>SECS</p>
           </div>
         </div>
