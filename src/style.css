@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #050505;
   color: white;
@@ -17,7 +21,7 @@ body {
 .hero {
   min-height: 100vh;
   background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.9)),
+    linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.92)),
     url("/cover.jpg");
   background-size: cover;
   background-position: center;
@@ -29,8 +33,32 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(170,0,0,.25), transparent 55%);
+  background:
+    radial-gradient(circle at 35% 55%, rgba(180,0,0,.38), transparent 35%),
+    radial-gradient(circle at 75% 30%, rgba(255,0,0,.16), transparent 30%);
   pointer-events: none;
+}
+
+.smoke {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.08), transparent 20%),
+    radial-gradient(circle at 70% 70%, rgba(255,255,255,.05), transparent 25%);
+  filter: blur(18px);
+  animation: smokeMove 8s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes smokeMove {
+  from {
+    transform: translateX(-20px) translateY(10px);
+    opacity: .35;
+  }
+  to {
+    transform: translateX(25px) translateY(-15px);
+    opacity: .7;
+  }
 }
 
 .nav {
@@ -46,10 +74,16 @@ body {
   letter-spacing: 3px;
 }
 
+.nav div {
+  display: flex;
+  gap: 25px;
+}
+
 .nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .hero-content {
@@ -114,11 +148,14 @@ h1 {
   color: white;
 }
 
-.btn:hover {
+.btn:hover,
+.stream-card:hover,
+.socials a:hover {
   transform: scale(1.05);
 }
 
 .visual-section,
+.listen-section,
 .tracklist {
   padding: 90px 7%;
   text-align: center;
@@ -126,6 +163,7 @@ h1 {
 }
 
 .visual-section h2,
+.listen-section h2,
 .tracklist h2 {
   font-size: clamp(38px, 7vw, 85px);
   text-transform: uppercase;
@@ -155,6 +193,36 @@ h1 {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.listen-section {
+  background:
+    linear-gradient(rgba(0,0,0,.92), rgba(0,0,0,.96)),
+    radial-gradient(circle, rgba(255,0,0,.28), transparent 60%);
+}
+
+.stream-grid {
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.stream-card {
+  color: white;
+  text-decoration: none;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  font-weight: bold;
+  transition: .3s;
+}
+
+.stream-card:hover {
+  border-color: #ff1f1f;
+  box-shadow: 0 0 30px rgba(255,0,0,.25);
 }
 
 .tracklist {
@@ -189,7 +257,7 @@ h1 {
 }
 
 footer {
-  padding: 45px 7%;
+  padding: 55px 7%;
   text-align: center;
   background: black;
   border-top: 1px solid rgba(255,255,255,.1);
@@ -202,4 +270,49 @@ footer h3 {
 
 footer p {
   color: #aaa;
+}
+
+.socials {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 12px 18px;
+  border-radius: 999px;
+  transition: .3s;
+}
+
+@media (max-width: 750px) {
+  .nav {
+    padding: 22px 6%;
+  }
+
+  .nav div {
+    gap: 14px;
+  }
+
+  h1 {
+    letter-spacing: -3px;
+  }
+
+  .stream-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-section,
+  .listen-section,
+  .tracklist {
+    padding: 70px 6%;
+  }
+
+  .tracklist li {
+    font-size: 19px;
+  }
 }
