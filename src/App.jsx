@@ -18,8 +18,11 @@ export default function App() {
       </div>
 
       <div className="announcement">🚨 BIG GEE DROPS JUNE 5TH 🚨</div>
-
-      <section className="hero">
+<div className="floating-socials">
+  <a href={links.instagram} target="_blank">IG</a>
+  <a href={links.tiktok} target="_blank">TT</a>
+  <a href={links.youtube} target="_blank">YT</a>
+</div>      <section className="hero">
         <div className="smoke"></div>
         <div className="overlay"></div>
 
