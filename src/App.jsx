@@ -12,7 +12,9 @@ export default function App() {
 
   return (
     <main className="site">
-      <section className="hero">
+      <div className="announcement">
+  🚨 BIG GEE DROPS JUNE 5TH 🚨
+</div>      <section className="hero">
         <div className="smoke"></div>
         <div className="overlay"></div>
 
