@@ -542,3 +542,109 @@ footer {
     height: 40px;
   }
 }
+.trailer-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,0,0,.35), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(120,0,0,.35), transparent 35%),
+    linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.85));
+  overflow: hidden;
+}
+
+.trailer-light {
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  top: -30%;
+  left: -30%;
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    rgba(255,0,0,.18),
+    transparent,
+    rgba(255,255,255,.05),
+    transparent
+  );
+  animation: trailerSpin 10s linear infinite;
+  filter: blur(18px);
+}
+
+.trailer-smoke {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.08), transparent 22%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.06), transparent 25%),
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.04), transparent 30%);
+  filter: blur(22px);
+  animation: trailerSmoke 7s ease-in-out infinite alternate;
+}
+
+.trailer-title {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  opacity: .12;
+  pointer-events: none;
+}
+
+.trailer-title span {
+  display: block;
+  font-size: clamp(90px, 20vw, 260px);
+  font-weight: 900;
+  line-height: .78;
+  letter-spacing: -10px;
+  color: white;
+  text-shadow:
+    0 0 25px rgba(255,0,0,.9),
+    0 0 80px rgba(255,0,0,.5);
+  animation: trailerPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes trailerSpin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+
+@keyframes trailerSmoke {
+  from {
+    transform: translateX(-30px) translateY(15px);
+    opacity: .45;
+  }
+
+  to {
+    transform: translateX(35px) translateY(-20px);
+    opacity: .9;
+  }
+}
+
+@keyframes trailerPulse {
+  0%, 100% {
+    opacity: .45;
+    transform: scale(.98);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.hero-content,
+.nav {
+  z-index: 3;
+}
+
+.overlay,
+.smoke {
+  z-index: 2;
+}
