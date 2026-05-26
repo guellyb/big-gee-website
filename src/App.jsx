@@ -35,14 +35,16 @@ function App() {
   return (
     <div className="site">
       <div className="overlay"></div>
+      <div className="grain"></div>
       <div className="smoke smoke1"></div>
       <div className="smoke smoke2"></div>
+      <div className="smoke smoke3"></div>
 
       <nav className="nav">
         <span>GUELLY B</span>
         <a href="#cover">Cover</a>
         <a href="#video">Video</a>
-        <a href="#tracklist">Tracklist</a>
+        <a href="#bio">Bio</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -66,16 +68,23 @@ function App() {
           <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
         </div>
+
+        <p className="scrollText">↓ ENTER THE BIG GEE ERA ↓</p>
       </header>
 
       <section className="coverSection" id="cover">
         <div className="coverText">
-          <p className="smallTitle">OFFICIAL COVER ART</p>
+          <p className="smallTitle">OFFICIAL MIXTAPE</p>
           <h2>BIG GEE</h2>
           <p>
-            A cinematic project from Guelly B built on pressure, pain,
-            confidence, and real motion.
+            A cinematic project from Guelly B built on pain, pressure,
+            confidence, survival, and real motion.
           </p>
+          <div className="miniStats">
+            <div><strong>8</strong><span>Tracks</span></div>
+            <div><strong>06.05</strong><span>Release</span></div>
+            <div><strong>2026</strong><span>Era</span></div>
+          </div>
         </div>
 
         <img src="/cover.jpg" alt="BIG GEE cover art" className="coverArt" />
@@ -110,10 +119,28 @@ function App() {
         </div>
       </section>
 
+      <section className="bioSection" id="bio">
+        <div className="bioCard">
+          <p className="smallTitle">WHO IS GUELLY B</p>
+          <h2>The Story</h2>
+          <p>
+            Guelly B, born and raised in Nassau, Bahamas, is a rapper and
+            songwriter known for energetic and heartfelt lyrics that speak
+            volumes about his personal experiences and creative thinking
+            growing up.
+          </p>
+          <p>
+            His first record was released in 2020 — and the rest was history.
+          </p>
+        </div>
+      </section>
+
       <section className="contactSection" id="contact">
         <div className="contactCard">
           <p className="smallTitle">BOOKINGS / FEATURES / PRESS</p>
           <h2>Contact Guelly B</h2>
+          <p>For bookings, features, press, and business inquiries.</p>
+
           <a href="mailto:guellybmusic@gmail.com" className="emailBtn">
             guellybmusic@gmail.com
           </a>
@@ -127,7 +154,19 @@ function App() {
       </section>
 
       <footer>
-        <p>© 2026 GUELLY B — BIG GEE</p>
+        <h3>GUELLY B</h3>
+        <p>BIG GEE — Mixtape Out June 5th</p>
+
+        <div className="footerLinks">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Audiomack</a>
+        </div>
+
+        <p className="copy">© 2026 GUELLY B — BIG GEE</p>
       </footer>
     </div>
   );
