@@ -101,7 +101,7 @@ function App() {
 
           <a href="#gallery">Gallery</a>
 
-          <a href="#merch">Merch</a>
+          <a href="#updates">Updates</a>
 
           <a href="#contact">Contact</a>
 
@@ -129,7 +129,7 @@ function App() {
         <a href="#music" onClick={() => setMenuOpen(false)}>Music</a>
         <a href="#video" onClick={() => setMenuOpen(false)}>Video</a>
         <a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
-        <a href="#merch" onClick={() => setMenuOpen(false)}>Merch</a>
+        <a href="#updates" onClick={() => setMenuOpen(false)}>Updates</a>
         <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
       </div>
@@ -374,65 +374,60 @@ function App() {
       </section>
 
       <section
-        className="merchSection sectionReveal"
-        id="merch"
+        className="updatesSection sectionReveal"
+        id="updates"
       >
 
-        <p className="smallTitle">
-          GUELLY B MERCH
-        </p>
+        <div className="updatesCard">
 
-        <h2>
-          Official Gear
-        </h2>
+          <p className="smallTitle">
+            STAY READY
+          </p>
 
-        <div className="merchGrid">
+          <h2>
+            Fan Updates
+          </h2>
 
-          <div className="merchItem">
+          <p>
+            Tap in with Guelly B for new music,
+            visuals, merch drops, behind-the-scenes
+            updates, and exclusive BIG GEE news.
+          </p>
 
-            <div className="merchImage">
-              BIG GEE
+          <div className="updateList">
+
+            <div className="updateItem">
+              <span>●</span>
+              <p>BIG GEE rollout officially active.</p>
             </div>
 
-            <h3>
-              BIG GEE Tee
-            </h3>
+            <div className="updateItem">
+              <span>●</span>
+              <p>New visuals and snippets dropping soon.</p>
+            </div>
 
-            <p>
-              Coming Soon
-            </p>
+            <div className="updateItem">
+              <span>●</span>
+              <p>Exclusive merch loading.</p>
+            </div>
 
           </div>
 
-          <div className="merchItem">
+          <div className="buttons">
 
-            <div className="merchImage">
-              GB
-            </div>
+            <a
+              href="https://www.instagram.com/therealguellyb/"
+              target="_blank"
+            >
+              Follow Instagram
+            </a>
 
-            <h3>
-              Motion Hoodie
-            </h3>
-
-            <p>
-              Coming Soon
-            </p>
-
-          </div>
-
-          <div className="merchItem">
-
-            <div className="merchImage">
-              242
-            </div>
-
-            <h3>
-              Bahamas Drop
-            </h3>
-
-            <p>
-              Coming Soon
-            </p>
+            <a
+              href="https://www.tiktok.com/@guellyb"
+              target="_blank"
+            >
+              Follow TikTok
+            </a>
 
           </div>
 
