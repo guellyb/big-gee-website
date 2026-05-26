@@ -20,6 +20,21 @@ function App() {
 
         <p className="date">Mixtape Out June 5th</p>
 
+<div className="countdown">
+  <div>
+    <span>00</span>
+    <p>DAYS</p>
+  </div>
+  <div>
+    <span>00</span>
+    <p>HOURS</p>
+  </div>
+  <div>
+    <span>00</span>
+    <p>MIN</p>
+  </div>
+</div>
+
         <div className="buttons">
           <a
             href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
