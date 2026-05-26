@@ -1,503 +1,206 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+import "./App.css";
+import { useEffect, useState } from "react";
+
+function App() {
+  const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = releaseDate - now;
+
+      if (distance <= 0) {
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [releaseDate]);
+
+  return (
+    <div className="site">
+      <div className="overlay"></div>
+      <div className="grain"></div>
+      <div className="smoke smoke1"></div>
+      <div className="smoke smoke2"></div>
+      <div className="smoke smoke3"></div>
+
+      <nav className="nav">
+        <span>GUELLY B</span>
+        <a href="#cover">Cover</a>
+        <a href="#music">Music</a>
+        <a href="#video">Video</a>
+        <a href="#bio">Bio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <header className="hero">
+        <p className="tag">GUELLY B PRESENTS</p>
+        <h1>BIG GEE</h1>
+        <h2>Super Fly, Real Motion</h2>
+        <p className="date">Mixtape Out June 5th</p>
+
+        <div className="countdown">
+          <div><span>{timeLeft.days}</span><p>DAYS</p></div>
+          <div><span>{timeLeft.hours}</span><p>HOURS</p></div>
+          <div><span>{timeLeft.minutes}</span><p>MIN</p></div>
+          <div><span>{timeLeft.seconds}</span><p>SEC</p></div>
+        </div>
+
+        <div className="buttons">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+        </div>
+
+        <p className="scrollText">↓ ENTER THE BIG GEE ERA ↓</p>
+      </header>
+
+      <section className="coverSection" id="cover">
+        <div className="coverText">
+          <p className="smallTitle">OFFICIAL MIXTAPE</p>
+          <h2>BIG GEE</h2>
+          <p>
+            A cinematic project from Guelly B built on pain, pressure,
+            confidence, survival, and real motion.
+          </p>
+
+          <div className="miniStats">
+            <div><strong>8</strong><span>Tracks</span></div>
+            <div><strong>06.05</strong><span>Release</span></div>
+            <div><strong>2026</strong><span>Era</span></div>
+          </div>
+        </div>
+
+        <img src="/cover.jpg" alt="BIG GEE cover art" className="coverArt" />
+      </section>
+
+      <section className="musicSection" id="music">
+        <p className="smallTitle">STREAM GUELLY B</p>
+        <h2>Music Preview</h2>
+
+        <div className="musicCard">
+          <iframe
+            className="spotifyEmbed"
+            src="https://open.spotify.com/embed/artist/0WdypKNxCbHK0vLNgujumS?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Guelly B Spotify Player"
+          ></iframe>
+
+          <p>
+            Follow Guelly B now and be ready when BIG GEE drops.
+          </p>
+
+          <div className="buttons">
+            <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Open Spotify</a>
+            <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Open Apple Music</a>
+            <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Open Audiomack</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="videoSection" id="video">
+        <p className="smallTitle">OFFICIAL VISUAL</p>
+        <h2>Watch The Motion</h2>
+
+        <div className="videoBox">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Guelly B Official Visual"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section className="tracklist" id="tracklist">
+        <p className="smallTitle">BIG GEE</p>
+        <h2>Tracklist</h2>
+
+        <div className="tracks">
+          <div className="track">01 — Motion Only</div>
+          <div className="track">02 — Spike Lee</div>
+          <div className="track">03 — Start Over</div>
+          <div className="track">04 — Ballin Like VJ</div>
+          <div className="track">05 — Loose Screws</div>
+          <div className="track">06 — Cheese Talk</div>
+          <div className="track">07 — Bad B*tches</div>
+          <div className="track">08 — Therapy Notes</div>
+        </div>
+      </section>
+
+      <section className="bioSection" id="bio">
+        <div className="bioCard">
+          <p className="smallTitle">WHO IS GUELLY B</p>
+          <h2>The Story</h2>
+
+          <p>
+            Guelly B, born and raised in Nassau, Bahamas, is a rapper and
+            songwriter known for energetic and heartfelt lyrics that speak
+            volumes about his personal experiences and creative thinking
+            growing up.
+          </p>
+
+          <p>
+            His first record was released in 2020 — and the rest was history.
+          </p>
+        </div>
+      </section>
+
+      <section className="contactSection" id="contact">
+        <div className="contactCard">
+          <p className="smallTitle">BOOKINGS / FEATURES / PRESS</p>
+          <h2>Contact Guelly B</h2>
+          <p>For bookings, features, press, and business inquiries.</p>
+
+          <a href="mailto:guellybmusic@gmail.com" className="emailBtn">
+            guellybmusic@gmail.com
+          </a>
+
+          <div className="buttons">
+            <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+            <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <h3>GUELLY B</h3>
+        <p>BIG GEE — Mixtape Out June 5th</p>
+
+        <div className="footerLinks">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Audiomack</a>
+        </div>
+
+        <p className="copy">© 2026 GUELLY B — BIG GEE</p>
+      </footer>
+    </div>
+  );
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #000;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-.site {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at top, rgba(255, 0, 0, 0.45), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(120, 0, 0, 0.45), transparent 38%),
-    linear-gradient(180deg, #180000, #060606 55%, #000);
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, transparent 25%, rgba(0, 0, 0, 0.76)),
-    linear-gradient(90deg, rgba(0,0,0,.45), transparent, rgba(0,0,0,.45));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.grain {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: .13;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.nav {
-  width: calc(100% - 40px);
-  max-width: 1120px;
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  padding: 15px 20px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.58);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  backdrop-filter: blur(15px);
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.nav span {
-  color: #ff2d2d;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-right: auto;
-}
-
-.nav a {
-  color: #ddd;
-  text-decoration: none;
-  font-size: .9rem;
-  transition: .3s;
-}
-
-.nav a:hover {
-  color: #ff2d2d;
-}
-
-.hero {
-  min-height: 100vh;
-  padding: 130px 20px 70px;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.tag,
-.smallTitle {
-  color: #ff2d2d;
-  letter-spacing: 5px;
-  font-weight: 900;
-  margin-bottom: 18px;
-  font-size: .8rem;
-}
-
-h1 {
-  font-size: clamp(5rem, 15vw, 13rem);
-  color: #ff0000;
-  line-height: .85;
-  text-shadow:
-    0 0 10px #ff0000,
-    0 0 35px #ff0000,
-    0 0 90px rgba(255, 0, 0, .85);
-  animation: glowPulse 2.4s infinite alternate ease-in-out;
-}
-
-@keyframes glowPulse {
-  from {
-    text-shadow:
-      0 0 10px #ff0000,
-      0 0 25px #ff0000,
-      0 0 55px rgba(255, 0, 0, .65);
-  }
-
-  to {
-    text-shadow:
-      0 0 16px #ff0000,
-      0 0 48px #ff0000,
-      0 0 105px rgba(255, 0, 0, .95);
-  }
-}
-
-.hero h2 {
-  margin-top: 28px;
-  font-size: clamp(1.8rem, 5vw, 4.2rem);
-}
-
-.date {
-  margin-top: 18px;
-  color: #ddd;
-  font-size: 1.2rem;
-}
-
-.countdown {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.countdown div {
-  min-width: 92px;
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,0,0,.32);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 25px rgba(255,0,0,.14);
-}
-
-.countdown span {
-  color: #ff2d2d;
-  font-size: 2rem;
-  font-weight: 900;
-}
-
-.countdown p {
-  margin-top: 6px;
-  color: #aaa;
-  letter-spacing: 2px;
-  font-size: .75rem;
-}
-
-.buttons {
-  margin-top: 42px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.buttons a,
-.emailBtn {
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  border-radius: 999px;
-  border: 1px solid #ff2d2d;
-  background: rgba(255, 0, 0, .13);
-  transition: .3s;
-  backdrop-filter: blur(12px);
-}
-
-.buttons a:hover,
-.emailBtn:hover {
-  background: #ff0000;
-  transform: translateY(-5px) scale(1.04);
-  box-shadow: 0 0 28px rgba(255,0,0,.8);
-}
-
-.scrollText {
-  margin-top: 70px;
-  color: #888;
-  letter-spacing: 3px;
-  animation: floatText 2s infinite ease-in-out;
-}
-
-@keyframes floatText {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-  100% { transform: translateY(0); }
-}
-
-.coverSection {
-  position: relative;
-  z-index: 2;
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 120px 20px;
-  display: grid;
-  grid-template-columns: 1fr 430px;
-  gap: 55px;
-  align-items: center;
-}
-
-.coverText h2,
-.musicSection h2,
-.videoSection h2,
-.tracklist h2,
-.bioCard h2,
-.contactCard h2 {
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  color: #ff2d2d;
-  margin-bottom: 25px;
-}
-
-.coverText p,
-.musicCard p,
-.bioCard p,
-.contactCard p {
-  color: #d0d0d0;
-  line-height: 1.85;
-  font-size: 1.1rem;
-}
-
-.coverArt {
-  width: 100%;
-  border-radius: 32px;
-  border: 1px solid rgba(255,0,0,.38);
-  box-shadow: 0 0 65px rgba(255,0,0,.38);
-  transition: .35s;
-}
-
-.coverArt:hover {
-  transform: scale(1.025) rotate(-1deg);
-}
-
-.miniStats {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.miniStats div {
-  padding: 20px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.miniStats strong {
-  display: block;
-  color: #ff2d2d;
-  font-size: 2rem;
-}
-
-.miniStats span {
-  color: #aaa;
-  letter-spacing: 2px;
-  font-size: .8rem;
-}
-
-.musicSection,
-.videoSection,
-.tracklist,
-.bioSection,
-.contactSection {
-  position: relative;
-  z-index: 2;
-  padding: 110px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.musicCard,
-.bioCard,
-.contactCard {
-  width: 100%;
-  max-width: 900px;
-  padding: 55px;
-  border-radius: 34px;
-  background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.09);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 0 45px rgba(255,0,0,.2);
-}
-
-.spotifyEmbed {
-  border: none;
-  border-radius: 24px;
-  margin-bottom: 25px;
-}
-
-.videoBox {
-  width: 100%;
-  max-width: 1000px;
-  aspect-ratio: 16 / 9;
-  border-radius: 34px;
-  overflow: hidden;
-  border: 1px solid rgba(255,0,0,.35);
-  box-shadow: 0 0 55px rgba(255,0,0,.35);
-}
-
-.videoBox iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.tracks {
-  width: 100%;
-  max-width: 720px;
-}
-
-.track {
-  padding: 23px;
-  margin-bottom: 15px;
-  border-radius: 20px;
-  text-align: left;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(255,255,255,.07);
-  transition: .3s;
-  font-size: 1.15rem;
-}
-
-.track:hover {
-  transform: translateX(10px);
-  background: rgba(255,0,0,.14);
-  border-color: #ff2d2d;
-  box-shadow: 0 0 25px rgba(255,0,0,.22);
-}
-
-.emailBtn {
-  display: inline-block;
-  margin-top: 25px;
-}
-
-footer {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-  border-top: 1px solid rgba(255,255,255,.07);
-}
-
-footer h3 {
-  color: #ff2d2d;
-  font-size: 2rem;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
-}
-
-.footerLinks {
-  margin: 28px auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.footerLinks a {
-  color: #ddd;
-  text-decoration: none;
-  transition: .3s;
-}
-
-.footerLinks a:hover {
-  color: #ff2d2d;
-}
-
-.copy {
-  color: #666;
-  font-size: .9rem;
-}
-
-.smoke {
-  position: fixed;
-  width: 430px;
-  height: 430px;
-  border-radius: 50%;
-  filter: blur(75px);
-  opacity: .22;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.smoke1 {
-  background: #ff0000;
-  top: 8%;
-  left: -130px;
-  animation: move1 14s infinite alternate ease-in-out;
-}
-
-.smoke2 {
-  background: #8b0000;
-  top: 45%;
-  right: -130px;
-  animation: move2 16s infinite alternate ease-in-out;
-}
-
-.smoke3 {
-  background: #ff2d2d;
-  bottom: -130px;
-  left: 30%;
-  animation: move3 18s infinite alternate ease-in-out;
-}
-
-@keyframes move1 {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-120px) scale(1.35); }
-}
-
-@keyframes move2 {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(110px) scale(1.25); }
-}
-
-@keyframes move3 {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-90px) scale(1.45); }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    gap: 10px;
-    padding: 13px 12px;
-  }
-
-  .nav span {
-    font-size: .75rem;
-  }
-
-  .nav a {
-    font-size: .65rem;
-  }
-
-  .hero {
-    padding-top: 120px;
-  }
-
-  .tag,
-  .smallTitle {
-    letter-spacing: 3px;
-  }
-
-  .countdown div {
-    min-width: 78px;
-    padding: 15px 10px;
-  }
-
-  .countdown span {
-    font-size: 1.5rem;
-  }
-
-  .buttons a {
-    width: 230px;
-  }
-
-  .coverSection {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .miniStats {
-    grid-template-columns: 1fr;
-  }
-
-  .musicCard,
-  .bioCard,
-  .contactCard {
-    padding: 35px 24px;
-  }
-
-  .track {
-    font-size: 1rem;
-  }
-}
+export default App;
