@@ -1,6 +1,54 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
+
+  const countDownDate = new Date("June 5, 2026 00:00:00").getTime();
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+
+      const now = new Date().getTime();
+
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) / 1000
+      );
+
+      setTimeLeft({
+        days,
+        hours,
+        minutes,
+        seconds,
+      });
+
+    }, 1000);
+
+    return () => clearInterval(interval);
+
+  }, []);
+
   return (
     <div className="site">
 
@@ -20,22 +68,32 @@ function App() {
 
         <p className="date">Mixtape Out June 5th</p>
 
-<div className="countdown">
-  <div>
-    <span>00</span>
-    <p>DAYS</p>
-  </div>
-  <div>
-    <span>00</span>
-    <p>HOURS</p>
-  </div>
-  <div>
-    <span>00</span>
-    <p>MIN</p>
-  </div>
-</div>
+        <div className="countdown">
+
+          <div>
+            <span>{timeLeft.days}</span>
+            <p>DAYS</p>
+          </div>
+
+          <div>
+            <span>{timeLeft.hours}</span>
+            <p>HOURS</p>
+          </div>
+
+          <div>
+            <span>{timeLeft.minutes}</span>
+            <p>MIN</p>
+          </div>
+
+          <div>
+            <span>{timeLeft.seconds}</span>
+            <p>SEC</p>
+          </div>
+
+        </div>
 
         <div className="buttons">
+
           <a
             href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
             target="_blank"
@@ -56,6 +114,7 @@ function App() {
           >
             Audiomack
           </a>
+
         </div>
 
         <div className="scrollText">
@@ -63,59 +122,6 @@ function App() {
         </div>
 
       </header>
-
-      <section className="cinematicSection">
-        <div className="glassCard">
-          <h2>BIG GEE</h2>
-
-          <p>
-            Cinematic pain music mixed with motion, pressure,
-            hunger and lifestyle.
-          </p>
-
-          <p>
-            This project brings the real story behind Guelly B
-            with dark visuals, energy and raw confidence.
-          </p>
-        </div>
-      </section>
-
-      <section className="videoSection">
-
-        <h2>Official Visual</h2>
-
-        <div className="videoBox">
-          <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0"
-            title="Guelly B"
-            allowFullScreen
-          ></iframe>
-        </div>
-
-      </section>
-
-      <section className="tracklist">
-
-        <h2>Tracklist</h2>
-
-        <div className="tracks">
-
-          <div className="track">01 — Motion Only</div>
-          <div className="track">02 — Spike Lee</div>
-          <div className="track">03 — Start Over</div>
-          <div className="track">04 — Ballin Like VJ</div>
-          <div className="track">05 — Loose Screws</div>
-          <div className="track">06 — Cheese Talk</div>
-          <div className="track">07 — Bad B*tches</div>
-          <div className="track">08 — Therapy Notes</div>
-
-        </div>
-
-      </section>
-
-      <footer>
-        <p>© 2026 GUELLY B — BIG GEE</p>
-      </footer>
 
     </div>
   );
