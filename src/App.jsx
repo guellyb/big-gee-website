@@ -134,7 +134,7 @@ function App() {
 
       </div>
 
-      <header className="hero sectionReveal">
+      <header className="hero">
 
         <video
           className="heroVideo"
@@ -258,7 +258,7 @@ function App() {
       </header>
 
       <section
-        className="coverSection sectionReveal"
+        className="coverSection"
         id="cover"
       >
 
@@ -289,7 +289,7 @@ function App() {
       </section>
 
       <section
-        className="musicSection sectionReveal"
+        className="musicSection"
         id="music"
       >
 
@@ -318,7 +318,7 @@ function App() {
       </section>
 
       <section
-        className="videoSection sectionReveal"
+        className="videoSection"
         id="video"
       >
 
@@ -343,7 +343,7 @@ function App() {
       </section>
 
       <section
-        className="gallerySection sectionReveal"
+        className="gallerySection"
         id="gallery"
       >
 
@@ -374,7 +374,7 @@ function App() {
       </section>
 
       <section
-        className="updatesSection sectionReveal"
+        className="updatesSection"
         id="updates"
       >
 
@@ -413,30 +413,12 @@ function App() {
 
           </div>
 
-          <div className="buttons">
-
-            <a
-              href="https://www.instagram.com/therealguellyb/"
-              target="_blank"
-            >
-              Follow Instagram
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@guellyb"
-              target="_blank"
-            >
-              Follow TikTok
-            </a>
-
-          </div>
-
         </div>
 
       </section>
 
       <section
-        className="contactSection sectionReveal"
+        className="contactSection"
         id="contact"
       >
 
