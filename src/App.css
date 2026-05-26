@@ -20,7 +20,6 @@ body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-
   background:
     radial-gradient(circle at top, rgba(255,0,0,.45), transparent 34%),
     linear-gradient(180deg, #180000, #060606 55%, #000);
@@ -41,10 +40,7 @@ body {
 .loader h1 {
   font-size: clamp(4rem, 12vw, 10rem);
   color: #ff0000;
-
-  text-shadow:
-    0 0 12px red,
-    0 0 40px red;
+  text-shadow: 0 0 12px red, 0 0 40px red;
 }
 
 .loader p {
@@ -54,7 +50,6 @@ body {
 }
 
 @keyframes loaderFade {
-
   0%, 75% {
     opacity: 1;
   }
@@ -63,62 +58,42 @@ body {
     opacity: 0;
     visibility: hidden;
   }
-
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-
-  background:
-    radial-gradient(circle at center,
-    transparent 25%,
-    rgba(0,0,0,.78));
-
+  background: radial-gradient(circle at center, transparent 25%, rgba(0,0,0,.78));
   z-index: 1;
-
   pointer-events: none;
 }
 
 .grain {
   position: fixed;
   inset: 0;
-
   background-image:
     linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-
   background-size: 44px 44px;
-
   opacity: .12;
-
   z-index: 1;
-
   pointer-events: none;
 }
 
 .cursorGlow {
   position: fixed;
-
   width: 180px;
   height: 180px;
-
   border-radius: 50%;
-
   background: rgba(255,0,0,.08);
-
   filter: blur(35px);
-
   right: 10%;
   top: 20%;
-
   z-index: 1;
-
   animation: pulseGlow 4s infinite alternate;
 }
 
 @keyframes pulseGlow {
-
   from {
     transform: scale(1);
     opacity: .25;
@@ -128,33 +103,21 @@ body {
     transform: scale(1.4);
     opacity: .55;
   }
-
 }
 
 .nav {
   width: calc(100% - 40px);
-
   max-width: 1120px;
-
   position: fixed;
-
   top: 20px;
   left: 50%;
-
   transform: translateX(-50%);
-
   z-index: 20;
-
   padding: 15px 20px;
-
   border-radius: 999px;
-
   background: rgba(0,0,0,.62);
-
   border: 1px solid rgba(255,0,0,.3);
-
   backdrop-filter: blur(15px);
-
   display: flex;
   align-items: center;
   gap: 18px;
@@ -162,26 +125,20 @@ body {
 
 .nav span {
   color: #ff2d2d;
-
   font-weight: 900;
-
   letter-spacing: 2px;
-
   margin-right: auto;
 }
 
 .desktopLinks {
   display: flex;
-  gap: 18px;
+  gap: 16px;
 }
 
 .nav a {
   color: #ddd;
-
   text-decoration: none;
-
-  font-size: .9rem;
-
+  font-size: .85rem;
   transition: .3s;
 }
 
@@ -191,35 +148,22 @@ body {
 
 .menuBtn {
   display: none;
-
   color: white;
-
   background: transparent;
-
   border: 1px solid #ff2d2d;
-
   border-radius: 999px;
-
   padding: 8px 14px;
 }
 
 .mobileMenu {
   position: fixed;
-
   inset: 0;
-
   background: rgba(0,0,0,.96);
-
   z-index: 100;
-
   display: none;
-
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
-
   gap: 30px;
 }
 
@@ -229,59 +173,39 @@ body {
 
 .mobileMenu a {
   color: white;
-
   font-size: 2rem;
-
   text-decoration: none;
 }
 
 .closeBtn {
   position: absolute;
-
   top: 25px;
   right: 30px;
-
   background: none;
-
   color: white;
-
   border: none;
-
   font-size: 3rem;
 }
 
 .hero {
   min-height: 100vh;
-
   padding: 130px 20px 70px;
-
   position: relative;
-
   z-index: 2;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   overflow: hidden;
 }
 
 .heroVideo {
   position: absolute;
-
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   opacity: .22;
-
   z-index: -1;
 }
 
@@ -293,132 +217,93 @@ body {
 .tag,
 .smallTitle {
   color: #ff2d2d;
-
   letter-spacing: 5px;
-
   font-weight: 900;
-
   margin-bottom: 18px;
-
   font-size: .8rem;
 }
 
 h1 {
   font-size: clamp(5rem, 15vw, 13rem);
-
   color: #ff0000;
-
   line-height: .85;
-
   text-shadow:
     0 0 10px #ff0000,
     0 0 35px #ff0000,
     0 0 90px rgba(255,0,0,.85);
-
   animation: glowPulse 2.4s infinite alternate ease-in-out;
 }
 
 @keyframes glowPulse {
-
   from {
-
     text-shadow:
       0 0 10px #ff0000,
       0 0 25px #ff0000,
       0 0 55px rgba(255,0,0,.65);
-
   }
 
   to {
-
     text-shadow:
       0 0 16px #ff0000,
       0 0 48px #ff0000,
       0 0 105px rgba(255,0,0,.95);
-
   }
-
 }
 
 .hero h2 {
   margin-top: 28px;
-
   font-size: clamp(1.8rem, 5vw, 4.2rem);
 }
 
 .date {
   margin-top: 18px;
-
   color: #ddd;
-
   font-size: 1.2rem;
 }
 
 .countdown {
   margin-top: 30px;
-
   display: flex;
-
   flex-wrap: wrap;
-
   justify-content: center;
-
   gap: 15px;
 }
 
 .countdown div {
   min-width: 92px;
-
   padding: 18px;
-
   border-radius: 20px;
-
   background: rgba(255,255,255,.06);
-
   border: 1px solid rgba(255,0,0,.32);
-
   backdrop-filter: blur(12px);
 }
 
 .countdown span {
   color: #ff2d2d;
-
   font-size: 2rem;
-
   font-weight: 900;
 }
 
 .countdown p {
   margin-top: 6px;
-
   color: #aaa;
-
   letter-spacing: 2px;
-
   font-size: .75rem;
 }
 
 .visualizer {
   margin: 28px auto 0;
-
   height: 45px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: end;
-
   gap: 5px;
 }
 
 .visualizer span {
   width: 5px;
-
   background: #ff2d2d;
-
   border-radius: 999px;
-
   animation: bars 1s infinite ease-in-out;
 }
 
@@ -434,7 +319,6 @@ h1 {
 .visualizer span:nth-child(10) { height: 30px; animation-delay: 1s; }
 
 @keyframes bars {
-
   0%, 100% {
     transform: scaleY(.45);
     opacity: .5;
@@ -444,62 +328,44 @@ h1 {
     transform: scaleY(1.2);
     opacity: 1;
   }
-
 }
 
 .buttons {
   margin-top: 42px;
-
   display: flex;
-
   justify-content: center;
-
   flex-wrap: wrap;
-
   gap: 18px;
 }
 
 .buttons a,
-.emailBtn {
+.emailBtn,
+.fanForm button {
   color: white;
-
   text-decoration: none;
-
   padding: 15px 26px;
-
   border-radius: 999px;
-
   border: 1px solid #ff2d2d;
-
   background: rgba(255,0,0,.13);
-
   transition: .3s;
 }
 
 .buttons a:hover,
-.emailBtn:hover {
+.emailBtn:hover,
+.fanForm button:hover {
   background: #ff0000;
-
-  transform:
-    translateY(-5px)
-    scale(1.04);
-
-  box-shadow:
-    0 0 28px rgba(255,0,0,.8);
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 0 28px rgba(255,0,0,.8);
 }
 
 .scrollText {
   margin-top: 70px;
-
   color: #888;
-
   letter-spacing: 3px;
-
   animation: floatText 2s infinite ease-in-out;
 }
 
 @keyframes floatText {
-
   0% {
     transform: translateY(0);
   }
@@ -511,285 +377,281 @@ h1 {
   100% {
     transform: translateY(0);
   }
-
 }
 
 .coverSection,
 .musicSection,
-.videoSection,
 .gallerySection,
 .updatesSection,
+.bioSection,
+.merchSection,
 .contactSection {
   position: relative;
-
   z-index: 2;
-
   padding: 110px 20px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   text-align: center;
 }
 
 .coverText h2,
 .musicSection h2,
-.videoSection h2,
 .gallerySection h2,
 .updatesCard h2,
+.bioCard h2,
+.merchSection h2,
 .contactCard h2 {
   font-size: clamp(2.4rem, 7vw, 4rem);
-
   color: #ff2d2d;
-
   margin-bottom: 25px;
 }
 
 .coverText p,
-.updatesCard p {
+.updatesCard p,
+.bioCard p,
+.merchItem p {
   color: #d0d0d0;
-
   line-height: 1.85;
-
   font-size: 1.1rem;
 }
 
 .coverArt {
   width: 100%;
-
   max-width: 430px;
-
   margin-top: 40px;
-
   border-radius: 32px;
-
   border: 1px solid rgba(255,0,0,.38);
-
-  box-shadow:
-    0 0 65px rgba(255,0,0,.38);
-
+  box-shadow: 0 0 65px rgba(255,0,0,.38);
   transition: .4s;
 }
 
 .coverArt:hover {
-  transform:
-    scale(1.04)
-    rotate(-1deg);
+  transform: scale(1.04) rotate(-1deg);
 }
 
 .musicCard,
 .updatesCard,
+.bioCard,
 .contactCard {
   width: 100%;
-
   max-width: 900px;
-
   padding: 55px;
-
   border-radius: 34px;
-
   background: rgba(255,255,255,.055);
-
   border: 1px solid rgba(255,255,255,.09);
-
   backdrop-filter: blur(14px);
 }
 
 .spotifyEmbed {
   border: none;
-
   border-radius: 24px;
 }
 
-.videoBox {
+.galleryGrid,
+.merchGrid {
   width: 100%;
-
-  max-width: 1000px;
-
-  aspect-ratio: 16 / 9;
-
-  border-radius: 34px;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(255,0,0,.35);
-}
-
-.videoBox iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.galleryGrid {
-  width: 100%;
-
   max-width: 1050px;
-
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 22px;
 }
 
 .galleryItem {
   overflow: hidden;
-
   border-radius: 28px;
-
   border: 1px solid rgba(255,0,0,.28);
-
   box-shadow: 0 0 35px rgba(255,0,0,.18);
-
   background: rgba(255,255,255,.04);
-
   transition: .35s;
 }
 
 .galleryItem:hover {
-  transform:
-    translateY(-10px)
-    scale(1.02);
-
-  box-shadow:
-    0 0 50px rgba(255,0,0,.35);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 50px rgba(255,0,0,.35);
 }
 
 .galleryItem img {
   width: 100%;
-
   height: 420px;
-
   object-fit: cover;
-
   display: block;
 }
 
 .updateList {
   margin-top: 35px;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 18px;
 }
 
 .updateItem {
   display: flex;
-
   align-items: center;
-
   gap: 14px;
-
   padding: 18px;
-
   border-radius: 18px;
-
   background: rgba(255,255,255,.04);
-
   border: 1px solid rgba(255,255,255,.07);
 }
 
 .updateItem span {
   color: #ff2d2d;
-
   font-size: 1.4rem;
 }
 
-.contactCard h2 {
-  margin-bottom: 18px;
+.fanForm {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fanForm input {
+  width: min(420px, 100%);
+  padding: 16px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,0,0,.35);
+  background: rgba(0,0,0,.45);
+  color: white;
+  outline: none;
+}
+
+.fanForm button {
+  cursor: pointer;
+}
+
+.formNote {
+  margin-top: 16px;
+  color: #777 !important;
+  font-size: .9rem !important;
+}
+
+.bioCard p {
+  margin-bottom: 20px;
+}
+
+.merchItem {
+  padding: 25px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,0,0,.28);
+  box-shadow: 0 0 35px rgba(255,0,0,.18);
+  transition: .35s;
+}
+
+.merchItem:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 50px rgba(255,0,0,.35);
+}
+
+.merchImage {
+  height: 230px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at center, rgba(255,0,0,.45), transparent 45%),
+    #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff2d2d;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.merchItem h3 {
+  color: #ff2d2d;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
 }
 
 .emailBtn {
   display: inline-block;
-
   margin-top: 15px;
 }
 
 footer {
   position: relative;
-
   z-index: 2;
-
   text-align: center;
-
   padding: 60px 20px;
-
   color: #999;
-
   border-top: 1px solid rgba(255,255,255,.07);
 }
 
 footer h3 {
   color: #ff2d2d;
-
   font-size: 2rem;
-
   letter-spacing: 4px;
-
   margin-bottom: 10px;
+}
+
+.footerLinks {
+  margin: 28px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footerLinks a {
+  color: #ddd;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.footerLinks a:hover {
+  color: #ff2d2d;
+}
+
+.copy {
+  color: #666;
+  font-size: .9rem;
 }
 
 .smoke,
 .redLight {
   position: fixed;
-
   border-radius: 50%;
-
   pointer-events: none;
-
   z-index: 1;
 }
 
 .smoke {
   width: 430px;
   height: 430px;
-
   filter: blur(75px);
-
   opacity: .22;
 }
 
 .smoke1 {
   background: #ff0000;
-
   top: 8%;
   left: -130px;
-
   animation: move1 14s infinite alternate ease-in-out;
 }
 
 .smoke2 {
   background: #8b0000;
-
   top: 45%;
   right: -130px;
-
   animation: move2 16s infinite alternate ease-in-out;
 }
 
 .smoke3 {
   background: #ff2d2d;
-
   bottom: -130px;
   left: 30%;
-
   animation: move3 18s infinite alternate ease-in-out;
 }
 
 .redLight {
   width: 9px;
   height: 9px;
-
   background: #ff2d2d;
-
   box-shadow: 0 0 22px #ff0000;
-
   animation: floatLight 8s infinite alternate ease-in-out;
 }
 
@@ -811,7 +673,6 @@ footer h3 {
 }
 
 @keyframes move1 {
-
   from {
     transform: translateY(0) scale(1);
   }
@@ -819,11 +680,9 @@ footer h3 {
   to {
     transform: translateY(-120px) scale(1.35);
   }
-
 }
 
 @keyframes move2 {
-
   from {
     transform: translateY(0) scale(1);
   }
@@ -831,11 +690,9 @@ footer h3 {
   to {
     transform: translateY(110px) scale(1.25);
   }
-
 }
 
 @keyframes move3 {
-
   from {
     transform: translateY(0) scale(1);
   }
@@ -843,11 +700,9 @@ footer h3 {
   to {
     transform: translateY(-90px) scale(1.45);
   }
-
 }
 
 @keyframes floatLight {
-
   from {
     transform: translate(0, 0);
     opacity: .25;
@@ -857,11 +712,9 @@ footer h3 {
     transform: translate(80px, -70px);
     opacity: 1;
   }
-
 }
 
 @media (max-width: 768px) {
-
   body {
     cursor: auto;
   }
@@ -874,7 +727,29 @@ footer h3 {
     display: block;
   }
 
-  .galleryGrid {
+  .nav {
+    padding: 13px 14px;
+  }
+
+  .nav span {
+    font-size: .8rem;
+  }
+
+  .countdown div {
+    min-width: 78px;
+    padding: 15px 10px;
+  }
+
+  .countdown span {
+    font-size: 1.5rem;
+  }
+
+  .buttons a {
+    width: 230px;
+  }
+
+  .galleryGrid,
+  .merchGrid {
     grid-template-columns: 1fr;
   }
 
@@ -884,8 +759,12 @@ footer h3 {
 
   .musicCard,
   .updatesCard,
+  .bioCard,
   .contactCard {
     padding: 35px 24px;
   }
 
+  .merchItem {
+    padding: 22px;
+  }
 }
