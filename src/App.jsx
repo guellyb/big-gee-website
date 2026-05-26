@@ -43,6 +43,7 @@ function App() {
       <nav className="nav">
         <span>GUELLY B</span>
         <a href="#cover">Cover</a>
+        <a href="#music">Music</a>
         <a href="#video">Video</a>
         <a href="#bio">Bio</a>
         <a href="#contact">Contact</a>
@@ -80,6 +81,7 @@ function App() {
             A cinematic project from Guelly B built on pain, pressure,
             confidence, survival, and real motion.
           </p>
+
           <div className="miniStats">
             <div><strong>8</strong><span>Tracks</span></div>
             <div><strong>06.05</strong><span>Release</span></div>
@@ -88,6 +90,33 @@ function App() {
         </div>
 
         <img src="/cover.jpg" alt="BIG GEE cover art" className="coverArt" />
+      </section>
+
+      <section className="musicSection" id="music">
+        <p className="smallTitle">STREAM GUELLY B</p>
+        <h2>Music Preview</h2>
+
+        <div className="musicCard">
+          <iframe
+            className="spotifyEmbed"
+            src="https://open.spotify.com/embed/artist/0WdypKNxCbHK0vLNgujumS?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Guelly B Spotify Player"
+          ></iframe>
+
+          <p>
+            Follow Guelly B now and be ready when BIG GEE drops.
+          </p>
+
+          <div className="buttons">
+            <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Open Spotify</a>
+            <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Open Apple Music</a>
+            <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Open Audiomack</a>
+          </div>
+        </div>
       </section>
 
       <section className="videoSection" id="video">
@@ -123,12 +152,14 @@ function App() {
         <div className="bioCard">
           <p className="smallTitle">WHO IS GUELLY B</p>
           <h2>The Story</h2>
+
           <p>
             Guelly B, born and raised in Nassau, Bahamas, is a rapper and
             songwriter known for energetic and heartfelt lyrics that speak
             volumes about his personal experiences and creative thinking
             growing up.
           </p>
+
           <p>
             His first record was released in 2020 — and the rest was history.
           </p>
