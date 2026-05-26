@@ -13,6 +13,7 @@ body {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  cursor: crosshair;
 }
 
 .site {
@@ -20,17 +21,47 @@ body {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at top, rgba(255, 0, 0, 0.45), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(120, 0, 0, 0.45), transparent 38%),
+    radial-gradient(circle at top, rgba(255,0,0,.45), transparent 34%),
     linear-gradient(180deg, #180000, #060606 55%, #000);
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: loaderFade 2.2s forwards;
+}
+
+.loader h1 {
+  font-size: clamp(4rem, 12vw, 10rem);
+}
+
+.loader p {
+  color: #ff2d2d;
+  letter-spacing: 5px;
+  margin-top: 20px;
+}
+
+@keyframes loaderFade {
+  0%, 75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at center, transparent 25%, rgba(0, 0, 0, 0.76)),
-    linear-gradient(90deg, rgba(0,0,0,.45), transparent, rgba(0,0,0,.45));
+  background: radial-gradient(circle at center, transparent 25%, rgba(0,0,0,.76));
   z-index: 1;
   pointer-events: none;
 }
@@ -39,10 +70,10 @@ body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
   background-size: 44px 44px;
-  opacity: .13;
+  opacity: .12;
   z-index: 1;
   pointer-events: none;
 }
@@ -57,12 +88,12 @@ body {
   z-index: 10;
   padding: 15px 20px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.58);
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  background: rgba(0,0,0,.58);
+  border: 1px solid rgba(255,0,0,.3);
   backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
 }
 
 .nav span {
@@ -75,12 +106,7 @@ body {
 .nav a {
   color: #ddd;
   text-decoration: none;
-  font-size: .9rem;
-  transition: .3s;
-}
-
-.nav a:hover {
-  color: #ff2d2d;
+  font-size: .85rem;
 }
 
 .hero {
@@ -111,7 +137,7 @@ h1 {
   text-shadow:
     0 0 10px #ff0000,
     0 0 35px #ff0000,
-    0 0 90px rgba(255, 0, 0, .85);
+    0 0 90px rgba(255,0,0,.85);
   animation: glowPulse 2.4s infinite alternate ease-in-out;
 }
 
@@ -120,14 +146,14 @@ h1 {
     text-shadow:
       0 0 10px #ff0000,
       0 0 25px #ff0000,
-      0 0 55px rgba(255, 0, 0, .65);
+      0 0 55px rgba(255,0,0,.65);
   }
 
   to {
     text-shadow:
       0 0 16px #ff0000,
       0 0 48px #ff0000,
-      0 0 105px rgba(255, 0, 0, .95);
+      0 0 105px rgba(255,0,0,.95);
   }
 }
 
@@ -157,7 +183,6 @@ h1 {
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,0,0,.32);
   backdrop-filter: blur(12px);
-  box-shadow: 0 0 25px rgba(255,0,0,.14);
 }
 
 .countdown span {
@@ -188,9 +213,8 @@ h1 {
   padding: 15px 26px;
   border-radius: 999px;
   border: 1px solid #ff2d2d;
-  background: rgba(255, 0, 0, .13);
+  background: rgba(255,0,0,.13);
   transition: .3s;
-  backdrop-filter: blur(12px);
 }
 
 .buttons a:hover,
@@ -213,79 +237,29 @@ h1 {
   100% { transform: translateY(0); }
 }
 
-.coverSection {
-  position: relative;
-  z-index: 2;
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 120px 20px;
-  display: grid;
-  grid-template-columns: 1fr 430px;
-  gap: 55px;
-  align-items: center;
+.fadeUp {
+  animation: fadeUp 1s ease both;
 }
 
-.coverText h2,
-.musicSection h2,
-.videoSection h2,
-.tracklist h2,
-.bioCard h2,
-.contactCard h2 {
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  color: #ff2d2d;
-  margin-bottom: 25px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.coverText p,
-.musicCard p,
-.bioCard p,
-.contactCard p {
-  color: #d0d0d0;
-  line-height: 1.85;
-  font-size: 1.1rem;
-}
-
-.coverArt {
-  width: 100%;
-  border-radius: 32px;
-  border: 1px solid rgba(255,0,0,.38);
-  box-shadow: 0 0 65px rgba(255,0,0,.38);
-  transition: .35s;
-}
-
-.coverArt:hover {
-  transform: scale(1.025) rotate(-1deg);
-}
-
-.miniStats {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.miniStats div {
-  padding: 20px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.miniStats strong {
-  display: block;
-  color: #ff2d2d;
-  font-size: 2rem;
-}
-
-.miniStats span {
-  color: #aaa;
-  letter-spacing: 2px;
-  font-size: .8rem;
-}
-
+.coverSection,
 .musicSection,
 .videoSection,
 .tracklist,
+.gallerySection,
+.merchSection,
+.eventsSection,
 .bioSection,
 .contactSection {
   position: relative;
@@ -297,7 +271,43 @@ h1 {
   text-align: center;
 }
 
+.coverText h2,
+.musicSection h2,
+.videoSection h2,
+.tracklist h2,
+.gallerySection h2,
+.merchCard h2,
+.eventsSection h2,
+.bioCard h2,
+.contactCard h2 {
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  color: #ff2d2d;
+  margin-bottom: 25px;
+}
+
+.coverText p,
+.musicCard p,
+.merchCard p,
+.eventCard p,
+.bioCard p,
+.contactCard p {
+  color: #d0d0d0;
+  line-height: 1.85;
+  font-size: 1.1rem;
+}
+
+.coverArt {
+  width: 100%;
+  max-width: 430px;
+  margin-top: 40px;
+  border-radius: 32px;
+  border: 1px solid rgba(255,0,0,.38);
+  box-shadow: 0 0 65px rgba(255,0,0,.38);
+}
+
 .musicCard,
+.merchCard,
+.eventCard,
 .bioCard,
 .contactCard {
   width: 100%;
@@ -307,7 +317,6 @@ h1 {
   background: rgba(255,255,255,.055);
   border: 1px solid rgba(255,255,255,.09);
   backdrop-filter: blur(14px);
-  box-shadow: 0 0 45px rgba(255,0,0,.2);
 }
 
 .spotifyEmbed {
@@ -323,7 +332,6 @@ h1 {
   border-radius: 34px;
   overflow: hidden;
   border: 1px solid rgba(255,0,0,.35);
-  box-shadow: 0 0 55px rgba(255,0,0,.35);
 }
 
 .videoBox iframe {
@@ -352,7 +360,27 @@ h1 {
   transform: translateX(10px);
   background: rgba(255,0,0,.14);
   border-color: #ff2d2d;
-  box-shadow: 0 0 25px rgba(255,0,0,.22);
+}
+
+.galleryGrid {
+  width: 100%;
+  max-width: 1050px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.galleryGrid img {
+  width: 100%;
+  border-radius: 28px;
+  border: 1px solid rgba(255,0,0,.28);
+  box-shadow: 0 0 35px rgba(255,0,0,.18);
+}
+
+.eventCard h3 {
+  color: #ff2d2d;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .emailBtn {
@@ -387,11 +415,6 @@ footer h3 {
 .footerLinks a {
   color: #ddd;
   text-decoration: none;
-  transition: .3s;
-}
-
-.footerLinks a:hover {
-  color: #ff2d2d;
 }
 
 .copy {
@@ -447,26 +470,21 @@ footer h3 {
 }
 
 @media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+
   .nav {
-    gap: 10px;
-    padding: 13px 12px;
+    gap: 9px;
+    padding: 13px 10px;
   }
 
   .nav span {
-    font-size: .75rem;
+    font-size: .7rem;
   }
 
   .nav a {
-    font-size: .65rem;
-  }
-
-  .hero {
-    padding-top: 120px;
-  }
-
-  .tag,
-  .smallTitle {
-    letter-spacing: 3px;
+    font-size: .6rem;
   }
 
   .countdown div {
@@ -482,19 +500,16 @@ footer h3 {
     width: 230px;
   }
 
-  .coverSection {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .miniStats {
-    grid-template-columns: 1fr;
-  }
-
   .musicCard,
+  .merchCard,
+  .eventCard,
   .bioCard,
   .contactCard {
     padding: 35px 24px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
   }
 
   .track {
