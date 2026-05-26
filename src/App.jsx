@@ -11,6 +11,16 @@ function App() {
     seconds: "00",
   });
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadTimer = setTimeout(() => {
+      setLoading(false);
+    }, 2200);
+
+    return () => clearTimeout(loadTimer);
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -34,6 +44,13 @@ function App() {
 
   return (
     <div className="site">
+      {loading && (
+        <div className="loader">
+          <h1>BIG GEE</h1>
+          <p>LOADING THE MOTION...</p>
+        </div>
+      )}
+
       <div className="overlay"></div>
       <div className="grain"></div>
       <div className="smoke smoke1"></div>
@@ -44,12 +61,12 @@ function App() {
         <span>GUELLY B</span>
         <a href="#cover">Cover</a>
         <a href="#music">Music</a>
-        <a href="#video">Video</a>
-        <a href="#bio">Bio</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#merch">Merch</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <header className="hero">
+      <header className="hero fadeUp">
         <p className="tag">GUELLY B PRESENTS</p>
         <h1>BIG GEE</h1>
         <h2>Super Fly, Real Motion</h2>
@@ -73,7 +90,7 @@ function App() {
         <p className="scrollText">↓ ENTER THE BIG GEE ERA ↓</p>
       </header>
 
-      <section className="coverSection" id="cover">
+      <section className="coverSection fadeUp" id="cover">
         <div className="coverText">
           <p className="smallTitle">OFFICIAL MIXTAPE</p>
           <h2>BIG GEE</h2>
@@ -81,18 +98,12 @@ function App() {
             A cinematic project from Guelly B built on pain, pressure,
             confidence, survival, and real motion.
           </p>
-
-          <div className="miniStats">
-            <div><strong>8</strong><span>Tracks</span></div>
-            <div><strong>06.05</strong><span>Release</span></div>
-            <div><strong>2026</strong><span>Era</span></div>
-          </div>
         </div>
 
-        <img src="/cover.jpg" alt="BIG GEE cover art" className="coverArt" />
+        <img src="/cover.jpg" alt="BIG GEE Cover" className="coverArt" />
       </section>
 
-      <section className="musicSection" id="music">
+      <section className="musicSection fadeUp" id="music">
         <p className="smallTitle">STREAM GUELLY B</p>
         <h2>Music Preview</h2>
 
@@ -104,22 +115,14 @@ function App() {
             height="352"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-            title="Guelly B Spotify Player"
+            title="Spotify Player"
           ></iframe>
 
-          <p>
-            Follow Guelly B now and be ready when BIG GEE drops.
-          </p>
-
-          <div className="buttons">
-            <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Open Spotify</a>
-            <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Open Apple Music</a>
-            <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Open Audiomack</a>
-          </div>
+          <p>Follow Guelly B now and be ready when BIG GEE drops.</p>
         </div>
       </section>
 
-      <section className="videoSection" id="video">
+      <section className="videoSection fadeUp" id="video">
         <p className="smallTitle">OFFICIAL VISUAL</p>
         <h2>Watch The Motion</h2>
 
@@ -132,7 +135,7 @@ function App() {
         </div>
       </section>
 
-      <section className="tracklist" id="tracklist">
+      <section className="tracklist fadeUp" id="tracklist">
         <p className="smallTitle">BIG GEE</p>
         <h2>Tracklist</h2>
 
@@ -148,25 +151,51 @@ function App() {
         </div>
       </section>
 
-      <section className="bioSection" id="bio">
+      <section className="gallerySection fadeUp" id="gallery">
+        <p className="smallTitle">VISUAL WORLD</p>
+        <h2>Gallery</h2>
+
+        <div className="galleryGrid">
+          <img src="/cover.jpg" alt="BIG GEE Gallery" />
+          <img src="/cover.jpg" alt="BIG GEE Gallery" />
+          <img src="/cover.jpg" alt="BIG GEE Gallery" />
+        </div>
+      </section>
+
+      <section className="merchSection fadeUp" id="merch">
+        <div className="merchCard">
+          <p className="smallTitle">GUELLY B MERCH</p>
+          <h2>Merch Coming Soon</h2>
+          <p>BIG GEE clothing, limited drops, and official gear loading.</p>
+        </div>
+      </section>
+
+      <section className="eventsSection fadeUp">
+        <p className="smallTitle">LIVE MOTION</p>
+        <h2>Upcoming Events</h2>
+
+        <div className="eventCard">
+          <h3>Nassau, Bahamas</h3>
+          <p>More dates coming soon.</p>
+        </div>
+      </section>
+
+      <section className="bioSection fadeUp" id="bio">
         <div className="bioCard">
           <p className="smallTitle">WHO IS GUELLY B</p>
           <h2>The Story</h2>
 
           <p>
-            Guelly B, born and raised in Nassau, Bahamas, is a rapper and
-            songwriter known for energetic and heartfelt lyrics that speak
-            volumes about his personal experiences and creative thinking
-            growing up.
+            Guelly B born and raised in Nassau, Bahamas. He is a rapper and
+            songwriter known for his energetic and heartfelt lyrics that speaks
+            volume about his personal experiences and creative thinking growing up.
           </p>
 
-          <p>
-            His first record was released in 2020 — and the rest was history.
-          </p>
+          <p>His first record was released in 2020 and the rest was history.</p>
         </div>
       </section>
 
-      <section className="contactSection" id="contact">
+      <section className="contactSection fadeUp" id="contact">
         <div className="contactCard">
           <p className="smallTitle">BOOKINGS / FEATURES / PRESS</p>
           <h2>Contact Guelly B</h2>
@@ -175,12 +204,6 @@ function App() {
           <a href="mailto:guellybmusic@gmail.com" className="emailBtn">
             guellybmusic@gmail.com
           </a>
-
-          <div className="buttons">
-            <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
-            <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
-            <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
-          </div>
         </div>
       </section>
 
