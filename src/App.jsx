@@ -17,12 +17,7 @@ function App() {
       const distance = releaseDate - now;
 
       if (distance <= 0) {
-        setTimeLeft({
-          days: "00",
-          hours: "00",
-          minutes: "00",
-          seconds: "00",
-        });
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
         return;
       }
 
@@ -40,115 +35,54 @@ function App() {
   return (
     <div className="site">
       <div className="overlay"></div>
-      <div className="grain"></div>
-
       <div className="smoke smoke1"></div>
       <div className="smoke smoke2"></div>
-      <div className="smoke smoke3"></div>
 
       <nav className="nav">
         <span>GUELLY B</span>
-        <a href="#music">Music</a>
+        <a href="#cover">Cover</a>
         <a href="#video">Video</a>
         <a href="#tracklist">Tracklist</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <header className="hero">
         <p className="tag">GUELLY B PRESENTS</p>
-
         <h1>BIG GEE</h1>
-
         <h2>Super Fly, Real Motion</h2>
-
         <p className="date">Mixtape Out June 5th</p>
 
         <div className="countdown">
-          <div className="timeBox">
-            <span>{timeLeft.days}</span>
-            <p>DAYS</p>
-          </div>
-
-          <div className="timeBox">
-            <span>{timeLeft.hours}</span>
-            <p>HOURS</p>
-          </div>
-
-          <div className="timeBox">
-            <span>{timeLeft.minutes}</span>
-            <p>MIN</p>
-          </div>
-
-          <div className="timeBox">
-            <span>{timeLeft.seconds}</span>
-            <p>SEC</p>
-          </div>
+          <div><span>{timeLeft.days}</span><p>DAYS</p></div>
+          <div><span>{timeLeft.hours}</span><p>HOURS</p></div>
+          <div><span>{timeLeft.minutes}</span><p>MIN</p></div>
+          <div><span>{timeLeft.seconds}</span><p>SEC</p></div>
         </div>
 
         <div className="buttons">
-          <a
-            href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
-            target="_blank"
-          >
-            Spotify
-          </a>
-
-          <a
-            href="https://music.apple.com/us/artist/guelly-b/1811052340"
-            target="_blank"
-          >
-            Apple Music
-          </a>
-
-          <a href="https://www.youtube.com/@guellyb" target="_blank">
-            YouTube
-          </a>
-
-          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">
-            Audiomack
-          </a>
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b/1811052340" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
         </div>
-
-        <div className="scrollText">↓ ENTER THE BIG GEE ERA ↓</div>
       </header>
 
-      <section className="cinematicSection" id="music">
-        <div className="glassCard">
-          <p className="smallTitle">THE PROJECT</p>
-
+      <section className="coverSection" id="cover">
+        <div className="coverText">
+          <p className="smallTitle">OFFICIAL COVER ART</p>
           <h2>BIG GEE</h2>
-
           <p>
-            Cinematic pain music mixed with pressure, hunger, lifestyle, and
-            real motion.
-          </p>
-
-          <p>
-            Dark visuals. Real stories. Superstar energy. Built for the fans
-            who understand the grind.
+            A cinematic project from Guelly B built on pressure, pain,
+            confidence, and real motion.
           </p>
         </div>
-      </section>
 
-      <section className="statsSection">
-        <div className="stat">
-          <h3>8</h3>
-          <p>Tracks</p>
-        </div>
-
-        <div className="stat">
-          <h3>06.05</h3>
-          <p>Release Date</p>
-        </div>
-
-        <div className="stat">
-          <h3>BIG</h3>
-          <p>Energy</p>
-        </div>
+        <img src="/cover.jpg" alt="BIG GEE cover art" className="coverArt" />
       </section>
 
       <section className="videoSection" id="video">
         <p className="smallTitle">OFFICIAL VISUAL</p>
-
         <h2>Watch The Motion</h2>
 
         <div className="videoBox">
@@ -162,7 +96,6 @@ function App() {
 
       <section className="tracklist" id="tracklist">
         <p className="smallTitle">BIG GEE</p>
-
         <h2>Tracklist</h2>
 
         <div className="tracks">
@@ -177,25 +110,18 @@ function App() {
         </div>
       </section>
 
-      <section className="promoSection">
-        <div className="promoCard">
-          <h2>Stream BIG GEE Everywhere</h2>
-
-          <p>
-            Follow Guelly B now so you are locked in when the project drops.
-          </p>
+      <section className="contactSection" id="contact">
+        <div className="contactCard">
+          <p className="smallTitle">BOOKINGS / FEATURES / PRESS</p>
+          <h2>Contact Guelly B</h2>
+          <a href="mailto:guellybmusic@gmail.com" className="emailBtn">
+            guellybmusic@gmail.com
+          </a>
 
           <div className="buttons">
-            <a
-              href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
-              target="_blank"
-            >
-              Follow On Spotify
-            </a>
-
-            <a href="https://www.youtube.com/@guellyb" target="_blank">
-              Subscribe On YouTube
-            </a>
+            <a href="https://www.instagram.com/therealguellyb/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+            <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
           </div>
         </div>
       </section>
