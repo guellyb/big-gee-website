@@ -1,1 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background: #050505;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at top, rgba(255, 0, 0, 0.35), transparent 35%),
+    linear-gradient(180deg, #111, #050505 60%, #000);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.tag {
+  color: #ff2a2a;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: clamp(4rem, 14vw, 10rem);
+  color: #ff1010;
+  text-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+  line-height: 0.9;
+}
+
+.hero h2 {
+  font-size: clamp(1.4rem, 4vw, 3rem);
+  margin-top: 20px;
+}
+
+.date {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #ff2020;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: rgba(255, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background: #ff2020;
+  transform: translateY(-3px);
+}
+
+.section,
+.videoSection,
+.tracklist {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2,
+.videoSection h2,
+.tracklist h2 {
+  font-size: 2.5rem;
+  color: #ff2020;
+  margin-bottom: 20px;
+}
+
+.section p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.videoBox {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.35);
+}
+
+.videoBox iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.tracklist ol {
+  list-style-position: inside;
+  font-size: 1.3rem;
+  line-height: 2;
+  color: #eee;
+}
+
+.tracklist li {
+  margin: 8px 0;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+.smoke {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(60px);
+  border-radius: 50%;
+  z-index: 1;
+  animation: floatSmoke 12s infinite alternate ease-in-out;
+}
+
+.smoke1 {
+  top: 10%;
+  left: -100px;
+}
+
+.smoke2 {
+  top: 45%;
+  right: -120px;
+  animation-delay: 3s;
+}
+
+.smoke3 {
+  bottom: -100px;
+  left: 35%;
+  animation-delay: 6s;
+}
+
+@keyframes floatSmoke {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0.25;
+  }
+  to {
+    transform: translateY(-80px) scale(1.4);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    width: 220px;
+  }
+}
