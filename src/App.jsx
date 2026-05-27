@@ -7,54 +7,39 @@ function App() {
   return (
     <main className="site">
       <div className="intro">
-        <img src="/logo.png" alt="Guelly B Logo" className="introLogo" />
+        <img src="/logo.png" alt="Guelly B Logo" />
         <h1>BIG GEE</h1>
         <p>Motion Loading...</p>
       </div>
 
-      <div className="smoke"></div>
+      <div className="bgSmoke"></div>
       <div className="grain"></div>
 
-      <nav className="nav">
-        <img src="/logo.png" alt="Guelly B Logo" className="logo" />
-        <div>
-          <a href="#music">Music</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#updates">Updates</a>
-          <a href="#contact">Contact</a>
-        </div>
+      <nav className="topNav">
+        <img src="/logo.png" alt="Guelly B Logo" />
+        <a href="#music">Listen</a>
       </nav>
 
-      <section className="hero card">
-        <p className="eyebrow">Guelly B Presents</p>
+      <section className="hero redCard">
+        <p className="label">Guelly B Presents</p>
         <h1>BIG GEE</h1>
         <h2>Super Fly, Real Motion</h2>
         <p className="release">Mixtape Out June 5th</p>
+
         <Countdown />
 
-        <div className="buttons">
+        <div className="mainButtons">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
         </div>
       </section>
 
-      <section className="card video" id="music">
-        <p className="eyebrow">Official Visual</p>
-        <h2>Latest Motion</h2>
-        <div className="videoBox">
-          <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0?autoplay=1&mute=1&loop=1&playlist=brsxymjwT_0"
-            title="Guelly B Music Video"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
+      <section className="redCard" id="music">
+        <p className="label">Tap In</p>
+        <h2>Stream Guelly B</h2>
 
-      <section className="card">
-        <p className="eyebrow">Tap In</p>
-        <h2>Streaming Platforms</h2>
-        <div className="grid">
+        <div className="streamGrid">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
@@ -64,34 +49,51 @@ function App() {
         </div>
       </section>
 
-      <section className="era card">
-        <p className="eyebrow">Enter The</p>
+      <section className="redCard videoCard">
+        <p className="label">Latest Motion</p>
+        <h2>Official Visual</h2>
+
+        <div className="videoBox">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Guelly B Music Video"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section className="redCard eraCard">
+        <p className="label">Enter The</p>
         <h2>BIG GEE ERA</h2>
         <p>Luxury motion. Street pressure. Official rollout energy.</p>
       </section>
 
-      <section className="card" id="gallery">
-        <p className="eyebrow">The Look</p>
-        <h2>Visual Gallery</h2>
-        <div className="photos">
+      <section className="redCard">
+        <p className="label">Visuals</p>
+        <h2>The Look</h2>
+
+        <div className="photoStack">
           <img src="/artist1.jpg" alt="Guelly B" />
           <img src="/artist2.jpg" alt="Guelly B" />
           <img src="/cover.jpg" alt="BIG GEE Cover" />
         </div>
       </section>
 
-      <section className="card" id="updates">
-        <p className="eyebrow">Stay Ready</p>
+      <section className="redCard">
+        <p className="label">Stay Ready</p>
         <h2>Fan Updates</h2>
+
         <div className="updates">
           <div>
             <b>BIG GEE rollout active</b>
             <p>Official mixtape rollout has started.</p>
           </div>
+
           <div>
             <b>New visuals loading</b>
-            <p>More music videos, snippets, and behind-the-scenes content coming soon.</p>
+            <p>More snippets and behind-the-scenes content coming soon.</p>
           </div>
+
           <div>
             <b>Merch coming soon</b>
             <p>Official BIG GEE pieces are being prepared.</p>
@@ -99,26 +101,15 @@ function App() {
         </div>
       </section>
 
-      <section className="card merch">
-        <p className="eyebrow">Official Drop</p>
-        <h2>Merch</h2>
-        <p>Official BIG GEE collection coming soon.</p>
-        <button>Coming Soon</button>
-      </section>
-
-      <section className="card contact" id="contact">
-        <p className="eyebrow">Fan Vault</p>
+      <section className="redCard contact">
+        <p className="label">Fan Vault</p>
         <h2>Join The Motion</h2>
+
         <form action="https://formspree.io/f/xojbpkoa" method="POST">
           <input type="email" name="email" placeholder="Enter your email" required />
           <button type="submit">Stay Updated</button>
         </form>
       </section>
-
-      <div className="floatingPlayer">
-        <span>BIG GEE</span>
-        <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Listen Now</a>
-      </div>
 
       <footer>
         <div className="ticker">
@@ -131,7 +122,12 @@ function App() {
 }
 
 function Countdown() {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
