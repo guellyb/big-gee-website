@@ -4,9 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: #050505;
@@ -17,8 +15,8 @@ body {
 .site {
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(120, 0, 0, 0.5), transparent 35%),
-    linear-gradient(180deg, #050505, #120000, #050505);
+    radial-gradient(circle at top, rgba(150, 0, 0, 0.5), transparent 35%),
+    linear-gradient(180deg, #050505, #130000, #050505);
   min-height: 100vh;
 }
 
@@ -30,15 +28,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 999;
   animation: introFade 4s forwards;
+  z-index: 999;
 }
 
 .intro h1 {
   font-size: clamp(4rem, 14vw, 10rem);
-  letter-spacing: 8px;
   text-transform: uppercase;
   color: #ff1a1a;
+  letter-spacing: 8px;
   text-shadow: 0 0 35px red;
 }
 
@@ -68,22 +66,14 @@ body {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,.08);
   filter: blur(90px);
   pointer-events: none;
   animation: floatSmoke 12s infinite alternate ease-in-out;
 }
 
-.smoke1 {
-  top: 20%;
-  left: -100px;
-}
-
-.smoke2 {
-  bottom: 10%;
-  right: -100px;
-  animation-delay: 3s;
-}
+.smoke1 { top: 20%; left: -100px; }
+.smoke2 { bottom: 10%; right: -100px; animation-delay: 3s; }
 
 @keyframes floatSmoke {
   from { transform: translateY(0) scale(1); }
@@ -98,7 +88,7 @@ body {
   text-align: center;
   padding: 40px 20px;
   background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.8)),
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.85)),
     url("/hero.jpg") center/cover no-repeat;
   background-attachment: fixed;
 }
@@ -123,8 +113,7 @@ body {
 
 .hero h1 {
   font-size: clamp(5rem, 18vw, 14rem);
-  line-height: 0.85;
-  color: #fff;
+  line-height: .85;
   text-shadow: 0 0 30px red;
 }
 
@@ -169,12 +158,18 @@ body {
   letter-spacing: 2px;
 }
 
+.heroBtns {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .mainBtn,
+.ghostBtn,
 button {
   display: inline-block;
   border: none;
-  background: #ff1a1a;
-  color: white;
   padding: 16px 30px;
   border-radius: 999px;
   font-weight: bold;
@@ -182,11 +177,24 @@ button {
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
-  box-shadow: 0 0 30px rgba(255,0,0,.45);
   transition: .3s;
 }
 
+.mainBtn,
+button {
+  background: #ff1a1a;
+  color: white;
+  box-shadow: 0 0 30px rgba(255,0,0,.45);
+}
+
+.ghostBtn {
+  color: white;
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(255,255,255,.05);
+}
+
 .mainBtn:hover,
+.ghostBtn:hover,
 button:hover {
   transform: translateY(-4px) scale(1.03);
   background: white;
@@ -201,11 +209,64 @@ button:hover {
 }
 
 .section h2,
-.era h2,
+.videoOverlay h2,
 footer h2 {
   font-size: clamp(2.8rem, 8vw, 6rem);
   text-transform: uppercase;
   margin-bottom: 25px;
+}
+
+.musicPlayer {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  margin-top: 60px;
+}
+
+.musicPlayer p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+audio {
+  width: 100%;
+  max-width: 600px;
+}
+
+.videoSection {
+  position: relative;
+  height: 85vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoSection video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 30px;
+  max-width: 850px;
+}
+
+.videoSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.62);
+}
+
+.videoOverlay p {
+  color: #ddd;
 }
 
 .linkGrid {
@@ -230,34 +291,55 @@ footer h2 {
 .footerLinks a:hover {
   background: #ff1a1a;
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(255,0,0,.4);
 }
 
-.era {
-  padding: 130px 20px;
-  text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
-    url("/era.jpg") center/cover no-repeat;
-  background-attachment: fixed;
-}
-
-.era p {
-  max-width: 720px;
+.bio p,
+.contact p {
+  max-width: 780px;
   margin: auto;
-  font-size: 1.2rem;
   color: #ddd;
   line-height: 1.7;
+  font-size: 1.15rem;
 }
 
-.photoGrid {
+.tracks {
+  max-width: 760px;
+  margin: 35px auto 0;
+  display: grid;
+  gap: 14px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  text-align: left;
+}
+
+.track span {
+  color: #ff2b2b;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.track strong {
+  font-size: 1.2rem;
+}
+
+.photoGrid,
+.merchGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
   margin-top: 35px;
 }
 
-.photoGrid img {
+.photoGrid img,
+.merchCard img {
   width: 100%;
   height: 430px;
   object-fit: cover;
@@ -267,7 +349,8 @@ footer h2 {
   transition: .4s;
 }
 
-.photoGrid img:hover {
+.photoGrid img:hover,
+.merchCard:hover {
   transform: scale(1.04);
 }
 
@@ -277,26 +360,24 @@ footer h2 {
   margin-top: 30px;
 }
 
-.updateCard {
+.updateCard,
+.merchCard {
   padding: 24px;
   border-radius: 20px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.15);
   color: #ddd;
-  font-size: 1.1rem;
 }
 
-.merch,
+.merchCard h3 {
+  margin-top: 18px;
+  text-transform: uppercase;
+}
+
 .join {
   background: rgba(255,255,255,.04);
   border-radius: 30px;
-  margin-top: 40px;
   border: 1px solid rgba(255,255,255,.12);
-}
-
-.merch p {
-  color: #ccc;
-  margin-bottom: 25px;
 }
 
 form {
@@ -316,8 +397,15 @@ input {
   outline: none;
 }
 
-input::placeholder {
-  color: #aaa;
+input::placeholder { color: #aaa; }
+
+.contact a {
+  display: inline-block;
+  margin-top: 25px;
+  color: #ff2b2b;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 footer {
@@ -341,11 +429,8 @@ footer p {
 }
 
 @media (max-width: 700px) {
-  .hero {
-    background-attachment: scroll;
-  }
-
-  .era {
+  .hero,
+  .videoSection {
     background-attachment: scroll;
   }
 
@@ -353,11 +438,24 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .section {
+    padding: 75px 16px;
+  }
+
   form {
     flex-direction: column;
   }
 
-  .photoGrid img {
-    height: 360px;
+  .photoGrid img,
+  .merchCard img {
+    height: 350px;
+  }
+
+  .videoSection {
+    height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 5rem;
   }
 }
