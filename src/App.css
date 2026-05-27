@@ -1,395 +1,199 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+import { useEffect, useRef, useState } from "react";
+import "./App.css";
+
+const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
+
+function App() {
+  const [time, setTime] = useState({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const distance = releaseDate - now;
+
+      if (distance <= 0) {
+        setTime({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
+
+      setTime({
+        days: String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0"),
+        hours: String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
+        minutes: String(Math.floor((distance / (1000 * 60)) % 60)).padStart(2, "0"),
+        seconds: String(Math.floor((distance / 1000) % 60)).padStart(2, "0"),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+
+    if (playing) {
+      audioRef.current.pause();
+      setPlaying(false);
+    } else {
+      audioRef.current.play().then(() => setPlaying(true)).catch(() => {});
+    }
+  };
+
+  return (
+    <main className="site">
+      <div className="cursorGlow"></div>
+
+      <audio ref={audioRef} src="/preview.mp3" loop />
+
+      <div className="intro">
+        <div>
+          <p>Guelly B Presents</p>
+          <h1>BIG GEE</h1>
+          <span>Motion Loading</span>
+        </div>
+      </div>
+
+      <div className="luxuryBg">
+        <div className="smoke smoke1"></div>
+        <div className="smoke smoke2"></div>
+        <div className="smoke smoke3"></div>
+      </div>
+
+      <section className="hero reveal">
+        <div className="heroCover">
+          <img src="/cover.jpg" alt="BIG GEE cover" />
+        </div>
+
+        <div className="heroText">
+          <p className="tag">Guelly B Presents</p>
+          <h1>BIG GEE</h1>
+          <h2>Super Fly, Real Motion</h2>
+          <h3>Mixtape Out June 5th</h3>
+          <a href="#music">Enter Big Gee Era</a>
+        </div>
+      </section>
+
+      <section className="countdown reveal">
+        <p className="tag">Official Countdown</p>
+        <h2>BIG GEE Drops In</h2>
+
+        <div className="clock">
+          <div><span>{time.days}</span><small>Days</small></div>
+          <div><span>{time.hours}</span><small>Hours</small></div>
+          <div><span>{time.minutes}</span><small>Minutes</small></div>
+          <div><span>{time.seconds}</span><small>Seconds</small></div>
+        </div>
+      </section>
+
+      <section id="music" className="section reveal">
+        <p className="tag">Official Video</p>
+        <h2>Watch The Motion</h2>
+
+        <div className="video">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Guelly B Music Video"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section className="section story reveal">
+        <p className="tag">The Story</p>
+        <h2>From Nassau To The World</h2>
+        <p>
+          BIG GEE is the era of motion, confidence, pressure, and elevation.
+          This is more than a mixtape — it is the sound of Guelly B stepping
+          into a bigger world with a luxury image and real experience behind it.
+        </p>
+      </section>
+
+      <section className="section reveal">
+        <p className="tag">Big Gee Visuals</p>
+        <h2>Gallery</h2>
+
+        <div className="gallery">
+          <img src="/hero2.jpg" alt="Guelly B" loading="lazy" />
+          <img src="/gallery1.jpg" alt="Guelly B" loading="lazy" />
+          <img src="/gallery2.jpg" alt="Guelly B" loading="lazy" />
+          <img src="/IMG_6567.jpg" alt="Guelly B" loading="lazy" />
+          <img src="/IMG_6750.png" alt="Guelly B" loading="lazy" />
+        </div>
+      </section>
+
+      <section className="section reveal">
+        <p className="tag">Fan Feed</p>
+        <h2>Latest Motion</h2>
+
+        <div className="feed">
+          <article>
+            <span>Update 01</span>
+            <h3>BIG GEE rollout is active.</h3>
+            <p>Visuals, music, and exclusive fan updates are loading.</p>
+          </article>
+
+          <article>
+            <span>Update 02</span>
+            <h3>Official video out now.</h3>
+            <p>Watch the motion and tap in before the full mixtape drops.</p>
+          </article>
+
+          <article>
+            <span>Update 03</span>
+            <h3>Merch coming soon.</h3>
+            <p>Luxury BIG GEE drops are being built for the real supporters.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="section links reveal">
+        <p className="tag">Listen / Follow</p>
+        <h2>Streaming Links</h2>
+
+        <div className="linkGrid">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Audiomack</a>
+        </div>
+      </section>
+
+      <section className="section merch reveal">
+        <p className="tag">Big Gee Store</p>
+        <h2>Merch Coming Soon</h2>
+
+        <div className="mockups">
+          <div>BIG GEE Hoodie</div>
+          <div>Motion Only Tee</div>
+          <div>Official Poster</div>
+        </div>
+      </section>
+
+      <section className="section fan reveal">
+        <p className="tag">Join The Vault</p>
+        <h2>Get Fan Updates</h2>
+
+        <form action="https://formspree.io/f/xojbpkoa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Join Now</button>
+        </form>
+      </section>
+
+      <footer>
+        <h1>BIG GEE</h1>
+        <h2>Guelly B</h2>
+        <p>Mixtape Out June 5th — From Nassau To The World</p>
+      </footer>
+
+      <button className="floatingPlayer" onClick={toggleMusic}>
+        <img src="/cover.jpg" alt="cover" />
+        <span>{playing ? "Pause Preview" : "Play Preview"}</span>
+      </button>
+    </main>
+  );
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #030303;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-.site {
-  position: relative;
-  min-height: 100vh;
-}
-
-.luxuryBg {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at top, rgba(110, 0, 0, 0.55), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(80, 0, 0, 0.35), transparent 35%),
-    linear-gradient(180deg, #020202, #090000, #020202);
-}
-
-.luxuryBg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 100% 4px;
-  opacity: .25;
-  pointer-events: none;
-}
-
-.smoke {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.09);
-  filter: blur(120px);
-  opacity: .45;
-  animation: smokeMove 14s ease-in-out infinite alternate;
-}
-
-.smoke.one {
-  top: -180px;
-  left: -220px;
-}
-
-.smoke.two {
-  bottom: -240px;
-  right: -180px;
-  animation-delay: 3s;
-}
-
-.smoke.three {
-  top: 35%;
-  left: 35%;
-  width: 500px;
-  height: 500px;
-  opacity: .25;
-  animation-delay: 6s;
-}
-
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background: #020202;
-  animation: introOut 3s ease forwards;
-}
-
-.intro h1 {
-  font-size: clamp(4rem, 13vw, 11rem);
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  text-shadow: 0 0 35px rgba(180,0,0,.9);
-}
-
-.intro p {
-  color: #b40000;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  margin-top: 12px;
-}
-
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 50px;
-  align-items: center;
-  width: min(1200px, 92%);
-  margin: auto;
-  padding: 90px 0;
-}
-
-.cover {
-  width: 100%;
-  border-radius: 30px;
-  box-shadow: 0 40px 100px rgba(0,0,0,.8), 0 0 50px rgba(150,0,0,.35);
-  animation: coverFloat 6s ease-in-out infinite alternate;
-}
-
-.heroText p,
-.section p,
-.countdown p {
-  color: #b40000;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font-size: .85rem;
-  margin-bottom: 14px;
-}
-
-.heroText h1 {
-  font-size: clamp(5rem, 13vw, 12rem);
-  line-height: .85;
-  letter-spacing: -5px;
-  text-transform: uppercase;
-}
-
-.heroText h2 {
-  font-size: clamp(1.5rem, 4vw, 3.2rem);
-  margin-top: 22px;
-}
-
-.heroText h3 {
-  color: #d7d7d7;
-  margin: 20px 0 35px;
-  font-size: 1.25rem;
-}
-
-.heroText a,
-.linkGrid a,
-button {
-  display: inline-block;
-  padding: 15px 26px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #8b0000, #250000);
-  color: white;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,.18);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 800;
-  box-shadow: 0 0 30px rgba(150,0,0,.3);
-  transition: .3s ease;
-}
-
-.heroText a:hover,
-.linkGrid a:hover,
-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 45px rgba(180,0,0,.65);
-}
-
-.section,
-.countdown {
-  width: min(1100px, 92%);
-  margin: 0 auto 120px;
-  text-align: center;
-}
-
-.section h2,
-.countdown h2 {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.clock {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.clock div {
-  padding: 32px 18px;
-  border-radius: 26px;
-  background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(16px);
-  box-shadow: inset 0 0 35px rgba(255,255,255,.03), 0 0 45px rgba(120,0,0,.18);
-  animation: clockGlow 2s ease-in-out infinite alternate;
-}
-
-.clock div:last-child {
-  animation: secondTick 1s ease-in-out infinite;
-}
-
-.clock span {
-  display: block;
-  font-size: clamp(2.8rem, 7vw, 5rem);
-  font-weight: 900;
-  color: #ffffff;
-  text-shadow: 0 0 22px rgba(180,0,0,.85);
-}
-
-.clock small {
-  color: #a9a9a9;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.video {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  border-radius: 30px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 30px 90px rgba(0,0,0,.8), 0 0 45px rgba(130,0,0,.28);
-}
-
-.video iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 20px 55px rgba(0,0,0,.75);
-  transition: .35s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 25px 70px rgba(130,0,0,.35);
-}
-
-.linkGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.fan,
-.merch {
-  padding: 45px;
-  border-radius: 30px;
-  background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(18px);
-}
-
-form {
-  display: flex;
-  gap: 12px;
-  max-width: 650px;
-  margin: auto;
-}
-
-input {
-  flex: 1;
-  padding: 17px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  color: white;
-  outline: none;
-}
-
-.merch h4 {
-  color: #ccc;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-footer {
-  text-align: center;
-  padding: 70px 20px;
-  border-top: 1px solid rgba(255,255,255,.1);
-  background: rgba(0,0,0,.45);
-}
-
-footer h2 {
-  font-size: 3rem;
-  text-transform: uppercase;
-}
-
-footer p {
-  color: #b40000;
-  margin-top: 10px;
-}
-
-@keyframes smokeMove {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(120px, -80px) scale(1.25);
-  }
-}
-
-@keyframes introOut {
-  0%, 70% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-
-@keyframes coverFloat {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-18px);
-  }
-}
-
-@keyframes clockGlow {
-  from {
-    box-shadow: inset 0 0 35px rgba(255,255,255,.03), 0 0 30px rgba(120,0,0,.18);
-  }
-  to {
-    box-shadow: inset 0 0 45px rgba(255,255,255,.05), 0 0 60px rgba(160,0,0,.38);
-  }
-}
-
-@keyframes secondTick {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.045);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .clock,
-  .linkGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery img {
-    height: 420px;
-  }
-
-  form {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 520px) {
-  .clock {
-    grid-template-columns: 1fr;
-  }
-
-  .heroText h1 {
-    font-size: 4.6rem;
-  }
-}
+export default App;
