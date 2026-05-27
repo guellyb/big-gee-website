@@ -4,6 +4,10 @@ import "./App.css";
 const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
 
 function App() {
+  useEffect(() => {
+    document.title = "Guelly B — BIG GEE";
+  }, []);
+
   return (
     <main className="site">
       <div className="intro">
@@ -13,13 +17,14 @@ function App() {
 
       <div className="dots"></div>
       <div className="smoke"></div>
+      <div className="scanline"></div>
 
       <nav className="nav">
         <span>GUELLY B</span>
         <a href="#music">MENU</a>
       </nav>
 
-      <section className="hero">
+      <section className="hero reveal">
         <p className="overline">GUELLY B PRESENTS</p>
         <h1>BIG GEE</h1>
         <h2>Super Fly, Real Motion</h2>
@@ -43,27 +48,42 @@ function App() {
         <p className="enter">↓ ENTER THE BIG GEE ERA ↓</p>
       </section>
 
-      <section className="mixtape card">
+      <section className="mixtape card reveal">
         <p className="overline">OFFICIAL MIXTAPE</p>
         <h2>BIG GEE</h2>
         <img src="/cover.jpg" alt="BIG GEE Cover" />
+
+        <div className="tracklist">
+          <p>TRACKLIST</p>
+          <ol>
+            <li>Motion Only</li>
+            <li>Spike Lee</li>
+            <li>Start Over</li>
+            <li>Ballin Like VJ</li>
+            <li>Loose Screws</li>
+            <li>Cheese Talk</li>
+            <li>Bad B*tches</li>
+            <li>Therapy Notes</li>
+          </ol>
+        </div>
       </section>
 
-      <section className="preview">
+      <section className="preview reveal">
         <p className="overline">STREAM GUELLY B</p>
         <h2>Music Preview</h2>
+
         <div className="spotifyBox">
           <img src="/artist1.jpg" alt="Guelly B" />
           <div>
             <h3>Guelly B</h3>
-            <p>Top tracks</p>
+            <p>Top tracks • BIG GEE era loading</p>
             <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Follow</a>
           </div>
           <b>●</b>
         </div>
       </section>
 
-      <section className="gallery">
+      <section className="gallery reveal">
         <p className="overline">VISUAL WORLD</p>
         <h2>Gallery</h2>
         <img src="/artist1.jpg" alt="Guelly B" />
@@ -71,7 +91,7 @@ function App() {
         <img src="/cover.jpg" alt="BIG GEE Cover" />
       </section>
 
-      <section className="story card">
+      <section className="story card reveal">
         <p className="overline">WHO IS GUELLY B</p>
         <h2>The Story</h2>
         <p>
@@ -84,18 +104,52 @@ function App() {
         </p>
       </section>
 
-      <section className="drop card">
+      <section className="drop card reveal">
         <h2>Bahamas Drop</h2>
         <p>Coming Soon</p>
       </section>
 
-      <section className="contact card">
+      <section className="merch card reveal">
+        <p className="overline">OFFICIAL DROP</p>
+        <h2>Merch</h2>
+        <p>BIG GEE merch coming soon.</p>
+        <button>Coming Soon</button>
+      </section>
+
+      <section className="signup card reveal">
+        <p className="overline">FAN VAULT</p>
+        <h2>Join The Motion</h2>
+        <p>Get updates first when BIG GEE drops.</p>
+
+        <form action="https://formspree.io/f/xojbpkoa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Stay Updated</button>
+        </form>
+      </section>
+
+      <section className="contact card reveal">
         <p className="overline">BOOKINGS / FEATURES / PRESS</p>
         <h2>Contact Guelly B</h2>
         <a href="mailto:guellybmusic@gmail.com">guellybmusic@gmail.com</a>
       </section>
 
+      <a
+        className="floatingListen"
+        href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
+        target="_blank"
+      >
+        Listen Now
+      </a>
+
       <footer>
+        <div className="footerLinks">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
+        </div>
+
         <p>GUELLY B • BIG GEE • MIXTAPE OUT JUNE 5TH</p>
       </footer>
     </main>
