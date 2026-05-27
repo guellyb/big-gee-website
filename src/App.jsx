@@ -1,21 +1,37 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
-const photos = [
-  "/photos/photo1.jpg",
-  "/photos/photo2.jpg",
-  "/photos/photo3.jpg",
-];
-
-const socials = [
-  { name: "Spotify", url: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" },
-  { name: "Apple Music", url: "https://music.apple.com/us/artist/guelly-b" },
-  { name: "YouTube", url: "https://www.youtube.com/@guellyb" },
-  { name: "Instagram", url: "https://www.instagram.com/therealguellyb" },
-  { name: "TikTok", url: "https://www.tiktok.com/@guellyb" },
-  { name: "Audiomack", url: "https://audiomack.com/guellyb-69de7ebc" },
-];
+const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
 
 function App() {
+  const [time, setTime] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = releaseDate - now;
+
+      if (distance <= 0) {
+        setTime({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
+
+      setTime({
+        days: String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0"),
+        hours: String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
+        minutes: String(Math.floor((distance / (1000 * 60)) % 60)).padStart(2, "0"),
+        seconds: String(Math.floor((distance / 1000) % 60)).padStart(2, "0"),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="site">
       <div className="intro">
@@ -23,119 +39,95 @@ function App() {
         <p>Motion Loading</p>
       </div>
 
-      <div className="bg">
-        <div className="smoke smoke1"></div>
-        <div className="smoke smoke2"></div>
-        <div className="glow"></div>
-        <div className="grain"></div>
+      <div className="luxuryBg">
+        <div className="smoke one"></div>
+        <div className="smoke two"></div>
+        <div className="smoke three"></div>
       </div>
 
       <section className="hero">
-        <p className="eyebrow">Guelly B Presents</p>
-        <h1>BIG GEE</h1>
-        <h2>Super Fly, Real Motion</h2>
-        <p className="date">Mixtape Out June 5th</p>
-        <a className="mainBtn" href="#music">Enter Big Gee Era</a>
+        <img src="/cover.jpg" className="cover" alt="BIG GEE cover" />
+
+        <div className="heroText">
+          <p>Guelly B Presents</p>
+          <h1>BIG GEE</h1>
+          <h2>Super Fly, Real Motion</h2>
+          <h3>Mixtape Out June 5th</h3>
+          <a href="#music">Enter Big Gee Era</a>
+        </div>
       </section>
 
       <section className="countdown">
-        <h3>BIG GEE Countdown</h3>
-        <div className="countGrid">
-          <div><span>00</span><p>Days</p></div>
-          <div><span>00</span><p>Hours</p></div>
-          <div><span>00</span><p>Minutes</p></div>
-          <div><span>00</span><p>Seconds</p></div>
+        <p>Official Countdown</p>
+        <h2>BIG GEE Drops In</h2>
+
+        <div className="clock">
+          <div><span>{time.days}</span><small>Days</small></div>
+          <div><span>{time.hours}</span><small>Hours</small></div>
+          <div><span>{time.minutes}</span><small>Minutes</small></div>
+          <div><span>{time.seconds}</span><small>Seconds</small></div>
         </div>
       </section>
 
       <section id="music" className="section">
-        <p className="eyebrow">Official Video</p>
+        <p>Official Video</p>
         <h2>Watch The Motion</h2>
-        <div className="videoBox">
+
+        <div className="video">
           <iframe
             src="https://www.youtube.com/embed/brsxymjwT_0"
             title="Guelly B Music Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
       </section>
 
       <section className="section">
-        <p className="eyebrow">Listen Now</p>
-        <h2>Streaming Links</h2>
-        <div className="linkGrid">
-          {socials.map((item) => (
-            <a key={item.name} href={item.url} target="_blank" rel="noreferrer">
-              {item.name}
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="section era">
-        <p className="eyebrow">Enter The Era</p>
-        <h2>Motion Only</h2>
-        <p>
-          BIG GEE is more than a mixtape. It’s the sound, the look, and the motion.
-          From Nassau to the world.
-        </p>
-      </section>
-
-      <section className="section">
-        <p className="eyebrow">Gallery</p>
+        <p>Gallery</p>
         <h2>Big Gee Visuals</h2>
-        <div className="photoGrid">
-          {photos.map((photo, index) => (
-            <img key={index} src={photo} alt={`Guelly B ${index + 1}`} />
-          ))}
+
+        <div className="gallery">
+          <img src="/hero2.jpg" alt="Guelly B" />
+          <img src="/gallery1.jpg" alt="Guelly B" />
+          <img src="/gallery2.jpg" alt="Guelly B" />
+          <img src="/IMG_6567.jpg" alt="Guelly B" />
+          <img src="/IMG_6750.png" alt="Guelly B" />
         </div>
       </section>
 
-      <section className="section updates">
-        <p className="eyebrow">For The Fans</p>
-        <h2>Fan Updates</h2>
-        <div className="updateCards">
-          <div>
-            <h3>Mixtape Rollout</h3>
-            <p>BIG GEE drops June 5th. Stay locked in for previews, visuals, and updates.</p>
-          </div>
-          <div>
-            <h3>Behind The Motion</h3>
-            <p>Exclusive photos, video clips, and studio moments coming soon.</p>
-          </div>
-          <div>
-            <h3>Early Access</h3>
-            <p>Join the vault for unreleased music, first looks, and real fan updates.</p>
-          </div>
+      <section className="section links">
+        <p>Listen / Follow</p>
+        <h2>Streaming Links</h2>
+
+        <div className="linkGrid">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb">YouTube</a>
+          <a href="https://www.instagram.com/therealguellyb">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb">TikTok</a>
+          <a href="https://audiomack.com/guellyb-69de7ebc">Audiomack</a>
         </div>
       </section>
 
-      <section className="section merch">
-        <p className="eyebrow">Big Gee Store</p>
-        <h2>Merch Coming Soon</h2>
-        <p>Hoodies, tees, posters, and exclusive BIG GEE drops loading.</p>
-      </section>
+      <section className="section fan">
+        <p>For The Fans</p>
+        <h2>Join The Vault</h2>
 
-      <section className="section contact">
-        <p className="eyebrow">Join The Vault</p>
-        <h2>Get Fan Updates</h2>
         <form action="https://formspree.io/f/xojbpkoa" method="POST">
           <input type="email" name="email" placeholder="Enter your email" required />
           <button type="submit">Join Now</button>
         </form>
       </section>
 
+      <section className="section merch">
+        <p>Big Gee Store</p>
+        <h2>Merch Coming Soon</h2>
+        <h4>Luxury drops loading...</h4>
+      </section>
+
       <footer>
         <h2>Guelly B</h2>
         <p>BIG GEE — Mixtape Out June 5th</p>
-        <div className="footerLinks">
-          {socials.map((item) => (
-            <a key={item.name} href={item.url} target="_blank" rel="noreferrer">
-              {item.name}
-            </a>
-          ))}
-        </div>
       </footer>
     </main>
   );
