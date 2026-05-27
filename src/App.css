@@ -1,9 +1,14 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
   background: #050505;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -12,233 +17,347 @@ body {
 .site {
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(160, 0, 0, 0.35), transparent 35%),
-    linear-gradient(180deg, #050505, #100000, #050505);
+    radial-gradient(circle at top, rgba(120, 0, 0, 0.5), transparent 35%),
+    linear-gradient(180deg, #050505, #120000, #050505);
+  min-height: 100vh;
 }
 
 .intro {
   position: fixed;
   inset: 0;
-  z-index: 999;
-  background: black;
+  background: #030303;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: introFade 4s ease forwards;
+  z-index: 999;
+  animation: introFade 4s forwards;
 }
 
 .intro h1 {
-  font-size: 4rem;
-  margin: 0;
-  letter-spacing: 4px;
+  font-size: clamp(4rem, 14vw, 10rem);
+  letter-spacing: 8px;
   text-transform: uppercase;
+  color: #ff1a1a;
+  text-shadow: 0 0 35px red;
 }
 
 .intro p {
-  color: #ff2b2b;
-  letter-spacing: 3px;
+  margin-top: 15px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #aaa;
 }
 
 @keyframes introFade {
-  0%, 65% { opacity: 1; visibility: visible; }
+  0%, 70% { opacity: 1; visibility: visible; }
   100% { opacity: 0; visibility: hidden; }
 }
 
-.hero {
-  min-height: 100vh;
-  text-align: center;
-  padding: 140px 20px 80px;
-  position: relative;
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  z-index: 10;
+  background-image: repeating-radial-gradient(circle, #fff 0 1px, transparent 1px 4px);
 }
 
 .smoke {
   position: fixed;
-  inset: 0;
-  background: url("/smoke.png") center/cover no-repeat;
-  opacity: 0.18;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(90px);
   pointer-events: none;
-  animation: smokeMove 12s infinite alternate ease-in-out;
+  animation: floatSmoke 12s infinite alternate ease-in-out;
 }
 
-@keyframes smokeMove {
-  from { transform: scale(1) translateY(0); }
-  to { transform: scale(1.15) translateY(-40px); }
+.smoke1 {
+  top: 20%;
+  left: -100px;
+}
+
+.smoke2 {
+  bottom: 10%;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+@keyframes floatSmoke {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-120px) scale(1.4); }
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.8)),
+    url("/hero.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.heroContent {
+  max-width: 1000px;
+  animation: riseIn 1.4s ease forwards;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .eyebrow {
-  color: #ff3b3b;
-  letter-spacing: 4px;
+  color: #ff2b2b;
   text-transform: uppercase;
+  letter-spacing: 5px;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 16vw, 10rem);
-  margin: 0;
-  text-shadow: 0 0 25px red;
+  font-size: clamp(5rem, 18vw, 14rem);
+  line-height: 0.85;
+  color: #fff;
+  text-shadow: 0 0 30px red;
 }
 
 .hero h2 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  margin: 10px 0;
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  margin-top: 25px;
 }
 
 .date {
-  font-size: 1.3rem;
+  margin-top: 20px;
   color: #ddd;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
 }
 
 .countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 620px;
   margin: 35px auto;
-  flex-wrap: wrap;
 }
 
 .countdown div {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 0, 0, 0.45);
-  padding: 18px;
-  min-width: 90px;
-  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.06);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(255,0,0,.2);
+}
+
+.countdown strong {
+  display: block;
+  font-size: 2rem;
+  color: #ff2b2b;
 }
 
 .countdown span {
-  font-size: 2rem;
-  font-weight: bold;
+  color: #aaa;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: 2px;
 }
 
-.countdown p {
-  margin: 5px 0 0;
-  color: #bbb;
-}
-
-.main-btn,
-.links a,
-.signup button,
-.merch button {
+.mainBtn,
+button {
   display: inline-block;
-  background: #b40000;
-  color: white;
-  padding: 14px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
   border: none;
+  background: #ff1a1a;
+  color: white;
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255,0,0,.45);
+  transition: .3s;
+}
+
+.mainBtn:hover,
+button:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: white;
+  color: #900;
 }
 
 .section {
-  padding: 80px 20px;
-  max-width: 1100px;
+  padding: 100px 20px;
+  max-width: 1150px;
   margin: auto;
   text-align: center;
-  position: relative;
-  z-index: 2;
 }
 
-.section h2 {
-  font-size: clamp(2rem, 7vw, 4rem);
-  margin-bottom: 25px;
+.section h2,
+.era h2,
+footer h2 {
+  font-size: clamp(2.8rem, 8vw, 6rem);
   text-transform: uppercase;
+  margin-bottom: 25px;
 }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-
-.links a {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.photo-grid {
+.linkGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 18px;
+  margin-top: 35px;
 }
 
-.photo-grid img {
+.linkGrid a,
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.05);
+  transition: .3s;
+}
+
+.linkGrid a:hover,
+.footerLinks a:hover {
+  background: #ff1a1a;
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255,0,0,.4);
+}
+
+.era {
+  padding: 130px 20px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
+    url("/era.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.era p {
+  max-width: 720px;
+  margin: auto;
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.photoGrid img {
   width: 100%;
-  height: 420px;
+  height: 430px;
   object-fit: cover;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 0, 0, 0.35);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 0 40px rgba(255,0,0,.18);
+  transition: .4s;
 }
 
-.cards {
+.photoGrid img:hover {
+  transform: scale(1.04);
+}
+
+.updates {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  margin-top: 30px;
 }
 
-.cards div,
-.merch,
-.signup,
-.contact {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,0,0,0.25);
+.updateCard {
+  padding: 24px;
   border-radius: 20px;
-  padding: 25px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #ddd;
+  font-size: 1.1rem;
 }
 
-.cards h3 {
-  color: #ff3b3b;
+.merch,
+.join {
+  background: rgba(255,255,255,.04);
+  border-radius: 30px;
+  margin-top: 40px;
+  border: 1px solid rgba(255,255,255,.12);
 }
 
-.signup form {
+.merch p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+form {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 520px;
+  margin: 30px auto 0;
 }
 
-.signup input {
-  padding: 15px;
-  min-width: 280px;
+input {
+  flex: 1;
+  padding: 16px 20px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  color: white;
+  outline: none;
 }
 
-.contact a {
-  color: #ff3b3b;
-  font-weight: bold;
+input::placeholder {
+  color: #aaa;
 }
 
 footer {
   text-align: center;
-  padding: 45px 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 90px 20px 40px;
+  border-top: 1px solid rgba(255,255,255,.12);
   background: #030303;
 }
 
-.footer-links {
+footer p {
+  color: #aaa;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.footerLinks {
   display: flex;
-  justify-content: center;
-  gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
-.footer-links a {
-  color: #ccc;
-  text-decoration: none;
-}
-
-@media (max-width: 800px) {
-  .photo-grid,
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-grid img {
-    height: 360px;
-  }
-
+@media (max-width: 700px) {
   .hero {
-    padding-top: 120px;
+    background-attachment: scroll;
+  }
+
+  .era {
+    background-attachment: scroll;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  .photoGrid img {
+    height: 360px;
   }
 }
