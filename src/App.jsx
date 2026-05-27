@@ -1,167 +1,75 @@
 import "./App.css";
-import { useState } from "react";
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <div className="app">
-
-      {/* BACKGROUND GLOW */}
-      <div className="background-glow"></div>
-
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <h1 className="logo">GUELLY B</h1>
-
-        <button
-          className="menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          MENU
-        </button>
-      </nav>
-
-      {/* MOBILE MENU */}
-      {menuOpen && (
-        <div className="mobile-menu">
+    <main className="page">
+      <nav className="nav">
+        <h1>GUELLY B</h1>
+        <div>
           <a href="#music">Music</a>
           <a href="#updates">Updates</a>
-          <a href="#socials">Socials</a>
+          <a href="#signup">Sign Up</a>
         </div>
-      )}
+      </nav>
 
-      {/* HERO */}
       <section className="hero">
-
-        <div className="hero-content">
-          <p className="mini-title">BIG GEE SEASON</p>
-
-          <h1>
-            SUPER FLY,
-            <br />
-            REAL MOTION
-          </h1>
-
-          <p className="hero-text">
-            Motion, fresh drops, visuals and real energy.
-            Welcome to the official GUELLY B experience.
+        <div className="heroText">
+          <p className="tag">BIG GEE — JUNE 5TH</p>
+          <h2>Super Fly, Real Motion</h2>
+          <p>
+            New music, visuals, updates, and everything Guelly B in one place.
           </p>
-
-          <div className="hero-buttons">
-            <a
-              href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
-              target="_blank"
-              rel="noreferrer"
-              className="main-btn"
-            >
-              STREAM NOW
-            </a>
-
-            <a
-              href="https://www.youtube.com/@guellyb"
-              target="_blank"
-              rel="noreferrer"
-              className="secondary-btn"
-            >
-              WATCH VISUALS
-            </a>
-          </div>
+          <a className="btn" href="#signup">Stay Ready</a>
         </div>
-
       </section>
 
-      {/* UPDATES */}
-      <section className="fan-updates-section" id="updates">
-
-        <div className="updates-container">
-
-          <div className="update-card">
-            <span className="update-dot"></span>
-            <p>BIG GEE rollout officially active.</p>
-          </div>
-
-          <div className="update-card">
-            <span className="update-dot"></span>
-            <p>New visuals and snippets dropping soon.</p>
-          </div>
-
-          <div className="update-card">
-            <span className="update-dot"></span>
-            <p>Exclusive merch loading.</p>
-          </div>
-
-          {/* EMAIL FORM */}
-          <form
-            className="email-form"
-            action="https://formspree.io/f/xojbpkoa"
-            method="POST"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email for updates"
-              required
-            />
-
-            <button type="submit">
-              Stay Ready
-            </button>
-          </form>
-
+      <section id="music" className="section">
+        <h2>Music</h2>
+        <div className="links">
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
+          <a href="https://music.apple.com/us/artist/guelly-b" target="_blank">Apple Music</a>
+          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Audiomack</a>
+          <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
         </div>
-
       </section>
 
-      {/* SOCIALS */}
-      <section className="social-section" id="socials">
-
-        <h2>CONNECT</h2>
-
-        <div className="social-grid">
-
-          <a
-            href="https://instagram.com/therealguellyb"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Instagram
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@guellyb"
-            target="_blank"
-            rel="noreferrer"
-          >
-            TikTok
-          </a>
-
-          <a
-            href="https://music.apple.com/us/artist/guelly-b"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Apple Music
-          </a>
-
-          <a
-            href="https://audiomack.com/guellyb-69de7ebc"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Audiomack
-          </a>
-
+      <section className="section gallery">
+        <h2>Photos</h2>
+        <div className="photoGrid">
+          <img src="/photo1.jpg" alt="Guelly B" />
+          <img src="/photo2.jpg" alt="Guelly B" />
+          <img src="/photo3.jpg" alt="Guelly B" />
         </div>
-
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <p>guellyb.com</p>
+      <section id="updates" className="section updates">
+        <h2>Fan Updates</h2>
+        <div className="updateBox">
+          <h3>BIG GEE coming June 5th</h3>
+          <p>Stay locked in for music, videos, drops, and exclusive updates.</p>
+        </div>
+        <div className="updateBox">
+          <h3>New visuals loading</h3>
+          <p>More motion, more content, more connection with the fans.</p>
+        </div>
+      </section>
+
+      <section id="signup" className="section signup">
+        <h2>Join The Motion</h2>
+        <p>Sign up for drops, updates, and exclusive Guelly B news.</p>
+
+        <form action="https://formspree.io/f/xojbpkoa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>© 2026 Guelly B. All Rights Reserved.</p>
       </footer>
-
-    </div>
+    </main>
   );
 }
 
