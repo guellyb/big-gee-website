@@ -4,8 +4,17 @@ import "./App.css";
 const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     document.title = "Guelly B — BIG GEE";
+
+    const metaTheme = document.createElement("meta");
+    metaTheme.name = "theme-color";
+    metaTheme.content = "#180000";
+    document.head.appendChild(metaTheme);
+
+    return () => document.head.removeChild(metaTheme);
   }, []);
 
   return (
@@ -15,14 +24,28 @@ function App() {
         <p>Motion Loading</p>
       </div>
 
+      <video className="bgVideo" autoPlay muted loop playsInline>
+        <source src="/background.mp4" type="video/mp4" />
+      </video>
+
       <div className="dots"></div>
       <div className="smoke"></div>
+      <div className="lasers"></div>
       <div className="scanline"></div>
 
       <nav className="nav">
         <span>GUELLY B</span>
-        <a href="#music">MENU</a>
+        <button onClick={() => setMenuOpen(true)}>MENU</button>
       </nav>
+
+      <div className={menuOpen ? "menu open" : "menu"}>
+        <button onClick={() => setMenuOpen(false)}>CLOSE</button>
+        <a href="#music" onClick={() => setMenuOpen(false)}>Music</a>
+        <a href="#trailer" onClick={() => setMenuOpen(false)}>Trailer</a>
+        <a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+        <a href="#updates" onClick={() => setMenuOpen(false)}>Updates</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+      </div>
 
       <section className="hero reveal">
         <p className="overline">GUELLY B PRESENTS</p>
@@ -33,8 +56,7 @@ function App() {
         <Countdown />
 
         <div className="audioBars">
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
+          {Array.from({ length: 14 }).map((_, i) => <span key={i}></span>)}
         </div>
 
         <div className="links" id="music">
@@ -48,10 +70,23 @@ function App() {
         <p className="enter">↓ ENTER THE BIG GEE ERA ↓</p>
       </section>
 
-      <section className="trailer card reveal">
+      <section className="player card reveal">
+        <p className="overline">NOW PLAYING</p>
+        <h2>BIG GEE Mode</h2>
+        <div className="musicPlayer">
+          <img src="/cover.jpg" alt="BIG GEE Cover" />
+          <div>
+            <b>Guelly B</b>
+            <p>BIG GEE rollout active</p>
+            <div className="progress"><span></span></div>
+          </div>
+          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Play</a>
+        </div>
+      </section>
+
+      <section className="trailer card reveal" id="trailer">
         <p className="overline">CINEMATIC TRAILER</p>
         <h2>BIG GEE Visual</h2>
-
         <div className="videoBox">
           <iframe
             src="https://www.youtube.com/embed/brsxymjwT_0"
@@ -59,7 +94,6 @@ function App() {
             allowFullScreen
           ></iframe>
         </div>
-
         <div className="trailerText">
           <span>Official Motion</span>
           <p>Watch the energy before the mixtape lands.</p>
@@ -87,18 +121,9 @@ function App() {
       </section>
 
       <section className="stats reveal">
-        <div>
-          <b>Nassau</b>
-          <span>Bahamas</span>
-        </div>
-        <div>
-          <b>Rapper</b>
-          <span>Songwriter</span>
-        </div>
-        <div>
-          <b>Since</b>
-          <span>2020</span>
-        </div>
+        <div><b>Nassau</b><span>Bahamas</span></div>
+        <div><b>Rapper</b><span>Songwriter</span></div>
+        <div><b>Since</b><span>2020</span></div>
       </section>
 
       <section className="preview reveal">
@@ -116,51 +141,26 @@ function App() {
         </div>
       </section>
 
-      <section className="gallery reveal">
+      <section className="gallery reveal" id="gallery">
         <p className="overline">VISUAL WORLD</p>
         <h2>Gallery</h2>
 
-        <div className="photoCard left">
-          <img src="/artist1.jpg" alt="Guelly B" />
-        </div>
-
-        <div className="photoCard right">
-          <img src="/artist2.jpg" alt="Guelly B" />
-        </div>
-
-        <div className="photoCard left">
-          <img src="/cover.jpg" alt="BIG GEE Cover" />
-        </div>
+        <div className="photoCard left"><img src="/artist1.jpg" alt="Guelly B" /></div>
+        <div className="photoCard right"><img src="/artist2.jpg" alt="Guelly B" /></div>
+        <div className="photoCard left"><img src="/cover.jpg" alt="BIG GEE Cover" /></div>
       </section>
 
-      <section className="updates card reveal">
-        <p className="overline">FAN UPDATES</p>
+      <section className="updates card reveal" id="updates">
+        <p className="overline live">LIVE ROLLOUT</p>
         <h2>Motion Feed</h2>
 
+        <div className="rolloutBar"><span></span></div>
+
         <div className="updateFeed">
-          <div>
-            <span>01</span>
-            <b>BIG GEE rollout active</b>
-            <p>Official mixtape countdown is live.</p>
-          </div>
-
-          <div>
-            <span>02</span>
-            <b>Visual loading</b>
-            <p>More cinematic music content is on the way.</p>
-          </div>
-
-          <div>
-            <span>03</span>
-            <b>Merch coming</b>
-            <p>Official BIG GEE pieces are being prepared.</p>
-          </div>
-
-          <div>
-            <span>04</span>
-            <b>Fan vault open</b>
-            <p>Join the email list for first updates.</p>
-          </div>
+          <div><span>01</span><b>BIG GEE rollout active</b><p>Official mixtape countdown is live.</p></div>
+          <div><span>02</span><b>Visual loading</b><p>More cinematic music content is on the way.</p></div>
+          <div><span>03</span><b>Merch coming</b><p>Official BIG GEE pieces are being prepared.</p></div>
+          <div><span>04</span><b>Fan vault open</b><p>Join the email list for first updates.</p></div>
         </div>
       </section>
 
@@ -172,9 +172,7 @@ function App() {
           known for energetic and heartfelt lyrics that speak volume about his
           personal experiences and creative thinking growing up.
         </p>
-        <p>
-          His first record was released in 2020 and the rest was history.
-        </p>
+        <p>His first record was released in 2020 and the rest was history.</p>
       </section>
 
       <section className="drop card reveal">
@@ -200,7 +198,7 @@ function App() {
         </form>
       </section>
 
-      <section className="contact card reveal">
+      <section className="contact card reveal" id="contact">
         <p className="overline">BOOKINGS / FEATURES / PRESS</p>
         <h2>Contact Guelly B</h2>
         <a href="mailto:guellybmusic@gmail.com">guellybmusic@gmail.com</a>
@@ -209,14 +207,10 @@ function App() {
       <section className="outro reveal">
         <p>GUELLY B</p>
         <h2>BIG GEE</h2>
-        <span>Mixtape Out June 5th</span>
+        <span>See You June 5th</span>
       </section>
 
-      <a
-        className="floatingListen"
-        href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS"
-        target="_blank"
-      >
+      <a className="floatingListen" href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">
         Listen Now
       </a>
 
@@ -228,7 +222,6 @@ function App() {
           <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
         </div>
-
         <p>GUELLY B • BIG GEE • MIXTAPE OUT JUNE 5TH</p>
       </footer>
     </main>
