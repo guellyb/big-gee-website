@@ -22,7 +22,7 @@ a {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 95px 18px 50px;
+  padding: 95px 18px 110px;
   background:
     radial-gradient(circle at 50% 0%, rgba(255,0,0,.34), transparent 25%),
     radial-gradient(circle at 30% 30%, rgba(180,0,0,.25), transparent 25%),
@@ -63,6 +63,20 @@ a {
 @keyframes dotsMove {
   from { transform: translateY(0); }
   to { transform: translateY(-120px); }
+}
+
+.scanline {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .08;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 7px,
+    rgba(255,255,255,.35) 8px
+  );
 }
 
 .intro {
@@ -140,6 +154,23 @@ section {
   position: relative;
   z-index: 5;
   margin-bottom: 110px;
+}
+
+.reveal {
+  animation: fadeRise both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 35%;
+}
+
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(55px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .hero {
@@ -259,7 +290,8 @@ section {
 }
 
 .links a,
-.contact a {
+.contact a,
+.footerLinks a {
   display: block;
   width: 100%;
   padding: 18px 20px;
@@ -305,6 +337,29 @@ section {
   width: 100%;
   border-radius: 25px;
   box-shadow: 0 0 35px rgba(255,0,0,.25);
+}
+
+.tracklist {
+  margin-top: 26px;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(0,0,0,.32);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.tracklist p {
+  color: #ff2b2b;
+  letter-spacing: 5px;
+  font-size: .75rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.tracklist ol {
+  list-style-position: inside;
+  display: grid;
+  gap: 10px;
+  color: #eee;
 }
 
 .spotifyBox {
@@ -366,11 +421,18 @@ section {
   box-shadow: 0 0 35px rgba(255,0,0,.22);
 }
 
-.story {
+.story,
+.drop,
+.merch,
+.signup,
+.contact {
   text-align: center;
 }
 
-.story p {
+.story p,
+.drop p,
+.merch p,
+.signup p {
   color: #eee;
   line-height: 1.8;
   font-size: 1.05rem;
@@ -378,7 +440,6 @@ section {
 }
 
 .drop {
-  text-align: center;
   min-height: 190px;
 }
 
@@ -386,16 +447,57 @@ section {
   font-size: 2rem;
 }
 
-.drop p {
+.merch button,
+.signup button {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,70,70,.6);
+  background: linear-gradient(135deg, #750000, #ff2b2b);
   color: white;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 0 28px rgba(255,0,0,.25);
 }
 
-.contact {
-  text-align: center;
+.signup form {
+  display: grid;
+  gap: 14px;
+}
+
+.signup input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,70,70,.45);
+  background: rgba(0,0,0,.28);
+  color: white;
+  outline: none;
+}
+
+.signup input::placeholder {
+  color: #aaa;
 }
 
 .contact h2 {
   font-size: clamp(2.5rem, 12vw, 5rem);
+}
+
+.floatingListen {
+  position: fixed;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 80;
+  padding: 18px 20px;
+  border-radius: 999px;
+  text-align: center;
+  background: linear-gradient(135deg, #750000, #ff2b2b);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 0 40px rgba(255,0,0,.45);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 footer {
@@ -406,6 +508,12 @@ footer {
   letter-spacing: 4px;
   font-size: .75rem;
   padding-bottom: 30px;
+}
+
+.footerLinks {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 @media (min-width: 800px) {
@@ -425,9 +533,30 @@ footer {
     margin-right: auto;
   }
 
-  .links {
+  .links,
+  .footerLinks {
     max-width: 520px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .signup form {
+    max-width: 650px;
+    margin: 0 auto;
+    grid-template-columns: 1fr auto;
+  }
+
+  .signup button {
+    width: auto;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .floatingListen {
+    left: auto;
+    right: 28px;
+    width: auto;
+    padding-left: 34px;
+    padding-right: 34px;
   }
 }
