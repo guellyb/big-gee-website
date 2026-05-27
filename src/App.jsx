@@ -9,12 +9,37 @@ function App() {
   useEffect(() => {
     document.title = "Guelly B — BIG GEE";
 
-    const metaTheme = document.createElement("meta");
-    metaTheme.name = "theme-color";
-    metaTheme.content = "#180000";
-    document.head.appendChild(metaTheme);
+    const metaTags = [
+      ["theme-color", "#180000"],
+      ["description", "Guelly B presents BIG GEE — mixtape out June 5th."],
+      ["og:title", "Guelly B — BIG GEE"],
+      ["og:description", "Mixtape out June 5th. Super Fly, Real Motion."],
+      ["og:image", "/cover.jpg"],
+      ["og:type", "website"],
+      ["twitter:card", "summary_large_image"],
+      ["twitter:title", "Guelly B — BIG GEE"],
+      ["twitter:description", "Mixtape out June 5th."],
+      ["twitter:image", "/cover.jpg"],
+    ];
 
-    return () => document.head.removeChild(metaTheme);
+    const created = metaTags.map(([name, content]) => {
+      const tag = document.createElement("meta");
+      if (name.startsWith("og:")) tag.setAttribute("property", name);
+      else tag.setAttribute("name", name);
+      tag.setAttribute("content", content);
+      document.head.appendChild(tag);
+      return tag;
+    });
+
+    const icon = document.createElement("link");
+    icon.rel = "icon";
+    icon.href = "/favicon.png";
+    document.head.appendChild(icon);
+
+    return () => {
+      created.forEach((tag) => document.head.removeChild(tag));
+      document.head.removeChild(icon);
+    };
   }, []);
 
   return (
@@ -41,13 +66,14 @@ function App() {
       <div className={menuOpen ? "menu open" : "menu"}>
         <button onClick={() => setMenuOpen(false)}>CLOSE</button>
         <a href="#music" onClick={() => setMenuOpen(false)}>Music</a>
+        <a href="#player" onClick={() => setMenuOpen(false)}>Player</a>
         <a href="#trailer" onClick={() => setMenuOpen(false)}>Trailer</a>
         <a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
         <a href="#updates" onClick={() => setMenuOpen(false)}>Updates</a>
         <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
       </div>
 
-      <section className="hero reveal">
+      <section className="hero reveal" id="music">
         <p className="overline">GUELLY B PRESENTS</p>
         <h1>BIG GEE</h1>
         <h2>Super Fly, Real Motion</h2>
@@ -59,7 +85,7 @@ function App() {
           {Array.from({ length: 14 }).map((_, i) => <span key={i}></span>)}
         </div>
 
-        <div className="links" id="music">
+        <div className="links">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
@@ -70,9 +96,33 @@ function App() {
         <p className="enter">↓ ENTER THE BIG GEE ERA ↓</p>
       </section>
 
+      <section className="spotifyEmbed card reveal" id="player">
+        <p className="overline">OFFICIAL PLAYER</p>
+        <h2>Listen Now</h2>
+
+        <iframe
+          src="https://open.spotify.com/embed/artist/0WdypKNxCbHK0vLNgujumS?utm_source=generator&theme=0"
+          width="100%"
+          height="352"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Guelly B Spotify Player"
+        ></iframe>
+
+        <a
+          className="applePreview"
+          href="https://music.apple.com/search?term=Guelly%20B"
+          target="_blank"
+        >
+          Open on Apple Music
+        </a>
+      </section>
+
       <section className="player card reveal">
         <p className="overline">NOW PLAYING</p>
         <h2>BIG GEE Mode</h2>
+
         <div className="musicPlayer">
           <img src="/cover.jpg" alt="BIG GEE Cover" />
           <div>
@@ -87,6 +137,7 @@ function App() {
       <section className="trailer card reveal" id="trailer">
         <p className="overline">CINEMATIC TRAILER</p>
         <h2>BIG GEE Visual</h2>
+
         <div className="videoBox">
           <iframe
             src="https://www.youtube.com/embed/brsxymjwT_0"
@@ -94,6 +145,7 @@ function App() {
             allowFullScreen
           ></iframe>
         </div>
+
         <div className="trailerText">
           <span>Official Motion</span>
           <p>Watch the energy before the mixtape lands.</p>
@@ -126,25 +178,9 @@ function App() {
         <div><b>Since</b><span>2020</span></div>
       </section>
 
-      <section className="preview reveal">
-        <p className="overline">STREAM GUELLY B</p>
-        <h2>Music Preview</h2>
-
-        <div className="spotifyBox">
-          <img src="/artist1.jpg" alt="Guelly B" />
-          <div>
-            <h3>Guelly B</h3>
-            <p>Top tracks • BIG GEE era loading</p>
-            <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Follow</a>
-          </div>
-          <b>●</b>
-        </div>
-      </section>
-
       <section className="gallery reveal" id="gallery">
         <p className="overline">VISUAL WORLD</p>
         <h2>Gallery</h2>
-
         <div className="photoCard left"><img src="/artist1.jpg" alt="Guelly B" /></div>
         <div className="photoCard right"><img src="/artist2.jpg" alt="Guelly B" /></div>
         <div className="photoCard left"><img src="/cover.jpg" alt="BIG GEE Cover" /></div>
@@ -173,11 +209,6 @@ function App() {
           personal experiences and creative thinking growing up.
         </p>
         <p>His first record was released in 2020 and the rest was history.</p>
-      </section>
-
-      <section className="drop card reveal">
-        <h2>Bahamas Drop</h2>
-        <p>Coming Soon</p>
       </section>
 
       <section className="merch card reveal">
