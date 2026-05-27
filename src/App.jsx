@@ -1,265 +1,138 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 
-const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
-
-const links = [
-  {
-    name: "Spotify",
-    url: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS",
-  },
-  {
-    name: "Apple Music",
-    url: "https://music.apple.com/artist/guelly-b",
-  },
-  {
-    name: "YouTube",
-    url: "https://www.youtube.com/@guellyb",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/therealguellyb",
-  },
-  {
-    name: "TikTok",
-    url: "https://www.tiktok.com/@guellyb",
-  },
+const photos = [
+  "/photos/photo1.jpg",
+  "/photos/photo2.jpg",
+  "/photos/photo3.jpg",
 ];
 
-const tracklist = [
-  "Motion Only",
-  "Spike Lee",
-  "Start Over",
-  "Ballin Like VJ",
-  "Loose Screws",
-  "Cheese Talk",
-  "Bad B*tches",
-  "Therapy Notes",
+const socials = [
+  { name: "Spotify", url: "https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" },
+  { name: "Apple Music", url: "https://music.apple.com/us/artist/guelly-b" },
+  { name: "YouTube", url: "https://www.youtube.com/@guellyb" },
+  { name: "Instagram", url: "https://www.instagram.com/therealguellyb" },
+  { name: "TikTok", url: "https://www.tiktok.com/@guellyb" },
+  { name: "Audiomack", url: "https://audiomack.com/guellyb-69de7ebc" },
 ];
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    mins: "00",
-    secs: "00",
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = releaseDate - now;
-
-      if (distance < 0) return;
-
-      setTimeLeft({
-        days: String(
-          Math.floor(distance / (1000 * 60 * 60 * 24))
-        ).padStart(2, "0"),
-
-        hours: String(
-          Math.floor((distance / (1000 * 60 * 60)) % 24)
-        ).padStart(2, "0"),
-
-        mins: String(
-          Math.floor((distance / 1000 / 60) % 60)
-        ).padStart(2, "0"),
-
-        secs: String(
-          Math.floor((distance / 1000) % 60)
-        ).padStart(2, "0"),
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <main className="site">
+      <div className="intro">
+        <h1>Big Gee</h1>
+        <p>Motion Loading</p>
+      </div>
 
-      <div className="animatedBg"></div>
-      <div className="smoke smoke1"></div>
-      <div className="smoke smoke2"></div>
-      <div className="grain"></div>
+      <div className="bg">
+        <div className="smoke smoke1"></div>
+        <div className="smoke smoke2"></div>
+        <div className="glow"></div>
+        <div className="grain"></div>
+      </div>
 
       <section className="hero">
-        <div className="overlay"></div>
+        <p className="eyebrow">Guelly B Presents</p>
+        <h1>BIG GEE</h1>
+        <h2>Super Fly, Real Motion</h2>
+        <p className="date">Mixtape Out June 5th</p>
+        <a className="mainBtn" href="#music">Enter Big Gee Era</a>
+      </section>
 
-        <img src="/cover.jpg" className="heroImage" alt="BIG GEE" />
-
-        <div className="heroContent">
-          <p className="topText">GUELLY B PRESENTS</p>
-
-          <h1>BIG GEE</h1>
-
-          <h2>SUPER FLY, REAL MOTION</h2>
-
-          <p className="release">
-            MIXTAPE OUT JUNE 5TH
-          </p>
-
-          <div className="countdown">
-            <div>
-              <strong>{timeLeft.days}</strong>
-              <span>DAYS</span>
-            </div>
-
-            <div>
-              <strong>{timeLeft.hours}</strong>
-              <span>HOURS</span>
-            </div>
-
-            <div>
-              <strong>{timeLeft.mins}</strong>
-              <span>MINS</span>
-            </div>
-
-            <div>
-              <strong>{timeLeft.secs}</strong>
-              <span>SECS</span>
-            </div>
-          </div>
-
-          <div className="buttons">
-            <a href="#music" className="mainBtn">
-              ENTER BIG GEE ERA
-            </a>
-
-            <a href="#links" className="ghostBtn">
-              STREAM NOW
-            </a>
-          </div>
+      <section className="countdown">
+        <h3>BIG GEE Countdown</h3>
+        <div className="countGrid">
+          <div><span>00</span><p>Days</p></div>
+          <div><span>00</span><p>Hours</p></div>
+          <div><span>00</span><p>Minutes</p></div>
+          <div><span>00</span><p>Seconds</p></div>
         </div>
       </section>
 
       <section id="music" className="section">
-        <p className="eyebrow">NOW PLAYING</p>
-
-        <h2>BIG GEE PREVIEW</h2>
-
-        <audio controls className="audioPlayer">
-          <source src="/preview.mp3" type="audio/mpeg" />
-        </audio>
-      </section>
-
-      <section className="section">
-        <p className="eyebrow">THE WORLD OF BIG GEE</p>
-
-        <h2>REAL MOTION ONLY</h2>
-
-        <p className="bio">
-          Guelly B blends cinematic energy, real emotion,
-          pressure, ambition and lifestyle into the BIG GEE era.
-          This is more than music. This is motion.
-        </p>
-      </section>
-
-      <section className="gallerySection">
-        <div className="gallery">
-          <img src="/gallery1.jpg" alt="" />
-          <img src="/gallery2.jpg" alt="" />
-          <img src="/hero2.jpg" alt="" />
-          <img src="/IMG_6567.jpg" alt="" />
-          <img src="/IMG_6750.png" alt="" />
+        <p className="eyebrow">Official Video</p>
+        <h2>Watch The Motion</h2>
+        <div className="videoBox">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Guelly B Music Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </section>
 
       <section className="section">
-        <p className="eyebrow">TRACKLIST</p>
-
-        <h2>BIG GEE</h2>
-
-        <div className="trackGrid">
-          {tracklist.map((track, index) => (
-            <div className="trackCard" key={track}>
-              <span>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <strong>{track}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="links" className="section">
-        <p className="eyebrow">STREAMING</p>
-
-        <h2>LISTEN EVERYWHERE</h2>
-
-        <div className="links">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {link.name}
+        <p className="eyebrow">Listen Now</p>
+        <h2>Streaming Links</h2>
+        <div className="linkGrid">
+          {socials.map((item) => (
+            <a key={item.name} href={item.url} target="_blank" rel="noreferrer">
+              {item.name}
             </a>
           ))}
         </div>
       </section>
 
-      <section className="section merch">
-        <p className="eyebrow">OFFICIAL MERCH</p>
-
-        <h2>COMING SOON</h2>
-
-        <p className="bio">
-          Limited BIG GEE pieces, hoodies,
-          tees and exclusive drops coming soon.
+      <section className="section era">
+        <p className="eyebrow">Enter The Era</p>
+        <h2>Motion Only</h2>
+        <p>
+          BIG GEE is more than a mixtape. It’s the sound, the look, and the motion.
+          From Nassau to the world.
         </p>
       </section>
 
       <section className="section">
-        <p className="eyebrow">JOIN THE MOTION</p>
+        <p className="eyebrow">Gallery</p>
+        <h2>Big Gee Visuals</h2>
+        <div className="photoGrid">
+          {photos.map((photo, index) => (
+            <img key={index} src={photo} alt={`Guelly B ${index + 1}`} />
+          ))}
+        </div>
+      </section>
 
-        <h2>FAN ALERTS</h2>
+      <section className="section updates">
+        <p className="eyebrow">For The Fans</p>
+        <h2>Fan Updates</h2>
+        <div className="updateCards">
+          <div>
+            <h3>Mixtape Rollout</h3>
+            <p>BIG GEE drops June 5th. Stay locked in for previews, visuals, and updates.</p>
+          </div>
+          <div>
+            <h3>Behind The Motion</h3>
+            <p>Exclusive photos, video clips, and studio moments coming soon.</p>
+          </div>
+          <div>
+            <h3>Early Access</h3>
+            <p>Join the vault for unreleased music, first looks, and real fan updates.</p>
+          </div>
+        </div>
+      </section>
 
-        <form
-          action="https://formspree.io/f/xojbpkoa"
-          method="POST"
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-
-          <button type="submit">
-            JOIN
-          </button>
-        </form>
+      <section className="section merch">
+        <p className="eyebrow">Big Gee Store</p>
+        <h2>Merch Coming Soon</h2>
+        <p>Hoodies, tees, posters, and exclusive BIG GEE drops loading.</p>
       </section>
 
       <section className="section contact">
-        <p className="eyebrow">BOOKING / BUSINESS</p>
-
-        <h2>CONTACT</h2>
-
-        <a href="mailto:theonlyguellyb@gmail.com">
-          theonlyguellyb@gmail.com
-        </a>
+        <p className="eyebrow">Join The Vault</p>
+        <h2>Get Fan Updates</h2>
+        <form action="https://formspree.io/f/xojbpkoa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Join Now</button>
+        </form>
       </section>
 
       <footer>
-        <h2>GUELLY B</h2>
-
-        <p>
-          BIG GEE — MIXTAPE OUT JUNE 5TH
-        </p>
-
+        <h2>Guelly B</h2>
+        <p>BIG GEE — Mixtape Out June 5th</p>
         <div className="footerLinks">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {link.name}
+          {socials.map((item) => (
+            <a key={item.name} href={item.url} target="_blank" rel="noreferrer">
+              {item.name}
             </a>
           ))}
         </div>
