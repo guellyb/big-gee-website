@@ -826,3 +826,21 @@ footer {
     padding-right: 34px;
   }
 }
+.spotifyEmbed iframe {
+  border-radius: 24px;
+  border: 1px solid rgba(255,70,70,.35);
+  box-shadow: 0 0 35px rgba(255,0,0,.22);
+  background: #111;
+}
+
+.applePreview {
+  display: block;
+  margin-top: 18px;
+  padding: 17px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #750000, #ff2b2b);
+  border: 1px solid rgba(255,255,255,.18);
+  text-align: center;
+  font-weight: 900;
+  box-shadow: 0 0 28px rgba(255,0,0,.28);
+}
