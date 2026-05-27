@@ -6,10 +6,7 @@ const releaseDate = new Date("June 5, 2026 00:00:00").getTime();
 function App() {
   return (
     <main className="site">
-      <div className="cursorGlow"></div>
-
       <div className="intro">
-        <div className="introSmoke"></div>
         <img src="/logo.png" alt="Guelly B Logo" className="introLogo" />
         <h1>BIG GEE</h1>
         <p>Motion Loading...</p>
@@ -22,31 +19,28 @@ function App() {
         <img src="/logo.png" alt="Guelly B Logo" className="logo" />
         <div>
           <a href="#music">Music</a>
-          <a href="#era">Era</a>
           <a href="#gallery">Gallery</a>
           <a href="#updates">Updates</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
-      <section className="hero">
-        <div className="heroGlow"></div>
-        <p className="tag">Guelly B Presents</p>
+      <section className="hero card">
+        <p className="eyebrow">Guelly B Presents</p>
         <h1>BIG GEE</h1>
-        <h3>Super Fly, Real Motion</h3>
-        <p className="date">Mixtape Out June 5th</p>
-
+        <h2>Super Fly, Real Motion</h2>
+        <p className="release">Mixtape Out June 5th</p>
         <Countdown />
 
-        <div className="heroBtns">
+        <div className="buttons">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
         </div>
       </section>
 
-      <section className="videoSection" id="music">
-        <p className="smallTitle">Official Visual</p>
+      <section className="card video" id="music">
+        <p className="eyebrow">Official Visual</p>
         <h2>Latest Motion</h2>
         <div className="videoBox">
           <iframe
@@ -57,10 +51,10 @@ function App() {
         </div>
       </section>
 
-      <section className="streaming">
-        <p className="smallTitle">Tap In</p>
+      <section className="card">
+        <p className="eyebrow">Tap In</p>
         <h2>Streaming Platforms</h2>
-        <div className="cards">
+        <div className="grid">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
@@ -70,52 +64,50 @@ function App() {
         </div>
       </section>
 
-      <section className="era" id="era">
-        <div className="eraOverlay"></div>
-        <p>ENTER THE</p>
+      <section className="era card">
+        <p className="eyebrow">Enter The</p>
         <h2>BIG GEE ERA</h2>
-        <span>Luxury motion. Street pressure. Cinematic energy.</span>
+        <p>Luxury motion. Street pressure. Official rollout energy.</p>
       </section>
 
-      <section className="gallery" id="gallery">
-        <p className="smallTitle">The Look</p>
+      <section className="card" id="gallery">
+        <p className="eyebrow">The Look</p>
         <h2>Visual Gallery</h2>
-        <div className="photoGrid">
+        <div className="photos">
           <img src="/artist1.jpg" alt="Guelly B" />
           <img src="/artist2.jpg" alt="Guelly B" />
           <img src="/cover.jpg" alt="BIG GEE Cover" />
         </div>
       </section>
 
-      <section className="updates" id="updates">
-        <p className="smallTitle">Stay Ready</p>
+      <section className="card" id="updates">
+        <p className="eyebrow">Stay Ready</p>
         <h2>Fan Updates</h2>
-        <div className="updateList">
+        <div className="updates">
           <div>
             <b>BIG GEE rollout active</b>
-            <p>Official rollout has started for the mixtape release.</p>
+            <p>Official mixtape rollout has started.</p>
           </div>
           <div>
             <b>New visuals loading</b>
-            <p>More music videos, snippets, and exclusive motion coming soon.</p>
+            <p>More music videos, snippets, and behind-the-scenes content coming soon.</p>
           </div>
           <div>
-            <b>Merch in production</b>
-            <p>Official BIG GEE merchandise coming soon.</p>
+            <b>Merch coming soon</b>
+            <p>Official BIG GEE pieces are being prepared.</p>
           </div>
         </div>
       </section>
 
-      <section className="merch">
-        <div className="merchGlow"></div>
-        <p className="smallTitle">Official Drop</p>
+      <section className="card merch">
+        <p className="eyebrow">Official Drop</p>
         <h2>Merch</h2>
         <p>Official BIG GEE collection coming soon.</p>
-        <button>COMING SOON</button>
+        <button>Coming Soon</button>
       </section>
 
-      <section className="contact" id="contact">
-        <p className="smallTitle">Fan Vault</p>
+      <section className="card contact" id="contact">
+        <p className="eyebrow">Fan Vault</p>
         <h2>Join The Motion</h2>
         <form action="https://formspree.io/f/xojbpkoa" method="POST">
           <input type="email" name="email" placeholder="Enter your email" required />
@@ -132,14 +124,6 @@ function App() {
         <div className="ticker">
           <span>GUELLY B • BIG GEE • MIXTAPE OUT JUNE 5TH • SUPER FLY REAL MOTION • </span>
         </div>
-
-        <div className="footerLinks">
-          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
-          <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
-          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
-          <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
-        </div>
-
         <p>© 2026 Guelly B — BIG GEE</p>
       </footer>
     </main>
