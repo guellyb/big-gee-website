@@ -7,127 +7,103 @@ function App() {
   return (
     <main className="site">
       <div className="intro">
-        <img src="/logo.png" alt="Guelly B Logo" />
         <h1>BIG GEE</h1>
-        <p>Motion Loading...</p>
+        <p>Motion Loading</p>
       </div>
 
-      <div className="bgSmoke"></div>
-      <div className="grain"></div>
+      <div className="dots"></div>
+      <div className="smoke"></div>
 
-      <nav className="topNav">
-        <img src="/logo.png" alt="Guelly B Logo" />
-        <a href="#music">Listen</a>
+      <nav className="nav">
+        <span>GUELLY B</span>
+        <a href="#music">MENU</a>
       </nav>
 
-      <section className="hero redCard">
-        <p className="label">Guelly B Presents</p>
+      <section className="hero">
+        <p className="overline">GUELLY B PRESENTS</p>
         <h1>BIG GEE</h1>
         <h2>Super Fly, Real Motion</h2>
-        <p className="release">Mixtape Out June 5th</p>
+        <p className="date">Mixtape Out June 5th</p>
 
         <Countdown />
 
-        <div className="mainButtons">
-          <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
-          <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
-          <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
+        <div className="audioBars">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
         </div>
-      </section>
 
-      <section className="redCard" id="music">
-        <p className="label">Tap In</p>
-        <h2>Stream Guelly B</h2>
-
-        <div className="streamGrid">
+        <div className="links" id="music">
           <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Spotify</a>
           <a href="https://music.apple.com/search?term=Guelly%20B" target="_blank">Apple Music</a>
           <a href="https://www.youtube.com/@guellyb" target="_blank">YouTube</a>
-          <a href="https://audiomack.com/guellyb-69de7ebc" target="_blank">Audiomack</a>
           <a href="https://www.instagram.com/therealguellyb" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@guellyb" target="_blank">TikTok</a>
         </div>
+
+        <p className="enter">↓ ENTER THE BIG GEE ERA ↓</p>
       </section>
 
-      <section className="redCard videoCard">
-        <p className="label">Latest Motion</p>
-        <h2>Official Visual</h2>
-
-        <div className="videoBox">
-          <iframe
-            src="https://www.youtube.com/embed/brsxymjwT_0"
-            title="Guelly B Music Video"
-            allowFullScreen
-          ></iframe>
-        </div>
+      <section className="mixtape card">
+        <p className="overline">OFFICIAL MIXTAPE</p>
+        <h2>BIG GEE</h2>
+        <img src="/cover.jpg" alt="BIG GEE Cover" />
       </section>
 
-      <section className="redCard eraCard">
-        <p className="label">Enter The</p>
-        <h2>BIG GEE ERA</h2>
-        <p>Luxury motion. Street pressure. Official rollout energy.</p>
-      </section>
-
-      <section className="redCard">
-        <p className="label">Visuals</p>
-        <h2>The Look</h2>
-
-        <div className="photoStack">
+      <section className="preview">
+        <p className="overline">STREAM GUELLY B</p>
+        <h2>Music Preview</h2>
+        <div className="spotifyBox">
           <img src="/artist1.jpg" alt="Guelly B" />
-          <img src="/artist2.jpg" alt="Guelly B" />
-          <img src="/cover.jpg" alt="BIG GEE Cover" />
+          <div>
+            <h3>Guelly B</h3>
+            <p>Top tracks</p>
+            <a href="https://open.spotify.com/artist/0WdypKNxCbHK0vLNgujumS" target="_blank">Follow</a>
+          </div>
+          <b>●</b>
         </div>
       </section>
 
-      <section className="redCard">
-        <p className="label">Stay Ready</p>
-        <h2>Fan Updates</h2>
-
-        <div className="updates">
-          <div>
-            <b>BIG GEE rollout active</b>
-            <p>Official mixtape rollout has started.</p>
-          </div>
-
-          <div>
-            <b>New visuals loading</b>
-            <p>More snippets and behind-the-scenes content coming soon.</p>
-          </div>
-
-          <div>
-            <b>Merch coming soon</b>
-            <p>Official BIG GEE pieces are being prepared.</p>
-          </div>
-        </div>
+      <section className="gallery">
+        <p className="overline">VISUAL WORLD</p>
+        <h2>Gallery</h2>
+        <img src="/artist1.jpg" alt="Guelly B" />
+        <img src="/artist2.jpg" alt="Guelly B" />
+        <img src="/cover.jpg" alt="BIG GEE Cover" />
       </section>
 
-      <section className="redCard contact">
-        <p className="label">Fan Vault</p>
-        <h2>Join The Motion</h2>
+      <section className="story card">
+        <p className="overline">WHO IS GUELLY B</p>
+        <h2>The Story</h2>
+        <p>
+          Guelly B, born and raised in Nassau, Bahamas, is a rapper and songwriter
+          known for energetic and heartfelt lyrics that speak volume about his
+          personal experiences and creative thinking growing up.
+        </p>
+        <p>
+          His first record was released in 2020 and the rest was history.
+        </p>
+      </section>
 
-        <form action="https://formspree.io/f/xojbpkoa" method="POST">
-          <input type="email" name="email" placeholder="Enter your email" required />
-          <button type="submit">Stay Updated</button>
-        </form>
+      <section className="drop card">
+        <h2>Bahamas Drop</h2>
+        <p>Coming Soon</p>
+      </section>
+
+      <section className="contact card">
+        <p className="overline">BOOKINGS / FEATURES / PRESS</p>
+        <h2>Contact Guelly B</h2>
+        <a href="mailto:guellybmusic@gmail.com">guellybmusic@gmail.com</a>
       </section>
 
       <footer>
-        <div className="ticker">
-          <span>GUELLY B • BIG GEE • MIXTAPE OUT JUNE 5TH • SUPER FLY REAL MOTION • </span>
-        </div>
-        <p>© 2026 Guelly B — BIG GEE</p>
+        <p>GUELLY B • BIG GEE • MIXTAPE OUT JUNE 5TH</p>
       </footer>
     </main>
   );
 }
 
 function Countdown() {
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -146,10 +122,10 @@ function Countdown() {
 
   return (
     <div className="countdown">
-      <div><strong>{time.days}</strong><span>Days</span></div>
-      <div><strong>{time.hours}</strong><span>Hours</span></div>
-      <div><strong>{time.minutes}</strong><span>Minutes</span></div>
-      <div><strong>{time.seconds}</strong><span>Seconds</span></div>
+      <div><strong>{time.days}</strong><span>DAYS</span></div>
+      <div><strong>{time.hours}</strong><span>HOURS</span></div>
+      <div><strong>{time.minutes}</strong><span>MIN</span></div>
+      <div><strong>{time.seconds}</strong><span>SEC</span></div>
     </div>
   );
 }
