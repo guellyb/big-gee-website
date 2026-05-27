@@ -48,6 +48,24 @@ function App() {
         <p className="enter">↓ ENTER THE BIG GEE ERA ↓</p>
       </section>
 
+      <section className="trailer card reveal">
+        <p className="overline">CINEMATIC TRAILER</p>
+        <h2>BIG GEE Visual</h2>
+
+        <div className="videoBox">
+          <iframe
+            src="https://www.youtube.com/embed/brsxymjwT_0"
+            title="Guelly B BIG GEE Visual"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        <div className="trailerText">
+          <span>Official Motion</span>
+          <p>Watch the energy before the mixtape lands.</p>
+        </div>
+      </section>
+
       <section className="mixtape card reveal">
         <p className="overline">OFFICIAL MIXTAPE</p>
         <h2>BIG GEE</h2>
@@ -65,6 +83,21 @@ function App() {
             <li>Bad B*tches</li>
             <li>Therapy Notes</li>
           </ol>
+        </div>
+      </section>
+
+      <section className="stats reveal">
+        <div>
+          <b>Nassau</b>
+          <span>Bahamas</span>
+        </div>
+        <div>
+          <b>Rapper</b>
+          <span>Songwriter</span>
+        </div>
+        <div>
+          <b>Since</b>
+          <span>2020</span>
         </div>
       </section>
 
@@ -86,9 +119,49 @@ function App() {
       <section className="gallery reveal">
         <p className="overline">VISUAL WORLD</p>
         <h2>Gallery</h2>
-        <img src="/artist1.jpg" alt="Guelly B" />
-        <img src="/artist2.jpg" alt="Guelly B" />
-        <img src="/cover.jpg" alt="BIG GEE Cover" />
+
+        <div className="photoCard left">
+          <img src="/artist1.jpg" alt="Guelly B" />
+        </div>
+
+        <div className="photoCard right">
+          <img src="/artist2.jpg" alt="Guelly B" />
+        </div>
+
+        <div className="photoCard left">
+          <img src="/cover.jpg" alt="BIG GEE Cover" />
+        </div>
+      </section>
+
+      <section className="updates card reveal">
+        <p className="overline">FAN UPDATES</p>
+        <h2>Motion Feed</h2>
+
+        <div className="updateFeed">
+          <div>
+            <span>01</span>
+            <b>BIG GEE rollout active</b>
+            <p>Official mixtape countdown is live.</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <b>Visual loading</b>
+            <p>More cinematic music content is on the way.</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <b>Merch coming</b>
+            <p>Official BIG GEE pieces are being prepared.</p>
+          </div>
+
+          <div>
+            <span>04</span>
+            <b>Fan vault open</b>
+            <p>Join the email list for first updates.</p>
+          </div>
+        </div>
       </section>
 
       <section className="story card reveal">
@@ -131,6 +204,12 @@ function App() {
         <p className="overline">BOOKINGS / FEATURES / PRESS</p>
         <h2>Contact Guelly B</h2>
         <a href="mailto:guellybmusic@gmail.com">guellybmusic@gmail.com</a>
+      </section>
+
+      <section className="outro reveal">
+        <p>GUELLY B</p>
+        <h2>BIG GEE</h2>
+        <span>Mixtape Out June 5th</span>
       </section>
 
       <a
